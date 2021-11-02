@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,10 +52,15 @@ class Product
      */
     private $producer;
     /**
-     * @var ProductOrder
+     * @var ProductOrder[]
      * @ORM\OneToMany(targetEntity="ProductOrder",mappedBy="product")
      */
     private $productOrders;
+
+    public function __construct()
+    {
+        $this->productOrders = new ArrayCollection();
+    }
 
     public function getId(): int
     {
@@ -127,6 +133,7 @@ class Product
 
     public function setCategory(Category $category): bool
     {
+        $category->addProduct($this);
         $this->category = $category;
         return true;
     }
@@ -142,4 +149,17 @@ class Product
         $this->producer = $producer;
         return true;
     }
+
+    public function getProductOrders()
+    {
+        return $this->productOrders;
+    }
+
+    public function addProductOrder($productOrder): bool 
+    {
+        $this->productOrders[] = $productOrder;
+        return true;
+    }
+
+
 }

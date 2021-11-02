@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,6 +21,11 @@ class ProductOrder
      * @ORM\ManyToOne(targetEntity="Order", inversedBy="productOrders")
      */
     private $order;
+    /**
+     * @var int
+     * @ORM\Column(type="integer")
+     */
+    private $quantity;
 
     public function getProduct(): Product
     {
@@ -40,6 +46,17 @@ class ProductOrder
     public function setOrder(Order $order): bool
     {
         $this->order = $order;
+        return true;
+    }
+
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): bool
+    {
+        $this->quantity = $quantity;
         return true;
     }
 }

@@ -56,6 +56,11 @@ class Order
      */
     private $productOrders;
 
+    public function __construct()
+    {
+        $this->productOrders = new ArrayCollection();
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -135,6 +140,17 @@ class Order
     public function setPaid(string $paid): bool
     {
         $this->paid = $paid;
+        return true;
+    }
+
+    public function getProductOrders()
+    {
+        return $this->productOrders;
+    }
+
+    public function addProductOrder($productOrder): bool 
+    {
+        $this->productOrders[] = $productOrder;
         return true;
     }
 }
