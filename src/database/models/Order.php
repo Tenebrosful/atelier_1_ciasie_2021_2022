@@ -50,6 +50,11 @@ class Order
      *    @ORM\Column(type="boolean")
      */
     private $paid;
+    /**
+     * @var ProductOrder
+     * @ORM\OneToMany(targetEntity="ProductOrder",mappedBy="order")
+     */
+    private $productOrders;
 
     public function getId(): int
     {

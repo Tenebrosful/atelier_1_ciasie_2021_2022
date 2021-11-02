@@ -8,14 +8,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ProductOrder
 {
-    /**
+    /** 
      * @var Product
-     * @ORM\OneToOne(targetEntity="Product")
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="productOrders")
      */
     private $product;
-    /**
+    /** 
+     * @ORM\Id
      * @var Order
-     * @ORM\ManyToOne(targetEntity="Order", inversedBy="products")
+     * @ORM\ManyToOne(targetEntity="Order", inversedBy="productOrders")
      */
     private $order;
 

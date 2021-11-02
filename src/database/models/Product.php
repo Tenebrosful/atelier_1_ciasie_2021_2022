@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="product")
+ * @ORM\Table(name="products")
  */
 class Product
 {
@@ -50,6 +50,11 @@ class Product
      * @ORM\ManyToOne(targetEntity="Producer", inversedBy="products")
      */
     private $producer;
+    /**
+     * @var ProductOrder
+     * @ORM\OneToMany(targetEntity="ProductOrder",mappedBy="product")
+     */
+    private $productOrders;
 
     public function getId(): int
     {
