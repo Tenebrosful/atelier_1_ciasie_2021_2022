@@ -304,9 +304,10 @@ html .side-menu {
   border: 1px solid var(--border-color);
   border-radius: .5rem;
   outline: none;
-  padding: 1rem;
+  padding: 1rem 0;
   background: none;
   z-index: 1;
+  text-align: center;
 }
 .form__label{
   position: absolute;
