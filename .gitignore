@@ -335,3 +335,6 @@ vendor/
 
 # Local History for Visual Studio
 .localhistory/
+
+# phplint
+phplint.cache
