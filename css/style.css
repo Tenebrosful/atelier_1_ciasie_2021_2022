@@ -436,50 +436,50 @@ html body .content #list-toggle:checked + label::after {
 
 /* table list */
 
-.list{
+.list {
   display: grid;
   justify-content: center;
 }
 
-.titreListe{
+.titreListe {
   text-align: center;
-  display:table-cell;
+  display: table-cell;
   vertical-align: middle;
-  margin: 0 0 0 0;
+  margin: 0;
   background-color: white;
   height: 10vh;
   width: 100vw;
   box-shadow: 3px 2px 3px 1px rgb(0 0 0 / 20%);
 }
 
-.page{
+.page {
   display: inline-flex;
-  justify-content:flex-end; 
+  justify-content: flex-end;
 }
 
-.page i{
+.page i {
   color: black;
 }
 
-.page i:hover{
+.page i:hover {
   color: grey;
 }
 
-table{
+table {
   width: 80vw;
   margin-top: 6%;
   border-collapse: collapse;
 }
 
-table tr:nth-child(2n){
+table tr:nth-child(2n) {
   background: lightgrey;
 }
 
-td img{
+td img {
   height: 50px;
 }
 
-td{
+td {
   border: none;
 }
 
@@ -584,7 +584,7 @@ td{
   background-color: white;
 }
 
-#hidden1 { 
+#hidden1 {
   height: 0;
   overflow: hidden;
   transition: height 0.8s ease;
@@ -596,16 +596,18 @@ td{
   transition: height 0.8s ease;
 }
 
-#button_prod, #button_gerant, #button_login {
+#button_prod,
+#button_gerant,
+#button_login {
   border-radius: 20px;
-  border: 1px solid #FF4B2B;
-  background-color: #FF4B2B;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
   color: white;
   font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   transition: transform 80ms ease-in;
   width: 300px;
 }
@@ -616,10 +618,10 @@ td{
   background-color: green;
   color: white;
   font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   transition: transform 80ms ease-in;
 }
 
