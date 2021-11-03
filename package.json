@@ -1,0 +1,12 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "stylelint": "^14.0.1",
+    "stylelint-config-standard": "^23.0.0",
+    "stylelint-config-standard-scss": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.univ-lorraine.fr/hohler3u/atelier_1.git"
+  }
+}
