@@ -40,7 +40,8 @@
 body {
   font-family: Montserrat, sans-serif;
   overflow-x: hidden;
-  background: radial-gradient(white, rgb(184	184	184 / 70%));
+  background: linear-gradient(white, rgb(184	184	184 / 70%));
+  height: 100vh;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -431,6 +432,55 @@ html body .content #list-toggle:checked + label::after {
 /* Input focus */
 .form__input:focus {
   border: 1.5px solid var(--first-color);
+}
+
+/* table list */
+
+.list{
+  display: grid;
+  justify-content: center;
+}
+
+.titreListe{
+  text-align: center;
+  display:table-cell;
+  vertical-align: middle;
+  margin: 0 0 0 0;
+  background-color: white;
+  height: 10vh;
+  width: 100vw;
+  box-shadow: 3px 2px 3px 1px rgb(0 0 0 / 20%);
+}
+
+.page{
+  display: inline-flex;
+  justify-content:flex-end; 
+}
+
+.page i{
+  color: black;
+}
+
+.page i:hover{
+  color: grey;
+}
+
+table{
+  width: 80vw;
+  margin-top: 6%;
+  border-collapse: collapse;
+}
+
+table tr:nth-child(2n){
+  background: lightgrey;
+}
+
+td img{
+  height: 50px;
+}
+
+td{
+  border: none;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~ Media Query starts ~~~~~~~~~~~~~~~~~~~~~ */
