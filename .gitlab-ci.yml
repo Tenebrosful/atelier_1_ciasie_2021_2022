@@ -29,6 +29,7 @@ build:php:
   # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
   script:
     ./vendor/bin/phplint
+    ./vendor/bin/doctrine orm:validate-schema
 
 build:node:
   image: node:latest
