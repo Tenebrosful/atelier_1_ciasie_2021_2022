@@ -17,7 +17,7 @@ build:php:
     - apt-get update -yqq
     - apt-get install -yqq git libpq-dev libcurl4-gnutls-dev libicu-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev libonig-dev libzip-dev
     # Install PHP extensions
-    - docker-php-ext-install pdo pdo_mysql && docker-php-ext-enable pdo_mysql
+    - docker-php-ext-install pdo pdo_mysql
     # Install & enable Xdebug for code coverage reports
     - pecl install xdebug
     - docker-php-ext-enable xdebug
@@ -40,7 +40,6 @@ build:php:
   # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
   script:
     - ./vendor/bin/phplint
-    - ./vendor/bin/doctrine orm:validate-schema
 
 build:node:
   image: node:latest
