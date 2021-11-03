@@ -25,11 +25,22 @@ build:php:
     - curl -sS https://getcomposer.org/installer | php
     - php composer.phar install
 
+  # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
+  # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
+  services:
+    - mysql:5.7
+
+  # Set any variables we need
+  variables:
+  # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
+    MYSQL_DATABASE: lehangarlocal
+
+
   # Run our tests
   # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
   script:
-    ./vendor/bin/phplint
-    ./vendor/bin/doctrine orm:validate-schema
+    - ./vendor/bin/phplint
+    - ./vendor/bin/doctrine orm:validate-schema
 
 build:node:
   image: node:latest
@@ -44,5 +55,5 @@ build:node:
     - npm ci
 
   script:
-    npx stylelint "**/*.css"
-    npx stylelint "**/*.scss"
+    - npx stylelint "**/*.css"
+    - npx stylelint "**/*.scss"
