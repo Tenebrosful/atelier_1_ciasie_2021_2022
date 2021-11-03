@@ -8,4 +8,9 @@ $app->get('/',function ($request, $response, array $args){
     return $this->get(Twig::class)->render($response,"index.html.twig");
 });
 
+$app->get('/coop',function ($request, $response, array $args){
+    return $this->get(Twig::class)->render($response,"cooperative.html.twig");
+});
+
+
 

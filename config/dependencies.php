@@ -29,7 +29,10 @@ return function (ContainerBuilder $containerBuilder){
                 )
             );
             $config->setMetadataCacheImpl(
-                new FilesystemCache(composer require "twig/twig:^2.0"
+                new FilesystemCache(
+                    $settings['doctrine']['cache_dir']
+                )
+            );
             return EntityManager::create(
                 $settings['doctrine']['connection'],
                 $config
