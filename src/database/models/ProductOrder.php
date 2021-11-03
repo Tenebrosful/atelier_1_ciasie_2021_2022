@@ -59,4 +59,9 @@ class ProductOrder
         $this->quantity = $quantity;
         return true;
     }
+
+    public function computePrice() 
+    {
+        return $this->product->getPrice() * $this->quantity;
+    }
 }
