@@ -27,10 +27,19 @@ return function (ContainerBuilder $containerBuilder) {
                 'port' => 3306,
                 'dbname' => 'lehangarlocal',
                 'user' => 'root',
-                'password' => '',
+                'password' => 'blot32u',
                 'charset' => 'utf8'
             ]
-        ]
+            ],
+            'twig' => [
+                'paths' => [
+                    __DIR__ .'/../src/views'
+                    ],
+                'options' => [
+                    'cache_enabled' => false,
+                    'cache_path' => __DIR__ . '/../var/twig',
+                    ]
+                ]
     ]
 ]);
 };
