@@ -8,5 +8,9 @@
   "repository": {
     "type": "git",
     "url": "https://gitlab.univ-lorraine.fr/hohler3u/atelier_1.git"
+  },
+  "scripts": {
+    "csslint": "npx stylelint **/*.css --fix && npx stylelint **/*.scss --fix",
+    "phplint": "./vendor/bin/phplint"
   }
 }

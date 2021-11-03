@@ -40,8 +40,11 @@
 body {
   font-family: Montserrat, sans-serif;
   overflow-x: hidden;
-  background: linear-gradient(white, rgb(184	184	184 / 70%));
-  height: 100vh;
+  background: radial-gradient(white, rgb(184	184	184));
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  overflow-y: auto;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -102,12 +105,15 @@ nav ul li a {
 
 .container {
   margin-top: 1%;
+  margin-bottom: 1%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 320px);
   grid-gap: 10px;
   grid-auto-rows: minmax(320px, auto);
   justify-content: center;
   background-color: rgb(0 0 0 / 0%);
+  max-height: 100%;
+  position: relative;
 }
 
 .container-detail {
@@ -465,21 +471,21 @@ html body .content #list-toggle:checked + label::after {
   color: grey;
 }
 
-table {
+.list table {
   width: 80vw;
   margin-top: 6%;
   border-collapse: collapse;
 }
 
-table tr:nth-child(2n) {
+.list table tr:nth-child(2n) {
   background: lightgrey;
 }
 
-td img {
+.list td img {
   height: 50px;
 }
 
-td {
+.list td {
   border: none;
 }
 
