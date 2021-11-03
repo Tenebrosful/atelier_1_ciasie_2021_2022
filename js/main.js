@@ -3,5 +3,5 @@ function plus(input){
 }
 
 function minus(input){
-    input.value = parseInt(input.value) - 1
+    input.value = Math.max(parseInt(input.value) - 1, 0)
 }
