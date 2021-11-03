@@ -38,9 +38,21 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat, sans-serif;
   overflow-x: hidden;
   background: radial-gradient(white, rgb(184	184	184 / 70%));
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  appearance: textfield;
 }
 
 /* ~~~~~~~~~~ Global setup ends ~~~~~~~~~~~~ */
@@ -60,10 +72,11 @@ nav {
 label.logo {
   float: left;
   color: cornsilk;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
   line-height: 60px;
   margin-left: 40px;
+  margin-right: 20px;
 }
 
 nav ul {
@@ -75,27 +88,14 @@ nav ul li {
   display: inline-block;
   line-height: 60px;
   margin: 0 20px;
+  color: white;
+  font-size: 16px;
 }
 
 nav ul li a {
-  color: wheat;
-  font-size: 18px;
+  color: white;
+  font-size: 16px;
   font-weight: bolder;
-}
-
-label.logo {
-  font-size: 30px;
-  margin-right: 20px;
-}
-
-nav ul li a {
-  color: white;
-  font-size: 16px;
-}
-
-nav ul li {
-  color: white;
-  font-size: 16px;
 }
 
 .container {
@@ -264,6 +264,19 @@ h1 {
   text-align: left;
 }
 
+html .side-menu {
+  display: inline-block;
+  position: relative;
+  height: 100vh;
+  width: 300px;
+  background-color: rgb(96	199	154 / 90%);
+  border: 2px solid #b8b8b8;
+  text-align: center;
+  overflow-x: hidden;
+  transition: width 1s;
+  z-index: 3;
+}
+
 html body .content {
   flex: 1 1 auto;
   width: 300px;
@@ -306,19 +319,6 @@ html body .content #list-toggle:checked + label {
 
 html body .content #list-toggle:checked + label::after {
   content: " > ";
-}
-
-html .side-menu {
-  display: inline-block;
-  position: relative;
-  height: 100vh;
-  width: 300px;
-  background-color: rgb(96	199	154 / 90%);
-  border: 2px solid #b8b8b8;
-  text-align: center;
-  overflow-x: hidden;
-  transition: width 1s;
-  z-index: 3;
 }
 
 .side-menu h2 {
@@ -377,18 +377,6 @@ html .side-menu {
 
 .span-detail .form__input {
   font-size: 26px;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-  appearance: textfield;
 }
 
 .form__label {
