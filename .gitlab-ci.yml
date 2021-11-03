@@ -23,6 +23,8 @@ before_script:
   # Install and run Composer
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
+  # Install npm deps
+  - npm install
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
@@ -37,6 +39,10 @@ variables:
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
-lint:
+phplint:
     script:
         ./vendor/bin/phplint
+stylelint:
+    script:
+        npx stylelint "**/*.css"
+        npx stylelint "**/*.scss"
