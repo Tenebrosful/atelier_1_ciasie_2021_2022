@@ -40,7 +40,7 @@ build:node:
       - node_modules/
 
   before_script:
-    - npm install
+    - npm ci
 
   script:
     npx stylelint "**/*.css"
