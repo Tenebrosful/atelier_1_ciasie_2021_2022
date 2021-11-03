@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <script src="./js/main.js" defer></script>
+  <title>Login</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <label class="logo">LeHangar</label>
+    </nav>
+  </header>
+  <h1 class="titreListe">Connexion</h1>
+  <div class="login">
+    <h3> Vous êtes...</h3>
+    <button id='button_prod'> Producteur </button>
+    <button id='button_gerant'> Gérant de coopérative </button>
+  </div>
+
+  <form id='hidden1'  action="authentication.php" method="post">
+
+    <div class="formlogin">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button class="button_login" type="submit">Login</button>
+    </div>
+  </form>
+
+  <form id='hidden2'  action="authentication.php" method="post">
+
+    <div class="formlogin">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button class="button_login" type="submit">Login</button>
+    </div>
+  </form>
+</body>
+
+</html>
