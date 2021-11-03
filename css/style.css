@@ -111,7 +111,7 @@ nav ul li a {
   grid-gap: 10px;
   grid-auto-rows: minmax(320px, auto);
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0%);
+  background-color: rgb(0 0 0 / 0%);
   max-height: 100%;
   position: relative;
 }
@@ -442,50 +442,50 @@ html body .content #list-toggle:checked + label::after {
 
 /* table list */
 
-.list{
+.list {
   display: grid;
   justify-content: center;
 }
 
-.titreListe{
+.titreListe {
   text-align: center;
-  display:table-cell;
+  display: table-cell;
   vertical-align: middle;
-  margin: 0 0 0 0;
+  margin: 0;
   background-color: white;
   height: 10vh;
   width: 100vw;
   box-shadow: 3px 2px 3px 1px rgb(0 0 0 / 20%);
 }
 
-.page{
+.page {
   display: inline-flex;
-  justify-content:flex-end; 
+  justify-content: flex-end;
 }
 
-.page i{
+.page i {
   color: black;
 }
 
-.page i:hover{
+.page i:hover {
   color: grey;
 }
 
-.list table{
+.list table {
   width: 80vw;
   margin-top: 6%;
   border-collapse: collapse;
 }
 
-.list table tr:nth-child(2n){
+.list table tr:nth-child(2n) {
   background: lightgrey;
 }
 
-.list td img{
+.list td img {
   height: 50px;
 }
 
-.list td{
+.list td {
   border: none;
 }
 
