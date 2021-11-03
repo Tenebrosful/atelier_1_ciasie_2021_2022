@@ -27,9 +27,8 @@ build:php:
 
   # Run our tests
   # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
-  phplint:
-      script:
-          ./vendor/bin/phplint
+  script:
+    ./vendor/bin/phplint
 
 build:node:
   image: node:latest
@@ -39,11 +38,6 @@ build:node:
   cache:
     paths:
       - node_modules/
-
-  stylelint_css:
-    script:
-      npx stylelint "**/*.css"
-
-  stylelint_scss:
-    script:
-      npx stylelint "**/*.scss"
+  script:
+    npx stylelint "**/*.css"
+    npx stylelint "**/*.scss"
