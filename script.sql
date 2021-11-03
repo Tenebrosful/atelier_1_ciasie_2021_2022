@@ -32,19 +32,10 @@ CREATE TABLE `product` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `price` decimal(11) NOT NULL,
   `amount_unit` decimal(11) NOT NULL,
-  `unit` decimal(11) NOT NULL,
+  `unit` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-CREATE TABLE `product` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `price` decimal(11) NOT NULL,
-  `amount_unit` decimal(11) NOT NULL,
-  `unit` decimal(11) NOT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO `product` (`id`, `name`, `price`, `amount_unit`, `unit`, `description`) VALUES

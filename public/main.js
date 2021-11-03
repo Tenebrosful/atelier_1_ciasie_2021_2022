@@ -19,20 +19,21 @@ var createNewTaskElement=function(taskString){
 	//button.edit
 	var editButton=document.createElement("button");//edit button
 
+	var div= document.createElement("div");
 	//button.delete
 	var deleteButton=document.createElement("button");//delete button
 
 	label.innerText=taskString;
 	label.className="nomcommande";
-	livre.innerText="Livrée";
+	livre.innerText="Livré";
 	livre.className = "livre";
 
 	//Each elements, needs appending
 	checkBox.type="checkbox";
 	editInput.type="text";
 
-	editButton.innerText="Edit";//innerText encodes special characters, HTML does not.
-	editButton.className="edit";
+	editButton.innerText="Voir";//innerText encodes special characters, HTML does not.
+	editButton.className="voir";
 	deleteButton.innerText="Delete";
 	deleteButton.className="delete";
 
@@ -40,6 +41,7 @@ var createNewTaskElement=function(taskString){
 
 	//and appending.
 	
+	listItem.appendChild(div);
 	listItem.appendChild(label);
 	listItem.appendChild(livre);
 
@@ -64,33 +66,6 @@ var addTask=function(){
 	
 
 }
-
-//Edit an existing task.
-
-var editTask=function(){
-console.log("Edit Task...");
-console.log("Change 'edit' to 'save'");
-
-
-var listItem=this.parentNode;
-
-var editInput=listItem.querySelector('input[type=text]');
-var label=listItem.querySelector("label");
-var containsClass=listItem.classList.contains("editMode");
-		//If class of the parent is .editmode
-		if(containsClass){
-
-		//switch to .editmode
-		//label becomes the inputs value.
-			label.innerText=editInput.value;
-		}else{
-			editInput.value=label.innerText;
-		}
-
-		//toggle .editmode on the parent.
-		listItem.classList.toggle("editMode");
-}
-
 
 
 
@@ -151,7 +126,7 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 
 
 			//Bind editTask to edit button.
-			editButton.onclick=editTask;
+			//editButton.onclick=editTask;
 			//Bind deleteTask to delete button.
 			deleteButton.onclick=deleteTask;
 			//Bind taskCompleted to checkBoxEventHandler.
