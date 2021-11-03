@@ -38,6 +38,10 @@ build:node:
   cache:
     paths:
       - node_modules/
+
+  before_script:
+    - npm install
+
   script:
     npx stylelint "**/*.css"
     npx stylelint "**/*.scss"
