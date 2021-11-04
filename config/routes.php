@@ -16,10 +16,10 @@ $app->get('/',function ($request, $response, array $args){
 $app->get('/{id}', function ($request, $response, array $args){
     $pc = new ProductController($this->get(EntityManager::class));
     $prod = $pc->getById($args['id']);
-    return $this->get(Twig::class)->render($response,"index.html.twig", ['prod' => $prod]);
+    return $this->get(Twig::class)->render($response,"detail.html.twig", ['prod' => $prod]);
 }); 
 
-$app->get('/coop',function ($request, $response, array $args){
+$app->get('/coop/',function ($request, $response, array $args){
     return $this->get(Twig::class)->render($response,"cooperative.html.twig");
 });
 
