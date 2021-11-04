@@ -7,7 +7,7 @@ console.log(categories)
   })
 
 function getProduct(){
-  let listCateg = Array()
+  let listCateg = []
   categories.forEach(element => {
       if(element.checked){
         listCateg.push(element.value)
