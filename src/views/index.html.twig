@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="js/main.js" defer></script>
+    <script src="js/index.js" defer></script>
     <title></title>
   </head>
   <body>
@@ -24,10 +25,9 @@
       <div class="side-menu">
         <h2 class="display-6 mt-3"> Catégories</h2>
           <table id="categorie" class="mt-4">
-            <tr><td class="align-right"><input type="checkbox" name="" value="lait"></td><td class="align-left">Produits laitiers</td></tr>
-            <tr><td class="align-right"><input type="checkbox" name="" value="feculent"></td><td class="align-left">Féculents</td></tr>
-            <tr><td class="align-right"><input type="checkbox" name="" value="legume"></td><td class="align-left">Légumes</td></tr>
-            <tr><td class="align-right"><input type="checkbox" name="" value="fruit"></td><td class="align-left">Fruits</td></tr>
+            {% for categ in categories %}
+            <tr><td class="align-right"><input type="checkbox" name="categorie" value="{{categ.name}}"></td><td class="align-left">{{categ.name}}</td></tr>
+            {% endfor %}
           </table>
       </div>
     </div>

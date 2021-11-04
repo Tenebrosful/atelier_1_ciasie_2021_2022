@@ -6,11 +6,6 @@ function minus(input) {
     input.value = Math.max(parseInt(input.value) - 1, 0)
 }
 
-document.getElementById('addcart').addEventListener('click',function(event) {
-    event.preventDefault();
-}, false);
-
-}
 but1 = document.getElementById("button_prod");
 but2 = document.getElementById("button_gerant");
 but1.clicked = false;

@@ -7,17 +7,15 @@ use Doctrine\ORM\EntityManager;
 use Slim\Views\Twig;
 
 require_once '../src/Controllers/ProductController.php';
+require_once '../src/Controllers/CategoryController.php';
+require_once '../src/Controllers/OrderController.php';
 
-$app->get('/', function ($request, $response, array $args) {
+$app->get('/',function ($request, $response, array $args){
     $pc = new ProductController($this->get(EntityManager::class));
-    $products = $pc->getAll();
-    session_start();
-
-    if (!isset($_SESSION['panier'])) {
-        $_SESSION['panier'] = array();
-    }
-
-    return $this->get(Twig::class)->render($response, "index.html.twig", ['products' => $products]);
+    $ct = new CategoryController($this->get(EntityManager::class));
+    $products = $pc->getAll();  
+    $categories = $ct->getAll();
+    return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories]);
 });
 
 $app->get('/{id}', function ($request, $response, array $args) {
@@ -63,6 +61,8 @@ $app->post('/panier/add/{id}', function ($request, $response, array $args) {
     return $this->get(Twig::class)->render($response, "index.html.twig");
 });
 
-$app->get('/coop/', function ($request, $response, array $args) {
-    return $this->get(Twig::class)->render($response, "cooperative.html.twig");
+$app->get('/coop/',function ($request, $response, array $args){
+    $pc = new OrderController($this->get(EntityManager::class));
+    $order = $pc->getAll();
+    return $this->get(Twig::class)->render($response,"cooperative.html.twig", ['order' => $order]);
 });

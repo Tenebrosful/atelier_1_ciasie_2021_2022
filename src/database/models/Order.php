@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="order")
+ * @ORM\Table(name="`order`")
  */
 class Order
 {
@@ -50,16 +50,10 @@ class Order
      *    @var string
      *    @ORM\Column(type="boolean")
      */
-    private $paid;
-    /**
-     * @var ProductOrder
-     * @ORM\OneToMany(targetEntity="ProductOrder",mappedBy="order")
-     */
-    private $productOrders;
 
     public function __construct()
     {
-        $this->productOrders = new ArrayCollection();
+       
     }
 
     public function getId(): int
