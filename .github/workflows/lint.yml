@@ -20,9 +20,18 @@ jobs:
       - name: npm ci
         run: npm ci
         
-      - name: Run Stylelint
+      - name: Run Stylelint css
         run: npm run csslint
+
+      - name: Run Stylelint
+        run: npm run scsslint
         
+      - name: Run ESLint
+        run: npm run eslint
+        
+      - name: Run HTML-Validate
+        run: npm run html-validate
+
       - name: Get composer cache directory
         id: composer_config
         uses: baschny/php-composer-action@v1

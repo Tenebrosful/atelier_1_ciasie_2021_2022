@@ -1,4 +1,4 @@
-@for $i from 1 to 5 {
+@for $i from 1 to 21 {
   .mb-#{$i} {
     margin-bottom: $i * 5px;
   }
@@ -10,5 +10,93 @@
   }
   .mr-#{$i} {
     margin-right: $i * 5px;
+  }
+}
+
+@for $i from 1 to 6 {
+  .pb-#{$i} {
+    padding-bottom: $i * 5px;
+  }
+  .pt-#{$i} {
+    padding-top: $i * 5px;
+  }
+  .pl-#{$i} {
+    padding-left: $i * 5px;
+  }
+  .pr-#{$i} {
+    padding-right: $i * 5px;
+  }
+
+  .p-#{$i} {
+    padding: $i * 5px;
+  }
+}
+
+@for $i from 1 to 13 {
+  .col-#{$i} {
+    grid-column: $i span;
+  }
+}
+
+@for $i from 1 to 13 {
+  .row-#{$i} {
+    grid-row: $i span;
+  }
+}
+
+@for $i from 1 to 13 {
+  .fz-#{$i} {
+    font-size: $i * 2px;
+  }
+}
+
+@for $i from 1 to 13 {
+  @for $j from 1 to 13 {
+    .colspan-#{$i}-#{$j} {
+      grid-column: #{$i}/#{$j};
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+}
+
+.col {
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+@for $i from 1 through 12 {
+  .s#{$i} {
+    $spanBasis: calc(calc(1000px / 12) * $i);
+    flex-basis: calc($spanBasis - 30px);
+    max-height: auto;
+  }
+}
+
+.s-auto {
+  flex-basis: auto;
+  max-height: auto;
+}
+
+@for $i from 1 through 12 {
+  .order-#{$i} {
+    order: $i;
+  }
+}
+
+@media (max-width: 970px) {
+  #descrProducteur {
+    order: 4;
+    flex-basis: 95%;
+  }
+
+  .clear {
+    flex-basis: 100%;
   }
 }
