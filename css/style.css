@@ -198,6 +198,10 @@ h1 {
   justify-content: center;
 }
 
+.addProductPage {
+  margin-top: 30%;
+}
+
 .span-detail .add {
   position: relative;
   display: grid;
@@ -240,6 +244,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
+  border: none;
 }
 
 .span-detail .btn__qte {
