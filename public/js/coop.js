@@ -1,12 +1,12 @@
-var checkbox = document.querySelectorAll("input");
+const checkbox = document.querySelectorAll("input");
 
-for (let pas = 0; pas < checkbox.length; pas++) {
-checkbox[pas].addEventListener('change', function() {
-	if (this.checked) {
-		console.log("Checkbox is checked..");
-	}
-	else {
-		console.log("Checkbox is not checked..");
-	}
-  });
-}
+checkbox.forEach(e => {
+	e.addEventListener('change', function() {
+		if (this.checked) {
+			console.log("Checkbox is checked..");
+		}
+		else {
+			console.log("Checkbox is not checked..");
+		}
+	  });
+})
