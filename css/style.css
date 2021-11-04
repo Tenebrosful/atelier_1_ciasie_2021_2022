@@ -573,13 +573,13 @@ td a:hover{
   background-color: white;
 }
 
-#hidden1 {
+#form_prod {
   height: 0;
   overflow: hidden;
   transition: height 0.8s ease;
 }
 
-#hidden2 {
+#form_gerant {
   height: 0;
   overflow: hidden;
   transition: height 0.8s ease;
