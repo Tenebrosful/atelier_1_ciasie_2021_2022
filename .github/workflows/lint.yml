@@ -1,0 +1,62 @@
+name: Lint
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out code 🛎
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+          
+      - name: npm ci
+        run: npm ci
+        
+      - name: Run Stylelint
+        run: npm run csslint
+        
+      - name: Run ESLint
+        run: npm run eslint
+        
+      - name: Run HTML-Validate
+        run: npm run html-validate
+        
+      - name: Get composer cache directory
+        id: composer_config
+        uses: baschny/php-composer-action@v1
+        with:
+          command: get_config
+
+      - name: Cache composer downloads
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer_config.outputs.composer_cache_dir }}
+          key: composer-v${{ steps.composer_config.outputs.composer_major_version }}
+
+      - name: Run composer install
+        uses: baschny/php-composer-action@v1
+        
+      - name: Run PHPlint
+        run: npm run phplint
+        
+      - name: Commit files
+        continue-on-error: true
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Auto-lint" -a
+          
+      - name: Push changes
+        continue-on-error: true
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
