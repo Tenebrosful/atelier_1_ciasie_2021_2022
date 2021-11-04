@@ -321,7 +321,7 @@ html body .content #list-toggle + label {
   position: absolute;
   top: 40%;
   left: 298px;
-  background-color: rgb(154	154	154 /90%);
+  background-color: rgb(154	154	154 / 90%);
   border: 2px solid #b8b8b8;
   border-top-right-radius: 110px;
   border-bottom-right-radius: 110px;
@@ -521,7 +521,6 @@ td a:hover{
 }
 
 .rowProduct{
-  background-color: white;
   border-radius: 10px;
   border: solid black 1px;
   display: grid;
