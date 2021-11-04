@@ -19,18 +19,27 @@ return function (ContainerBuilder $containerBuilder) {
             'cache_dir' => APP_ROOT . '/var/doctrine',
 
             // you should add any other path containing annotated entity classes
-            'metadata_dirs' => [APP_ROOT . '/src/database/models'],
+            'metadata_dirs' => [APP_ROOT . '/../src/database/models'],
 
             'connection' => [
                 'driver' => 'pdo_mysql',
                 'host' => 'localhost',
                 'port' => 3306,
                 'dbname' => 'lehangarlocal',
-                'user' => 'root',
-                'password' => '',
+                'user' => 'blot32u',
+                'password' => 'blot32u',
                 'charset' => 'utf8'
             ]
-        ]
+            ],
+            'twig' => [
+                'paths' => [
+                    __DIR__ .'/../src/views'
+                    ],
+                'options' => [
+                    'cache_enabled' => false,
+                    'cache_path' => __DIR__ . '/../var/twig',
+                    ]
+                ]
     ]
 ]);
 };

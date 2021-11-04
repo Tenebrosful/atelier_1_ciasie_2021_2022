@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="js/main.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Produits</a></li>
+          <li><a href="#">Producteurs</a></li>
+          <li><a href="/panier/">Panier</a></li>
+        </ul>
+        <label class="logo">LeHangar</label>
+      </nav>
+    </header>
+    <div class="content">
+      <input type="checkbox" id="list-toggle" checked>  <label for="list-toggle">  </label>
+      <div class="side-menu">
+        <h2 class="display-6 mt-3"> Catégories</h2>
+          <table id="categorie" class="mt-4">
+            {% for categ in categories %}
+            <tr><td class="align-right"><input type="checkbox" name="categorie" value="{{categ.name}}"></td><td class="align-left">{{categ.name}}</td></tr>
+            {% endfor %}
+          </table>
+      </div>
+    </div>
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    <div class="container">
+    {% for prod in products %}
+      <div class="span">
+        <a class="base_link" href="/{{prod.getId()}}">
+        <img class="span-img" src={{prod.getUrlImg()}} alt="">
+        <h3>{{prod.getName()}}</h3>
+        <p>{{prod.getAmountUnit()}}€ / {{prod.getUnit()}}</p>
+        </a>
+        <form class="add" method="post" action="/panier/add/{{prod.getId()}}" target="dummyframe">
+          <div class="mb-2">
+            <div class="justify-center">
+              <button title="Ajouter une quantité" aria-label="Ajouter une quantité" type="button" class="btn__qte"
+              onclick="minus(qnt_article_{{prod.getId()}})"><i class="fas fa-minus"></i></button>
+              <div class="form__div mb-3">
+                <input type="number" min="0" class="form__input" id="qnt_article_{{prod.getId()}}" value="0">
+              </div>
+              <button title="Retirer une quantité" aria-label="Retirer une quantité" type="button" class="btn__qte"
+              onclick="plus(qnt_article_{{prod.getId()}})"><i class="fas fa-plus"></i></button>
+            </div>
+            <br>
+          </div>
+          <input type='submit' id="addcart_{{prod.getId()}}" value = 'Ajouter au panier' class="btn">
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

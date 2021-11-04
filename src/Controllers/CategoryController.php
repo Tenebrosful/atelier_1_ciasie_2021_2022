@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 use Doctrine\ORM\EntityManager;
 
-require_once '/database/models/Category';
+require_once __DIR__ . '/../database/models/Category.php';
 
 class CategoryController {
 
@@ -13,7 +13,7 @@ class CategoryController {
 
     public function __construct(EntityManager $em)
     {
-        $this->em = $em; 
+        $this->em = $em;
     }
 
     public function getById(int $id): Category
@@ -26,7 +26,7 @@ class CategoryController {
         return $this->em->getRepository(Category::class)->findAll();
     }
 
-    public function createCategory(array $args) 
+    public function createCategory(array $args)
     {
         $category = new Category();
         $category->setName($args['name']);

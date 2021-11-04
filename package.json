@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "eslint": "^8.1.0",
     "eslint-plugin-html": "^6.2.0",
     "html-validate": "^6.1.0",
     "stylelint": "^14.0.1",
@@ -14,7 +15,7 @@
     "csslint": "npx stylelint **/*.css --fix",
     "scsslint": "npx stylelint **/*.scss --fix",
     "phplint": "./vendor/bin/phplint",
-    "eslint": "npx eslint . --ext .html,.js --fix",
+    "eslint": "npx eslint . --ext .html,.js,.twig --fix",
     "html-validate": "npx html-validate ."
   }
 }

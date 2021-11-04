@@ -1,14 +1,11 @@
 <?php
 
-// cli-config.php
+use DI\Container;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
-
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\ORM\Tools\Console\Command\SchemaTool;
-use Doctrine\ORM\Tools\Console\Command\SchemaTool\CreateCommand;
 use DI\ContainerBuilder;
+
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -20,14 +17,17 @@ if (false) { // Should be set to true in production
 }
 
 // Set up settings
-$settings = require __DIR__ . '/settings.php';
+$settings = require __DIR__ . '/config/settings.php';
 $settings($containerBuilder);
 
 // Set up dependencies
-$dependencies = require __DIR__ . '/bootstrap.php';
+$dependencies = require __DIR__ . '/config/dependencies.php';
 $dependencies($containerBuilder);
+
 
 // Build PHP-DI Container instance
 $container = $containerBuilder->build();
 
+
 return ConsoleRunner::createHelperSet($container->get(EntityManager::class));
+//return ConsoleRunner::createHelperSet($container[EntityManager::class]);

@@ -3,6 +3,9 @@
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
+require_once 'Order.php';
+require_once 'Product.php';
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="productorder")

@@ -14,7 +14,7 @@
         "sourceType": "module"
     },
     "settings": {
-        "html/html-extensions": [".html", ".twig"],
+        "html/html-extensions": [ ".html", ".twig" ],
         "html/indent": "+2",
         "html/report-bad-indent": "error"
     },
@@ -30,10 +30,8 @@
         "spaced-comment": "error",
         "sort-keys": "error",
         "no-unused-vars": "off", // typescript-eslint suggestion: off
-        "curly": [
-            "error",
-            "multi"
-        ],
-        "eqeqeq": "error"
+        "curly": [ "error", "multi" ],
+        "eqeqeq": "error",
+        "indent": [ "error", 2 ]
     }
 }
