@@ -13,8 +13,39 @@
   }
 }
 
+@for $i from 1 to 6 {
+  .pb-#{$i} {
+    padding-bottom: $i * 5px;
+  }
+  .pt-#{$i} {
+    padding-top: $i * 5px;
+  }
+  .pl-#{$i} {
+    padding-left: $i * 5px;
+  }
+  .pr-#{$i} {
+    padding-right: $i * 5px;
+  }
+
+  .p-#{$i} {
+    padding: $i * 5px;
+  }
+}
+
 @for $i from 1 to 13 {
   .col-#{$i}{
     grid-column: $i span;
+  }
+}
+
+@for $i from 1 to 13 {
+  .row-#{$i}{
+    grid-row: $i span;
+  }
+}
+
+@for $i from 1 to 13 {
+  .fz-#{$i}{
+    font-size: $i * 2px ;
   }
 }
