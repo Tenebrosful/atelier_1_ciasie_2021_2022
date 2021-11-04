@@ -27,7 +27,7 @@ jobs:
         run: npm run eslint
         
       - name: Run HTML-Validate
-        run: npm run htmlvalidate
+        run: npm run html-validate
         
       - name: Get composer cache directory
         id: composer_config
