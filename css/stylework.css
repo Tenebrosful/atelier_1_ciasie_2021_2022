@@ -1138,4 +1138,141 @@
   grid-column: 12/12;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+}
+
+.col {
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.s1 {
+  flex-basis: 53.3333333333px;
+  max-height: auto;
+}
+
+.s2 {
+  flex-basis: 136.6666666667px;
+  max-height: auto;
+}
+
+.s3 {
+  flex-basis: 220px;
+  max-height: auto;
+}
+
+.s4 {
+  flex-basis: 303.3333333333px;
+  max-height: auto;
+}
+
+.s5 {
+  flex-basis: 386.6666666667px;
+  max-height: auto;
+}
+
+.s6 {
+  flex-basis: 470px;
+  max-height: auto;
+}
+
+.s7 {
+  flex-basis: 553.3333333333px;
+  max-height: auto;
+}
+
+.s8 {
+  flex-basis: 636.6666666667px;
+  max-height: auto;
+}
+
+.s9 {
+  flex-basis: 720px;
+  max-height: auto;
+}
+
+.s10 {
+  flex-basis: 803.3333333333px;
+  max-height: auto;
+}
+
+.s11 {
+  flex-basis: 886.6666666667px;
+  max-height: auto;
+}
+
+.s12 {
+  flex-basis: 970px;
+  max-height: auto;
+}
+
+.s-auto {
+  flex-basis: auto;
+  max-height: auto;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.order-4 {
+  order: 4;
+}
+
+.order-5 {
+  order: 5;
+}
+
+.order-6 {
+  order: 6;
+}
+
+.order-7 {
+  order: 7;
+}
+
+.order-8 {
+  order: 8;
+}
+
+.order-9 {
+  order: 9;
+}
+
+.order-10 {
+  order: 10;
+}
+
+.order-11 {
+  order: 11;
+}
+
+.order-12 {
+  order: 12;
+}
+
+@media (max-width: 970px) {
+  #descrProducteur {
+    order: 4;
+    flex-basis: 95%;
+  }
+
+  .clear {
+    flex-basis: 100%;
+  }
+}
+
 /*# sourceMappingURL=stylework.css.map */
