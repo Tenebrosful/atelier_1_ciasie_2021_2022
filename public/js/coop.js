@@ -8,5 +8,5 @@ checkbox.forEach(e => {
 		else {
 			console.log("Checkbox is not checked..");
 		}
-	  });
+	});
 })
