@@ -43,15 +43,17 @@
         <form class="add" method="post" action="/panier/add/{{prod.getId()}}" target="dummyframe">
           <div class="mb-2">
             <div class="justify-center">
-              <a class="btn__qte" onclick="minus(input{{prod.getId()}})"><i class="fas fa-minus"></i></a>
+              <button title="Ajouter une quantité" aria-label="Ajouter une quantité" type="button" class="btn__qte"
+              onclick="minus(qnt_article_{{prod.getId()}})"><i class="fas fa-minus"></i></button>
               <div class="form__div mb-3">
-                <input type="number" min="0" name="input" class="form__input" id="input{{prod.getId()}}" placeholder=" " value="0">
+                <input type="number" min="0" class="form__input" id="qnt_article_{{prod.getId()}}" value="0">
               </div>
-              <a class="btn__qte" href="#" onclick="plus(input{{prod.getId()}})"><i class="fas fa-plus"></i></a>
+              <button title="Retirer une quantité" aria-label="Retirer une quantité" type="button" class="btn__qte"
+              onclick="plus(qnt_article_{{prod.getId()}})"><i class="fas fa-plus"></i></button>
             </div>
             <br>
           </div>
-          <input type='submit' id="addcart" value = 'Ajouter au panier' class="btn">
+          <input type='submit' id="addcart_{{prod.getId()}}" value = 'Ajouter au panier' class="btn">
         </form>
       </div>
       {% endfor %}
