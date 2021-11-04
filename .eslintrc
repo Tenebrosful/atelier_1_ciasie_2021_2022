@@ -34,6 +34,6 @@
             "error",
             "multi"
         ],
-        "eqeqeq": "error",
+        "eqeqeq": "error"
     }
 }
