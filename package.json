@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "eslint": "^8.1.0",
     "eslint-plugin-html": "^6.2.0",
     "html-validate": "^6.1.0",
     "stylelint": "^14.0.1",
