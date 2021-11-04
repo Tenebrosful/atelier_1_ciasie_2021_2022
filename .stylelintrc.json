@@ -8,6 +8,8 @@
         "selector-id-pattern": null,
         "property-no-vendor-prefix": null,
         "no-descending-specificity": null,
-        "number-max-precision": null
+        "number-max-precision": null,
+        
+        "scss/dollar-variable-pattern": null
     }
 }
