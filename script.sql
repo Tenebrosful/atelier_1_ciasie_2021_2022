@@ -37,7 +37,7 @@ CREATE TABLE `product` (
   `url_img` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `orderr` (
+CREATE TABLE `order` (
   `id` int(11) NOT NULL,
   `client_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `client_adress` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -75,7 +75,7 @@ INSERT INTO `product` (`id`, `name`, `price`, `amount_unit`, `unit`, `descriptio
 -
 
 
-INSERT INTO `orderr` (`id`, `client_name`, `client_adress`, `client_email`, `client_phone`, `total_price`,`delivred` ) VALUES
+INSERT INTO `order` (`id`, `client_name`, `client_adress`, `client_email`, `client_phone`, `total_price`,`delivred` ) VALUES
 (1, 'BLOT', '8 rue des Rouliers', 'tristan.blot@7.com', '0674954544', '25', 1),
 (1, 'DUPONT', '26 boulevard des Colombes', 'dupoint@orange.com', '0774951544', '12', 0),
 (1, 'TULIPE', '12 AVENUE DES TRUITES', 'bellefleur@hotmail.fr', '0774951544', '19', 0);

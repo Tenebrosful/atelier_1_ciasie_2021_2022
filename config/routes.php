@@ -19,7 +19,7 @@ $app->get('/{id}', function ($request, $response, array $args){
     return $this->get(Twig::class)->render($response,"index.html.twig", ['prod' => $prod]);
 }); 
 
-$app->get('/coop',function ($request, $response, array $args){
+$app->get('coop/',function ($request, $response, array $args){
     return $this->get(Twig::class)->render($response,"cooperative.html.twig");
 });
 
