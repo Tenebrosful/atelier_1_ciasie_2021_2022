@@ -24,6 +24,9 @@ jobs:
       - name: Run Stylelint
         run: npm run csslint
         
+      - name: Run ESLint
+        run: npm run eslint
+        
       - name: Get composer cache directory
         id: composer_config
         uses: baschny/php-composer-action@v1
