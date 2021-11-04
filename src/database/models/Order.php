@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -126,7 +127,7 @@ class Order
         return $this->delivered;
     }
 
-    public function setDelivered(string $delivered): bool
+    public function setDelivered(bool $delivered): bool
     {
         $this->delivered = $delivered;
         return true;
@@ -137,7 +138,7 @@ class Order
         return $this->paid;
     }
 
-    public function setPaid(string $paid): bool
+    public function setPaid(bool $paid): bool
     {
         $this->paid = $paid;
         return true;
