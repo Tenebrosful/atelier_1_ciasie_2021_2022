@@ -9,11 +9,11 @@ services:
         build: ./
         image: php:8-alpine
         working_dir: /var/www
-        command: php -S 0.0.0.0:8080 -t public
+        command: php -S 0.0.0.0:8081 -t public
         environment:
             docker: "true"
         ports:
-            - 8080:8080
+            - 8081:8081
         volumes:
             - .:/var/www
             - logs:/var/www/logs
