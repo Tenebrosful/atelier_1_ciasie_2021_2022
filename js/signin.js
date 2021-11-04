@@ -1,14 +1,15 @@
-but1 = document.getElementById("button_prod");
-but2 = document.getElementById("button_gerant");
-but1.clicked = false;
-but2.clicked = false;
+const button_prod = document.getElementById("button_prod");
+const button_gerant = document.getElementById("button_gerant");
 
-but1.onclick = function() {
+button_prod.clicked = false;
+button_gerant.clicked = false;
+
+button_prod.onclick = function() {
    this.clicked = !this.clicked;
    let target = document.getElementById('hidden1');
     if (this.clicked) {
-        if (but2.clicked) {
-            but2.click();
+        if (button_gerant.clicked) {
+            button_gerant.click();
         }
         target.style.height = target.scrollHeight+"px";
     }
@@ -17,12 +18,12 @@ but1.onclick = function() {
     }
 }
 
-but2.onclick = function() {
+button_gerant.onclick = function() {
     this.clicked = !this.clicked;
     let target = document.getElementById('hidden2');
      if (this.clicked) {
-        if (but1.clicked) {
-            but1.click();
+        if (button_prod.clicked) {
+            button_prod.click();
         }
          target.style.height = target.scrollHeight+"px";
      }
