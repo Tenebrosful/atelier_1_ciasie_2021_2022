@@ -14,7 +14,7 @@
         <ul>
           <li><a href="#">Produits</a></li>
           <li><a href="#">Producteurs</a></li>
-          <li><a href="#">Panier</a></li>
+          <li><a href="/panier/">Panier</a></li>
         </ul>
         <label class="logo">LeHangar</label>
       </nav>
@@ -31,6 +31,7 @@
           </table>
       </div>
     </div>
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
     <div class="container">
     {% for prod in products %}
       <div class="span">
@@ -39,19 +40,19 @@
         <h3>{{prod.getName()}}</h3>
         <p>{{prod.getAmountUnit()}}€ / {{prod.getUnit()}}</p>
         </a>
-        <div class="add">
+        <form class="add" method="post" action="/panier/add/{{prod.getId()}}" target="dummyframe">
           <div class="mb-2">
             <div class="justify-center">
-              <a class="btn__qte" onclick="minus(input1)"><i class="fas fa-minus"></i></a>
+              <a class="btn__qte" onclick="minus(input{{prod.getId()}})"><i class="fas fa-minus"></i></a>
               <div class="form__div mb-3">
-                <input type="number" min="0" class="form__input" id="input1" placeholder=" " value="0">
+                <input type="number" min="0" name="input" class="form__input" id="input{{prod.getId()}}" placeholder=" " value="0">
               </div>
-              <a class="btn__qte" href="#" onclick="plus(input1)"><i class="fas fa-plus"></i></a>
+              <a class="btn__qte" href="#" onclick="plus(input{{prod.getId()}})"><i class="fas fa-plus"></i></a>
             </div>
             <br>
           </div>
-          <a href="#" class="btn" onclick="add(input1)">Ajouter au panier</a>
-        </div>
+          <input type='submit' id="addcart" value = 'Ajouter au panier' class="btn">
+        </form>
       </div>
       {% endfor %}
     </div>
