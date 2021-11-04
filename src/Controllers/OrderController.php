@@ -2,7 +2,7 @@
 
 use Doctrine\ORM\EntityManager;
 
-require_once '/database/models/Order';
+require_once __DIR__ . '/../database/models/Order.php';
 
 class OrderController {
 
