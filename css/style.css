@@ -39,6 +39,7 @@
 
 html{
   height: 100%;
+  overflow-y: auto;
 }
 
 head{
@@ -51,7 +52,7 @@ body {
   background: radial-gradient(white, rgb(184	184	184));
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 60px, 100%;
+  grid-template-rows: 60px 100%;
   overflow-y: auto;
   height: 100%;
 }
@@ -114,8 +115,8 @@ nav ul li a {
 }
 
 .container {
-  margin-top: 1%;
-  margin-bottom: 1%;
+  margin-top: 100px;
+  padding-bottom: 1%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 320px);
   grid-gap: 10px;
@@ -138,6 +139,27 @@ nav ul li a {
   position: relative;
 }
 
+.container-producteur {
+  margin-top: 1%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-gap: 30px;
+  grid-auto-rows: auto;
+  justify-content: center;
+  background-color: rgb(0 0 0 / 0%);
+  max-height: 100%;
+  max-width: 1000px;
+  position: relative;
+}
+
+.container-producteur h2{
+  text-align: center;
+}
+
+.container-producteur h2{
+  text-align: center;
+}
+
 .span {
   background-color: white;
   padding: 0.5px;
@@ -146,6 +168,10 @@ nav ul li a {
   position: relative;
   border-radius: 10px;
   max-height: 320px;
+}
+
+.span-producteur{
+  width: 100%;
 }
 
 h1 {
@@ -168,6 +194,7 @@ h1 {
   text-align: justify;
   padding: 1%;
 }
+
 
 .span > p {
   margin-top: 5px;
@@ -263,6 +290,9 @@ h1 {
 }
 
 .justify-center {
+}
+
+.inline-flex{
   display: inline-flex;
 }
 
@@ -556,6 +586,9 @@ td a:hover{
     height: 120px;
     min-width: 464px;
   }
+  h1{
+    margin-top:10%;
+  }
 }
 
 @media (max-width: 1136px) {
@@ -577,6 +610,11 @@ td a:hover{
 .bg-white {
   background-color: white;
 }
+
+.bg-grey {
+  background-color: lightgrey;
+}
+
 
 #form_prod {
   height: 0;

@@ -1,4 +1,4 @@
-@for $i from 1 to 6 {
+@for $i from 1 to 21 {
   .mb-#{$i} {
     margin-bottom: $i * 5px;
   }
@@ -47,5 +47,13 @@
 @for $i from 1 to 13 {
   .fz-#{$i}{
     font-size: $i * 2px ;
+  }
+}
+
+@for $i from 1 to 13 {
+  @for $j from 1 to 13 {
+    .colspan-#{$i}-#{$j}{
+      grid-column: #{$i}/#{$j} ;
+    }
   }
 }
