@@ -6,9 +6,10 @@
   <link rel="stylesheet" href="./css/signin.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
   <script src="./js/main.js" defer></script>
-  <title>Login</title>
+  <script src="./js/signin.js" defer></script>
+  <title>LeHangar - Login</title>
 </head>
 
 <body>
@@ -20,31 +21,32 @@
   <h1>Connexion</h1>
   <div class="login">
     <h3> Vous êtes...</h3>
-    <button id='button_prod'> Producteur </button>
-    <button id='button_gerant'> Gérant de coopérative </button>
+    <button type="button" id="button_prod"> Producteur </button>
+    <button type="button" id="button_gerant"> Gérant de coopérative </button>
   </div>
 
-  <form id='hidden1'  action="authentication.php" method="post">
+  <form id="form_prod" action="authentication.php" method="post">
 
     <div class="formlogin">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label for="prod_username"><b>Username</b></label>
+      <input id="prod_username" type="text" autocomplete="username" placeholder="Enter Username" name="uname" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <label for="prod_password"><b>Password</b></label>
+      <input id="prod_password" type="password" placeholder="Enter Password" name="psw" required>
 
       <button class="button_login" type="submit">Login</button>
     </div>
   </form>
 
-  <form id='hidden2'  action="authentication.php" method="post">
+  <form id="form_gerant" action="authentication.php" method="post">
 
     <div class="formlogin">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label for="gerant_username"><b>Username</b></label>
+      <input id="gerant_username" type="text" autocomplete="username" placeholder="Enter Username" name="uname"
+        required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <label for="gerant_password"><b>Password</b></label>
+      <input id="gerant_password" type="password" placeholder="Enter Password" name="psw" required>
 
       <button class="button_login" type="submit">Login</button>
     </div>

@@ -1,0 +1,39 @@
+{
+    "root": true,
+    "env": {
+        "browser": true
+    },
+    "plugins": [
+        "html"
+    ],
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "settings": {
+        "html/html-extensions": [".html", ".twig"],
+        "html/indent": "+2",
+        "html/report-bad-indent": "error"
+    },
+    "rules": {
+        // common
+        "no-return-await": "error",
+        "no-unreachable-loop": "error",
+        "no-promise-executor-return": "error",
+        "no-unsafe-optional-chaining": "error",
+        "no-useless-backreference": "error",
+        "require-atomic-updates": "error",
+        "no-await-in-loop": "error",
+        "spaced-comment": "error",
+        "sort-keys": "error",
+        "no-unused-vars": "off", // typescript-eslint suggestion: off
+        "curly": [
+            "error",
+            "multi"
+        ],
+        "eqeqeq": "error"
+    }
+}

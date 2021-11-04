@@ -1,6 +1,7 @@
 {
-  "dependencies": {},
   "devDependencies": {
+    "eslint-plugin-html": "^6.2.0",
+    "html-validate": "^6.1.0",
     "stylelint": "^14.0.1",
     "stylelint-config-standard": "^23.0.0",
     "stylelint-config-standard-scss": "^2.0.1"
@@ -10,7 +11,10 @@
     "url": "https://gitlab.univ-lorraine.fr/hohler3u/atelier_1.git"
   },
   "scripts": {
-    "csslint": "npx stylelint **/*.css --fix && npx stylelint **/*.scss --fix",
-    "phplint": "./vendor/bin/phplint"
+    "csslint": "npx stylelint **/*.css --fix",
+    "scsslint": "npx stylelint **/*.scss --fix",
+    "phplint": "./vendor/bin/phplint",
+    "eslint": "npx eslint . --ext .html,.js --fix",
+    "html-validate": "npx html-validate ."
   }
 }
