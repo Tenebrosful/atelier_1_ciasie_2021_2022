@@ -5,7 +5,7 @@ volumes:
         driver: local
 
 services:
-    slim:
+    php:
         build: ./
         image: php:8-alpine
         working_dir: /var/www
