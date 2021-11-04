@@ -18,3 +18,4 @@
 - Geoffrey Porayko `porayko1u`
     *   Diagramme d'utilisation (UML)
     *   Maquette Web (Schema)
+    *   Maquette Web Client (HTML, CSS, JS)
