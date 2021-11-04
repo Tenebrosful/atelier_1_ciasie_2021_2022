@@ -72,7 +72,6 @@ jobs:
         id: composer_config
         uses: baschny/php-composer-action@v1
         with:
-          composer_version: ${{ env.COMPOSER_VERSION }}
           command: get_config
 
       - name: Cache composer downloads
