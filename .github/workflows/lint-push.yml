@@ -1,4 +1,4 @@
-name: Lint
+name: Lint - Push
 
 on:
   workflow_dispatch:
@@ -6,11 +6,10 @@ on:
     branches:
       - main
       - 'push-action/**'
-  pull_request:
 
 jobs:
   lint:
-    name: Linters
+    name: Linters - Push
     runs-on: ubuntu-latest
     steps:
       - name: check out code 🛎
