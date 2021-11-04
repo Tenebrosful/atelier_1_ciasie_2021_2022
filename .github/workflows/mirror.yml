@@ -1,0 +1,17 @@
+name: Mirror and run GitLab CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check out code 🛎
+      uses: actions/checkout@v2
+     
+    - uses: pixta-dev/repository-mirroring-action@1.2
+      with:
+        target_repo_url:
+          git@https://gitlab.univ-lorraine.fr/hohler3u/atelier_1.git
+        ssh_private_key:                                # <-- use 'secrets' to pass credential information.
+          ${{ secrets.GITLAB_SSH_PRIVATE_KEY }}
