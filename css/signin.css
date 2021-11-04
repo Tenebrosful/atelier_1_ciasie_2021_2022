@@ -10,6 +10,10 @@ body {
   font-family: Montserrat, sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 nav {
   background:
     linear-gradient(
@@ -57,7 +61,7 @@ label.logo {
   text-transform: uppercase;
   transition: background-color 200ms ease-in;
   width: 300px;
-  -webkit-tap-highlight-color: transparent;
+  margin: 10px;
 }
 
 button:focus {
