@@ -40,21 +40,23 @@ $app->post('/panier/add/{id}', function ($request, $response, array $args) {
     session_start();
     if (isset($_SESSION['panier'])) {
         $prod = (new ProductController($this->get(EntityManager::class)))->getById($args['id']);
-        $panier = $_SESSION['panier'];
         $already_in = false;
         $quantity = $request->getParsedBody()['input'];
-        foreach ($panier as $item) {
-            $item2 = unserialize($item);
-            if ($item2->getProduct()->getId() == $args['id']) {
-                $old_qty = $item2->getQuantity();
-                $item2->setQuantity(3);
+        
+        //Check si l'item est déjà présent dans le panier
+        for ($i=0; $i<count($_SESSION['panier']); $i++ ) {
+            $item = unserialize($_SESSION['panier'][$i]);
+            if ($item->getProduct()->getId() == $args['id']) {
+                $old_qty = $item->getQuantity();
+                $item->setQuantity($old_qty + $quantity);
+                $_SESSION['panier'][$i] = serialize($item);
                 $already_in = true;
-                $item = serialize($item2);
             }
         }
         if (!$already_in) {
-            $po = [$args['id'],$request->getParsedBody()['input']];
-            
+            $po = new ProductOrder();
+            $po->setProduct($prod);
+            $po->setQuantity($quantity);
             array_push($_SESSION['panier'],serialize($po));
         }
     }
