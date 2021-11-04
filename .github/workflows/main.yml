@@ -35,11 +35,26 @@ jobs:
       - name: check out code 🛎
         uses: actions/checkout@v2
         
-      - name: Setup PHP with no coverage driver
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{matrix.php-version}}
           coverage: none
+          
+      - name: Get composer cache directory
+        id: composer_config
+        uses: baschny/php-composer-action@v1
+        with:
+          command: get_config
+
+      - name: Cache composer downloads
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer_config.outputs.composer_cache_dir }}
+          key: composer-v${{ steps.composer_config.outputs.composer_major_version }}
+
+      - name: Run composer install
+        uses: baschny/php-composer-action@v1
   
   lint:
     name: Linters
