@@ -30,7 +30,7 @@ return function (ContainerBuilder $containerBuilder){
             );
             /*$config->setMetadataCacheImpl(
                 new Cache(
-                    $settings['doctrine']['cache_dir']
+                   $settings['doctrine']['cache_dir']
                 )
             );*/
             return EntityManager::create(
