@@ -379,6 +379,7 @@ html body .content #list-toggle:checked + label::after {
   outline: none;
   padding: 1rem 0;
   background: none;
+  background-color: white;
   z-index: 1;
   text-align: center;
 }
