@@ -1,0 +1,591 @@
+/* ===== GOOGLE FONTS ===== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+/* ===== VARIABLES CSS ===== */
+:root {
+  /* ===== Colores ===== */
+  --first-color: #1a73e8;
+  --input-color: #80868b;
+  --border-color: #dadce0;
+
+  /* ===== Fuente y tipografia ===== */
+  --body-font: "Roboto", sans-serif;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.75rem;
+}
+
+/* ===== BASE ===== */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/*****************
+1. global setup
+2. nav bar
+3. Banner
+4. media query for 768 breakpoint (tablet and mobile)
+*****************/
+
+/* ~~~~~~~~~~~~~~ Global setup starts ~~~~~~ */
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  overflow-x: hidden;
+  background: radial-gradient(white, rgb(184	184	184));
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  overflow-y: auto;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* ~~~~~~~~~~ Global setup ends ~~~~~~~~~~~~ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~ Nav Bar starts ~~~~~~~~~~~~~~~~~~~~~~ */
+nav {
+  background:
+    linear-gradient(
+      93deg,
+      rgb(37	105	75 / 100%) 16%,
+      rgb(77	192	142 / 100%) 55%
+    );
+  height: 60px;
+  max-width: 100%;
+}
+
+label.logo {
+  float: left;
+  color: cornsilk;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 60px;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+nav ul {
+  float: right;
+  margin-right: 50px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 60px;
+  margin: 0 20px;
+  color: white;
+  font-size: 16px;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.container {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(320px, auto);
+  justify-content: center;
+  background-color: rgb(0 0 0 / 0%);
+  max-height: 100%;
+  position: relative;
+}
+
+.container-detail {
+  margin-top: 1%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(auto, 768px));
+  grid-gap: 30px;
+  grid-auto-rows: minmax(auto, auto);
+  justify-content: center;
+  background-color: rgb(0 0 0 / 0%);
+}
+
+.span {
+  background-color: white;
+  padding: 0.5px;
+  box-shadow: 3px 2px 3px 1px rgb(0 0 0 / 40%);
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+  max-height: 320px;
+}
+
+h1 {
+  text-align: center;
+  font-family: cursive;
+}
+
+.span-detail {
+  background-color: inherit;
+  padding: 0.5px;
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+  max-height: 500px;
+}
+
+#descriptionProduit {
+  grid-column-start: 2 span;
+  text-align: justify;
+  padding: 1%;
+}
+
+.span > p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.span > h3 {
+  text-align: center;
+  font-family: cursive;
+  color: #363636;
+}
+
+.span-img {
+  position: relative;
+  top: 0;
+  max-height: 50%;
+}
+
+#detail-img {
+  height: 40vh;
+}
+
+.add {
+  position: absolute;
+  display: grid;
+  width: 100%;
+  bottom: 2%;
+  justify-content: center;
+}
+
+.span-detail .add {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.btn {
+  color: white;
+  padding-top: 10px;
+  border-radius: 20px;
+  background-color: #ffd347;
+  cursor: pointer;
+  height: 40px;
+  width: 150px;
+}
+
+.span-detail .btn {
+  color: white;
+  font-size: 2em;
+  padding-top: 30px;
+  border-radius: 10px;
+  background-color: #ffd347;
+  cursor: pointer;
+  height: 100px;
+  width: 300px;
+}
+
+.btn:hover {
+  color: white;
+  background-color: #ffca09;
+}
+
+.btn__qte {
+  color: black;
+  cursor: pointer;
+  height: auto;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span-detail .btn__qte {
+  color: black;
+  cursor: pointer;
+  height: auto;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn__qte:hover {
+  color: rgb(92 92 92);
+}
+
+.justify-center {
+  display: inline-flex;
+}
+
+/* Catégorie */
+
+#categorie td {
+  padding-top: 10px;
+  width: 50%;
+  font-family: Georgia, serif;
+  font-size: 1.1em;
+}
+
+#categorie input {
+  margin-right: 10px;
+}
+
+#categorie {
+  width: 100%;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+html .side-menu {
+  display: inline-block;
+  position: relative;
+  height: 100vh;
+  width: 300px;
+  background-color: rgb(96	199	154 / 90%);
+  border: 2px solid #b8b8b8;
+  text-align: center;
+  overflow-x: hidden;
+  transition: width 1s;
+  z-index: 3;
+}
+
+html body .content {
+  flex: 1 1 auto;
+  width: 300px;
+  position: absolute;
+}
+
+html body .content #list-toggle {
+  display: none;
+}
+
+html body .content #list-toggle + label {
+  position: absolute;
+  top: 40%;
+  left: 298px;
+  background-color: rgb(184	184	184 / 60%);
+  border: 2px solid #b8b8b8;
+  border-top-right-radius: 110px;
+  border-bottom-right-radius: 110px;
+  padding: 10px 15px 10px 10px;
+  font-size: 20px;
+  transition: left 1s;
+  z-index: 1;
+}
+
+html body .content #list-toggle + label::after {
+  content: " < ";
+}
+
+html body .content #list-toggle + label:hover {
+  background: rgb(96	199	154 / 10%);
+}
+
+html body .content #list-toggle:checked ~ .side-menu {
+  width: 0;
+}
+
+html body .content #list-toggle:checked + label {
+  left: 0;
+}
+
+html body .content #list-toggle:checked + label::after {
+  content: " > ";
+}
+
+.side-menu h2 {
+  font-family: cursive;
+}
+
+/* Catégorie fin */
+
+/* ===== FORM ===== */
+.l-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  width: 360px;
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgb(92 99 105 / 20%);
+}
+
+.form__title {
+  font-weight: 400;
+  margin-bottom: 3rem;
+}
+
+.form__div {
+  position: relative;
+  height: 20px;
+  width: 50px;
+}
+
+.span-detail .form__div {
+  position: relative;
+  height: 50px;
+  width: 90px;
+}
+
+.form__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: var(--normal-font-size);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  outline: none;
+  padding: 1rem 0;
+  background: none;
+  z-index: 1;
+  text-align: center;
+}
+
+.span-detail .form__input {
+  font-size: 26px;
+}
+
+.form__label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  padding: 0 0.25rem;
+  background-color: #fff;
+  color: var(--input-color);
+  font-size: var(--normal-font-size);
+  transition: 0.3s;
+}
+
+.form__button {
+  display: block;
+  margin-left: auto;
+  padding: 0.75rem 2rem;
+  outline: none;
+  border: none;
+  background-color: var(--first-color);
+  color: #fff;
+  font-size: var(--normal-font-size);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form__button:hover {
+  box-shadow: 0 10px 36px rgb(0 0 0 / 15%);
+}
+
+/* Input focus move up label */
+.form__input:focus + .form__label {
+  top: -0.5rem;
+  left: 0.8rem;
+  color: var(--first-color);
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  z-index: 1;
+}
+
+/* Input focus sticky top label */
+.form__input:not(:placeholder-shown).form__input:not(:focus) + .form__label {
+  top: -0.5rem;
+  left: 0.8rem;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* Input focus */
+.form__input:focus {
+  border: 1.5px solid var(--first-color);
+}
+
+/* table list */
+
+.list {
+  display: grid;
+  justify-content: center;
+}
+
+.titreListe {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+  background-color: white;
+  height: 10vh;
+  width: 100vw;
+  box-shadow: 3px 2px 3px 1px rgb(0 0 0 / 20%);
+}
+
+.page {
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.page i {
+  color: black;
+}
+
+.page i:hover {
+  color: grey;
+}
+
+.list table {
+  width: 80vw;
+  margin-top: 6%;
+  border-collapse: collapse;
+}
+
+.list table tr:nth-child(2n) {
+  background: lightgrey;
+}
+
+.list td img {
+  height: 50px;
+}
+
+.list td {
+  border: none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ Media Query starts ~~~~~~~~~~~~~~~~~~~~~ */
+@media (max-width: 634px) {
+  a:hover {
+    background:
+      linear-gradient(
+        93deg,
+        rgb(94 129 207 / 100%) 16%,
+        rgb(94 161 187 / 100%) 55%
+      );
+  }
+
+  nav {
+    height: 120px;
+    min-width: 464px;
+  }
+}
+
+@media (max-width: 1136px) {
+  #descriptionProduit {
+    grid-column-start: 1 span;
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ Media query ends ~~~~~~~~~~~~~~~~~~~~~ */
+
+.mb-1 {
+  margin-bottom: 5px;
+}
+
+.mt-1 {
+  margin-top: 5px;
+}
+
+.ml-1 {
+  margin-left: 5px;
+}
+
+.mr-1 {
+  margin-right: 5px;
+}
+
+.mb-2 {
+  margin-bottom: 10px;
+}
+
+.mt-2 {
+  margin-top: 10px;
+}
+
+.ml-2 {
+  margin-left: 10px;
+}
+
+.mr-2 {
+  margin-right: 10px;
+}
+
+.mb-3 {
+  margin-bottom: 15px;
+}
+
+.mt-3 {
+  margin-top: 15px;
+}
+
+.ml-3 {
+  margin-left: 15px;
+}
+
+.mr-3 {
+  margin-right: 15px;
+}
+
+.mb-4 {
+  margin-bottom: 20px;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}
+
+.ml-4 {
+  margin-left: 20px;
+}
+
+.mr-4 {
+  margin-right: 20px;
+}
+
+.border {
+  border: solid black 1px;
+}
+
+.box-shadow {
+  box-shadow: 3px 2px 3px 1px rgb(0 0 0 / 40%);
+}
+
+.bg-white {
+  background-color: white;
+}

@@ -2,10 +2,12 @@
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+require_once 'Category.php';
+require_once 'Producer.php';
+require_once 'ProductOrder.php';
 /**
  * @ORM\Entity
- * @ORM\Table(name="products")
+ * @ORM\Table(name="product")
  */
 class Product
 {
@@ -102,12 +104,12 @@ class Product
         return true;
     }
 
-    public function getAmountUnit(): int
+    public function getAmountUnit(): float
     {
         return $this->amount_unit;
     }
 
-    public function setAmountUnit(int $amount_unit): bool
+    public function setAmountUnit(float $amount_unit): bool
     {
         if ($amount_unit < 0) return false;
 

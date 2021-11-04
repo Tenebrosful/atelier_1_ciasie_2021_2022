@@ -6,7 +6,7 @@ use DI\ContainerBuilder;
 use Psr\Container\ContainerInterface;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Doctrine\Common\Cache\FilesystemCache;
+use Doctrine\Common\Cache\Cache;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Doctrine\ORM\Tools\Setup;
@@ -29,8 +29,8 @@ return function (ContainerBuilder $containerBuilder){
                 )
             );
             /*$config->setMetadataCacheImpl(
-                new FilesystemCache(
-                    $settings['doctrine']['cache_dir']
+                new Cache(
+                   $settings['doctrine']['cache_dir']
                 )
             );*/
             return EntityManager::create(
