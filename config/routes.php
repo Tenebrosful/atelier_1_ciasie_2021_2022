@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManager;
 use Slim\Views\Twig;
 
 require_once '../src/Controllers/ProductController.php';
+require_once '../src/Controllers/OrderController.php';
 
 $app->get('/',function ($request, $response, array $args){
     $pc = new ProductController($this->get(EntityManager::class));
@@ -20,7 +21,9 @@ $app->get('/{id}', function ($request, $response, array $args){
 }); 
 
 $app->get('/coop/',function ($request, $response, array $args){
-    return $this->get(Twig::class)->render($response,"cooperative.html.twig");
+    $pc = new OrderController($this->get(EntityManager::class));
+    $order = $pc->getAll();
+    return $this->get(Twig::class)->render($response,"cooperative.html.twig", ['order' => $order]);
 });
 
 

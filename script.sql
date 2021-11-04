@@ -49,7 +49,7 @@ CREATE TABLE `orderr` (
   `client_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `client_phone` int(10) NOT NULL,
   `total_price` decimal(11) NOT NULL,
-  `delivred` tinyint(1) NOT NULL
+  `delivered` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `producer` (
@@ -77,7 +77,7 @@ INSERT INTO `producer` (`id`, `name`, `adress`, `email`, `phone`, `url_img`) VAL
 (2, 'EARL Vauti', '14 rue de leglise', '7u5fzlejetv@temporary-mail.net', '0715264857', 'https://thumbs.dreamstime.com/z/conception-de-logo-ferme-cru-avec-le-symbole-grange-140759530.jpg'),
 (3, 'M.petit', '2 rue du chateau', 'e9txjt64s8b@temporary-mail.net', '0698764356', 'https://cocktail-graphic.com/wp-content/uploads/2017/11/Logo-FERME-AULNAYS.jpg');
 
-INSERT INTO `orderr` (`id`, `client_name`, `client_adress`, `client_email`, `client_phone`, `total_price`,`delivred` ) VALUES
+INSERT INTO `orderr` (`id`, `client_name`, `client_adress`, `client_email`, `client_phone`, `total_price`,`delivered`) VALUES
 (1, 'BLOT', '8 rue des Rouliers', 'tristan.blot@7.com', '0674954544', '25', 1),
 (2, 'DUPONT', '26 boulevard des Colombes', 'dupoint@orange.com', '0774951544', '12', 0),
 (3, 'TULIPE', '12 AVENUE DES TRUITES', 'bellefleur@hotmail.fr', '0774951544', '19', 0);
