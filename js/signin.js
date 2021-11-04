@@ -6,7 +6,7 @@ button_gerant.clicked = false;
 
 button_prod.onclick = function() {
    this.clicked = !this.clicked;
-   let target = document.getElementById('hidden1');
+   let target = document.getElementById('form_prod');
     if (this.clicked) {
         if (button_gerant.clicked) {
             button_gerant.click();
@@ -20,7 +20,7 @@ button_prod.onclick = function() {
 
 button_gerant.onclick = function() {
     this.clicked = !this.clicked;
-    let target = document.getElementById('hidden2');
+    let target = document.getElementById('form_gerant');
      if (this.clicked) {
         if (button_prod.clicked) {
             button_prod.click();
