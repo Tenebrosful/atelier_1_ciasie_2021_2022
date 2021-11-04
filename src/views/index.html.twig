@@ -34,9 +34,11 @@
     <div class="container">
     {% for prod in products %}
       <div class="span">
-        <img class="span-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKs_e9tdbWRTq0ppcLsvKrkrxxdp9aagbRww&usqp=CAU" alt="">
+        <a class="base_link" href="/{{prod.getId()}}">
+        <img class="span-img" src={{prod.getUrlImg()}} alt="">
         <h3>{{prod.getName()}}</h3>
         <p>{{prod.getAmountUnit()}}€ / {{prod.getUnit()}}</p>
+        </a>
         <div class="add">
           <div class="mb-2">
             <div class="justify-center">
