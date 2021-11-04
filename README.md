@@ -7,17 +7,26 @@
 
 ## Contributions
 - Hugo Bernard `bernar323u`
-    *   Modèles de donnée (UML)
-    *   Modèles de Base de Donnée (PHP)
-    *   Setup Git
+    *   Modèles de donnée `UML`
+    *   Modèles de Base de Donnée `PHP`
+    *   Setup Git, workflows et linters
+    *   Review du Front et améliorations `HTML, CSS, JS`
+    *   Validation W3C `HTML, CSS`
 - Tritan Blot `blot32u`
-    *   Diagramme d'utilisation (UML)
-    *   Maquette Web (Schema)
+    *   Scénarios d'usage `UML`
+    *   Maquette Web `Schema`
+    *   Setup Slim `PHP`
+    *   Setup Docker `Docker`
+    *   Script de jeu de donnée `SQL`
+    *   Conversion des pages statiques en pages dynamiques `HTML, Twig, PHP`
 - Bastien Hohler `hohler3u`
-    *   Diagramme d'utilisation (UML)
-    *   Modèles de Base de Donnée (PHP)
-    *   Controlleurs et routes (PHP)
+    *   Scénarios d'usage `UML`
+    *   Modèles de Base de Donnée `PHP`
+    *   Controlleurs et routes `PHP`
+    *   Maquette Web Logging `HTML, CSS, JS`
+    *   Conversion des pages statiques en pages dynamiques `HTML, Twig, PHP`
 - Geoffrey Porayko `porayko1u`
-    *   Diagramme d'utilisation (UML)
-    *   Maquette Web (Schema)
-    *   Maquette Web Client (HTML, CSS, JS)
+    *   Scénarios d'usage `UML`
+    *   Maquette Web `Schema`
+    *   Maquette Web Client `HTML, CSS, JS`
+    *   Conversion des pages statiques en pages dynamiques `HTML, Twig, PHP`
