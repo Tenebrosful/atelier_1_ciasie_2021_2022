@@ -1,4 +1,4 @@
-@for $i from 1 to 5 {
+@for $i from 1 to 6 {
   .mb-#{$i} {
     margin-bottom: $i * 5px;
   }
@@ -10,5 +10,11 @@
   }
   .mr-#{$i} {
     margin-right: $i * 5px;
+  }
+}
+
+@for $i from 1 to 13 {
+  .col-#{$i}{
+    grid-column: $i span;
   }
 }

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/stylework.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title></title>
@@ -18,33 +19,35 @@
         <label class="logo">LeHangar</label>
       </nav>
     </header>
+    <div class="">
     <h1 class="mt-4">Pomme de terre</h1>
-    <div class="container-detail">
-      <div class="span-detail box-shadow bg-white">
-        <img id="detail-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKs_e9tdbWRTq0ppcLsvKrkrxxdp9aagbRww&usqp=CAU" alt="">
-      </div>
-      <div class="span-detail">
-        <div class="add">
-          <div style="margin-top: 30%;">
-            <div class="justify-center">
-              <a class="btn__qte" onclick="minus(prix)"><i class="fas fa-minus fa-2x"></i></a>
-              <div class="form__div mb-3">
-                <input type="number" class="form__input" id="prix" placeholder=" " value="0">
+      <div class="container-detail">
+        <div class="span-detail box-shadow bg-white">
+          <img id="detail-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKs_e9tdbWRTq0ppcLsvKrkrxxdp9aagbRww&usqp=CAU" alt="">
+        </div>
+        <div class="span-detail bg-white">
+          <div class="add">
+            <div style="margin-top: 30%;">
+              <div class="justify-center">
+                <a class="btn__qte" onclick="minus(prix)"><i class="fas fa-minus fa-2x"></i></a>
+                <div class="form__div mb-3">
+                  <input type="number" class="form__input" id="prix" placeholder=" " value="0">
+                </div>
+                <a class="btn__qte" href="#" onclick="plus(prix)"><i class="fas fa-plus fa-2x"></i></a>
               </div>
-              <a class="btn__qte" href="#" onclick="plus(prix)"><i class="fas fa-plus fa-2x"></i></a>
+              <p>2.00€ / kilo</p>
+              <br>
             </div>
-            <p>2.00€ / kilo</p>
-            <br>
+            <a href="#" class="btn" onclick="add(prix)">Ajouter au panier</a>
           </div>
-          <a href="#" class="btn" onclick="add(prix)">Ajouter au panier</a>
+        </div>
+        <div class="span-detail">
+          <h2>Produit par ...</h2>
+        </div>
+        <div class="span-detail border bg-white" id="descriptionProduit">
+          <p>description</p>
         </div>
       </div>
-      <div class="span-detail">
-        <h2>Produit par ...</h2>
-      </div>
-      <div class="span-detail border" id="descriptionProduit">
-        <p>description</p>
-    </div>
     </div>
     <script src="./js/main.js"></script>
   </body>

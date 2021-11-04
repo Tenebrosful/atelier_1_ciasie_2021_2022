@@ -37,15 +37,25 @@
   box-sizing: border-box;
 }
 
+html{
+  height: 100%;
+}
+
+head{
+  height: 60px;
+}
+
 body {
   font-family: Montserrat, sans-serif;
   overflow-x: hidden;
   background: radial-gradient(white, rgb(184	184	184));
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 100%;
+  grid-template-rows: 60px; 100%;
   overflow-y: auto;
+  height: 100%;
 }
+
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -124,6 +134,8 @@ nav ul li a {
   grid-auto-rows: minmax(auto, auto);
   justify-content: center;
   background-color: rgb(0 0 0 / 0%);
+  max-height: 100%;
+  position: relative;
 }
 
 .span {
@@ -275,7 +287,7 @@ h1 {
 html .side-menu {
   display: inline-block;
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 300px;
   background-color: rgb(96	199	154 / 90%);
   border: 2px solid #b8b8b8;
@@ -283,12 +295,15 @@ html .side-menu {
   overflow-x: hidden;
   transition: width 1s;
   z-index: 3;
+  border-radius: 10px;
 }
 
 html body .content {
   flex: 1 1 auto;
   width: 300px;
+  height: 100%;
   position: absolute;
+  top:60px;
 }
 
 html body .content #list-toggle {
@@ -299,12 +314,12 @@ html body .content #list-toggle + label {
   position: absolute;
   top: 40%;
   left: 298px;
-  background-color: rgb(184	184	184 / 60%);
+  background-color: rgb(154	154	154 /90%);
   border: 2px solid #b8b8b8;
   border-top-right-radius: 110px;
   border-bottom-right-radius: 110px;
   padding: 10px 15px 10px 10px;
-  font-size: 20px;
+  font-size: 26px;
   transition: left 1s;
   z-index: 1;
 }
@@ -314,7 +329,7 @@ html body .content #list-toggle + label::after {
 }
 
 html body .content #list-toggle + label:hover {
-  background: rgb(96	199	154 / 10%);
+  background: rgb(184	184	184 / 90%);
 }
 
 html body .content #list-toggle:checked ~ .side-menu {
@@ -447,13 +462,22 @@ html body .content #list-toggle:checked + label::after {
   justify-content: center;
 }
 
+td a{
+  color: #3a6890;
+}
+
+td a:hover{
+  text-decoration: underline;
+}
+
 .titreListe {
   text-align: center;
   display: table-cell;
   vertical-align: middle;
   margin: 0;
   background-color: white;
-  height: 10vh;
+  height: auto;
+  padding: 1%;
   width: 100vw;
   box-shadow: 3px 2px 3px 1px rgb(0 0 0 / 20%);
 }
@@ -489,6 +513,10 @@ html body .content #list-toggle:checked + label::after {
   border: none;
 }
 
+.listProduct td img{
+  height: 100px;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~ Media Query starts ~~~~~~~~~~~~~~~~~~~~~ */
 @media (max-width: 634px) {
   a:hover {
@@ -513,70 +541,6 @@ html body .content #list-toggle:checked + label::after {
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~ Media query ends ~~~~~~~~~~~~~~~~~~~~~ */
-
-.mb-1 {
-  margin-bottom: 5px;
-}
-
-.mt-1 {
-  margin-top: 5px;
-}
-
-.ml-1 {
-  margin-left: 5px;
-}
-
-.mr-1 {
-  margin-right: 5px;
-}
-
-.mb-2 {
-  margin-bottom: 10px;
-}
-
-.mt-2 {
-  margin-top: 10px;
-}
-
-.ml-2 {
-  margin-left: 10px;
-}
-
-.mr-2 {
-  margin-right: 10px;
-}
-
-.mb-3 {
-  margin-bottom: 15px;
-}
-
-.mt-3 {
-  margin-top: 15px;
-}
-
-.ml-3 {
-  margin-left: 15px;
-}
-
-.mr-3 {
-  margin-right: 15px;
-}
-
-.mb-4 {
-  margin-bottom: 20px;
-}
-
-.mt-4 {
-  margin-top: 20px;
-}
-
-.ml-4 {
-  margin-left: 20px;
-}
-
-.mr-4 {
-  margin-right: 20px;
-}
 
 .border {
   border: solid black 1px;
