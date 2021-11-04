@@ -42,7 +42,7 @@ INSERT INTO `product` (`id`, `name`, `price`, `amount_unit`, `unit`, `descriptio
 (2, 'Crème fraiche BIO', '7.20', '1.80', '20cl', 'Crème fraiche mais trop', 'https://panieronaturel.com/wp-content/uploads/2020/01/cr%C3%A8me-fraiche.jpg'),
 (3, 'Navet BIO', '2', '2', '1kg', 'Navet', 'https://www.meillandrichardier.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/4/4/4461-4462-navet_de_nancy-ho-tg171102.jpg');
 
-CREATE TABLE `orderr` (
+CREATE TABLE `order` (
   `id` int(11) NOT NULL,
   `client_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `client_adress` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -77,7 +77,7 @@ INSERT INTO `producer` (`id`, `name`, `adress`, `email`, `phone`, `url_img`) VAL
 (2, 'EARL Vauti', '14 rue de leglise', '7u5fzlejetv@temporary-mail.net', '0715264857', 'https://thumbs.dreamstime.com/z/conception-de-logo-ferme-cru-avec-le-symbole-grange-140759530.jpg'),
 (3, 'M.petit', '2 rue du chateau', 'e9txjt64s8b@temporary-mail.net', '0698764356', 'https://cocktail-graphic.com/wp-content/uploads/2017/11/Logo-FERME-AULNAYS.jpg');
 
-INSERT INTO `orderr` (`id`, `client_name`, `client_adress`, `client_email`, `client_phone`, `total_price`,`delivered`) VALUES
+INSERT INTO `order` (`id`, `client_name`, `client_adress`, `client_email`, `client_phone`, `total_price`,`delivered` ) VALUES
 (1, 'BLOT', '8 rue des Rouliers', 'tristan.blot@7.com', '0674954544', '25', 1),
 (2, 'DUPONT', '26 boulevard des Colombes', 'dupoint@orange.com', '0774951544', '12', 0),
 (3, 'TULIPE', '12 AVENUE DES TRUITES', 'bellefleur@hotmail.fr', '0774951544', '19', 0);
