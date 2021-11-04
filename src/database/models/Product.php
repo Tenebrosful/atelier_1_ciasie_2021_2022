@@ -27,6 +27,11 @@ class Product
      */
     private $description;
     /**
+     *    @var string
+     *    @ORM\Column(type="string")
+     */
+    private $url_img;
+    /**
      *    @var float
      *    @ORM\Column(type="float")
      */
@@ -86,6 +91,17 @@ class Product
     public function setDescription(string $description): bool
     {
         $this->description = $description;
+        return true;
+    }
+
+    public function getUrlImg(): string
+    {
+        return $this->url_img;
+    }
+
+    public function setUrlImg(string $url_img): bool
+    {
+        $this->url_img = $url_img;
         return true;
     }
 
