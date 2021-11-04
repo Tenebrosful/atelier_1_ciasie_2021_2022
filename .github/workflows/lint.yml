@@ -28,7 +28,7 @@ jobs:
         
       - name: Run HTML-Validate
         run: npm run html-validate
-        
+
       - name: Get composer cache directory
         id: composer_config
         uses: baschny/php-composer-action@v1
