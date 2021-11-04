@@ -65,7 +65,7 @@ label.logo {
 }
 
 button:focus {
-  outline:0;
+  outline: 0;
 }
 
 .button_login {
@@ -102,4 +102,3 @@ form input {
   height: 30px;
   text-align: center;
 }
-
