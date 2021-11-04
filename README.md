@@ -9,12 +9,15 @@
 - Hugo Bernard `bernar323u`
     *   Modèles de donnée (UML)
     *   Modèles de Base de Donnée (PHP)
+    *   Setup Git
 - Tritan Blot `blot32u`
     *   Diagramme d'utilisation (UML)
     *   Maquette Web (Schema)
 - Bastien Hohler `hohler3u`
     *   Diagramme d'utilisation (UML)
     *   Modèles de Base de Donnée (PHP)
+    *   Controlleurs et routes (PHP)
 - Geoffrey Porayko `porayko1u`
     *   Diagramme d'utilisation (UML)
     *   Maquette Web (Schema)
+    *   Maquette Web Client (HTML, CSS, JS)
