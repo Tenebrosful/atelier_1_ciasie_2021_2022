@@ -16,6 +16,7 @@
 - Bastien Hohler `hohler3u`
     *   Diagramme d'utilisation (UML)
     *   Modèles de Base de Donnée (PHP)
+    *   Controlleurs et routes (PHP)
 - Geoffrey Porayko `porayko1u`
     *   Diagramme d'utilisation (UML)
     *   Maquette Web (Schema)
