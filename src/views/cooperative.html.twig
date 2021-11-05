@@ -10,20 +10,25 @@
     <div class="container">
       <h3>Liste commandes</h3>
       <ul id="incomplete-tasks">
-      {% for ord in order %}
-       <li id="{{ord.getId()}}"> <label>{{ord.getClientName()}}</label>     <p>Produits : Lait(Ferme du Bocage) x5  Camenbert(EARL des rouilers) x 2 </p><label class="livrec">Livré:</label><input class="checkbox"type="checkbox"></input><button class="btn">Description</button>
-        <div id="{{ord.getId()}}des" class="popup">
-        <span id="btnClose" class="btnClose">&times;</span>
-        </div>
-       </li>
-      {% endfor %}
+        {% for ord in order %}
+          <li id="{{ord.getId()}}">
+            <label>{{ord.getClientName()}}</label>
+            <p>Produits : Lait(Ferme du Bocage) x5 Camenbert(EARL des rouilers) x 2</p>
+            <label class="livrec">Livré:</label>
+            <input class="checkbox" type="checkbox">
+            <button type="button" class="btn">Description</button>
+            <div id="{{ord.getId()}}des" class="popup">
+              <span id="btnClose" class="btnClose">&times;</span>
+            </div>
+          </li>
+        {% endfor %}
       </ul>
       <h3>Historique</h3>
       <ul id="completed-tasks">
       </ul>
     </div>
-     {% for p in po %}
-     {{p.getOrder()}}
+    {% for p in po %}
+      {{p.getOrder()}}
     {% endfor %}
   </body>
 </html>
