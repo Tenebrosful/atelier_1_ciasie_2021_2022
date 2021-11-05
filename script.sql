@@ -62,3 +62,7 @@ INSERT INTO `productOrder` (`order_id`, `product_id`, `amount`) VALUES
 (1, 1, 4),
 (2, 1, 4),
 (1, 2, 3);
+
+INSERT INTO `category` (`name`, `description`) VALUES
+('Produit Laitier', 'Produits issue du lait'),
+('Légume', 'Légumes');
