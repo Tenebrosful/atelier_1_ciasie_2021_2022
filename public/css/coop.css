@@ -1,0 +1,52 @@
+body {
+    font-family: Montserrat, sans-serif;
+    background: radial-gradient(white, rgb(184	184	184));
+    height: 100%;
+  }
+
+  .container {
+   margin-left: 1em;
+   margin-right: auto;
+   max-width: 700px;
+  }
+
+  /*Label avec le nom de la commande*/
+  .checked{
+      display: none;
+  }
+
+  .delivred{
+    color: grey;
+    text-decoration: line-through;
+  }
+
+  .notchecked{
+      color: black;
+  }
+
+  .btn{
+      margin-left: 5em;
+  }
+  label{
+      margin-left: 1em;
+  }
+  input{
+    margin-left: 1em;
+}
+
+ul{
+    list-style:none;
+}
+li{
+    border: 0.1rem solid;
+    margin-bottom: 0.3em;
+    border-radius: 10px;
+    border-color: rgb(112, 255, 76);
+    padding: 1em;
+    background:
+    linear-gradient(
+      93deg,
+      rgb(37	105	75 / 100%) 16%,
+      rgb(77	192	142 / 100%) 55%
+    );
+}
