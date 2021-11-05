@@ -146,3 +146,4 @@ jobs:
     needs: [css, scss, js, html, twig, php]
     steps:
       - name: All done
+        run: echo "All done !"
