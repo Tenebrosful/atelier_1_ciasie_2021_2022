@@ -27,7 +27,7 @@ btnclose.forEach(btnc =>{
 })
 
 boutons.forEach(btn => {
-  btn.addEventListener('click',openMoadl);
+  btn.addEventListener('click',openModal);
 })
 
 description.forEach(pop =>{
@@ -40,7 +40,7 @@ function closeModal() {
   popup.style.display='none';
 }
 
-function openMoadl() {
+function openModal() {
   var id = btn.parentNode.id;
   const popup = document.getElementById(id+"des");
   popup.style.display = "block";
