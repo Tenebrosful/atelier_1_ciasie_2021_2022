@@ -6,7 +6,7 @@ use DI\ContainerBuilder;
 define('APP_ROOT', __DIR__);
 
 return function (ContainerBuilder $containerBuilder) {
-    if (is_array($bddConfig = parse_ini_file(__DIR__ . '/config/bdd.ini')))
+    if (is_array($bddConfig = parse_ini_file(__DIR__ . '/bdd.ini')))
         $containerBuilder->addDefinitions([
             'settings' => [
                 'displayErrorDetails' => true,
