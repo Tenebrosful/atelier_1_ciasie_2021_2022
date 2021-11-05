@@ -1,5 +1,23 @@
 # leHangar.local - Atelier du 02/11/2021 au 06/11/2021
 
+## Installation
+- `composer install`
+- `npm install`
+- [Setup BDD côté PHP](config/)
+- Setup DBB côté Docker
+
+Créer le fichier docker-compose.env à la racine du projet comme suit : 
+```
+MYSQL_ROOT_PASSWORD=
+MYSQL_USER=
+MYSQL_PASSWORD=
+MYSQL_DATABASE=
+```
+- `composer run build`
+
+## Démarrage
+- `composer run start` ou `composer run restart`
+
 ## Documents fournis
 - [Présentation du sujet](https://arche.univ-lorraine.fr/pluginfile.php/2676892/mod_resource/content/0/prez-cc.pdf "Présentation du sujet sous forme de slides hébergé sur Arches")
 - [Cahier des charges](https://arche.univ-lorraine.fr/pluginfile.php/2676864/mod_resource/content/0/atelier-1-2021-CC.pdf "Cachier des charges sous forme PDF hébergé sur Arches")
