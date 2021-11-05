@@ -1,6 +1,6 @@
 function getProducers(number){
   let page = document.getElementById("page")
-  if(page.value != 1 || number != -1){
+  if(page.value !== 1 || number !== -1){
     let nbpage = parseInt(page.value)+ parseInt(number)
     page.value = nbpage
     axios.get('/producers?page='+nbpage ,)
