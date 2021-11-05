@@ -42,7 +42,8 @@ MYSQL_DATABASE=
     *   Modèles de Base de Donnée `PHP`
     *   Controlleurs et routes `PHP`
     *   Maquette Web Logging `HTML, CSS, JS`
-    *   Conversion des pages statiques en pages dynamiques `HTML, Twig, PHP`
+    *   Conversion des pages statiques en pages dynamiques `HTML, Twig, PHP` (Panier, catalogue et détails)
+    *   Ajout à un panier, validation et création de la commande `HTML, PHP`
 - Geoffrey Porayko `porayko1u`
     *   Scénarios d'usage `UML`
     *   Maquette Web `Schema`
