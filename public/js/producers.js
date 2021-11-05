@@ -1,3 +1,5 @@
+/*global axios*/
+
 function getProducers(number){
   let page = document.getElementById("page")
   if(page.value !== 1 || number !== -1){

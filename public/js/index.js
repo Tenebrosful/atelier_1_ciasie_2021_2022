@@ -1,3 +1,5 @@
+/*global axios*/
+
 let categories = document.getElementsByName("categorie")
 let filter = document.getElementById("filter")
 
