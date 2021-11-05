@@ -108,7 +108,7 @@ class Producer
 
     public function getEmail(): string
     {
-        return $this->description;
+        return $this->email;
     }
 
     public function setEmail(string $email): bool
@@ -132,7 +132,7 @@ class Producer
     {
         return $this->products;
     }
-    
+
     public function addProduct(Product $product) {
         $this->products[] = $product;
     }

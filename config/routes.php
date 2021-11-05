@@ -9,6 +9,7 @@ use Slim\Views\Twig;
 require_once '../src/Controllers/ProductController.php';
 require_once '../src/Controllers/CategoryController.php';
 require_once '../src/Controllers/OrderController.php';
+require_once '../src/Controllers/ProducerController.php';
 
 $app->get('/', function ($request, $response, array $args) {
     $pc = new ProductController($this->get(EntityManager::class));
@@ -16,7 +17,7 @@ $app->get('/', function ($request, $response, array $args) {
     $products = $pc->getAll();
     $categories = $ct->getAll();
 
-    return $this->get(Twig::class)->render($response, "index.html.twig", ['products' => $products, 'categories' => $categories]);
+    return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories]);
 });
 
 $app->get('/product/{id}', function ($request, $response, array $args) {
@@ -60,6 +61,12 @@ $app->post('/panier/add/{id}', function ($request, $response, array $args) {
             array_push($_SESSION['panier'], [$args['id'], $quantity]);
         }
     }
+    if (!$already_in) {
+        $po = new ProductOrder();
+        $po->setProduct($prod);
+        $po->setQuantity($quantity);
+        array_push($_SESSION['panier'],serialize($po));
+    }
 
     return $this->get(Twig::class)->render($response, "index.html.twig");
 });
@@ -76,4 +83,16 @@ $app->get('/coop', function ($request, $response, array $args) {
     $pc = new OrderController($this->get(EntityManager::class));
     $order = $pc->getAll();
     return $this->get(Twig::class)->render($response, "cooperative.html.twig", ['order' => $order]);
+});
+
+$app->get('/producers',function ($request, $response, array $args){
+    $pc = new ProducerController($this->get(EntityManager::class));
+    if(isset($request->getQueryParams()["page"])){
+      $producers =$pc->encodeProductsJson($pc->getByPage($request->getQueryParams()["page"]));
+      $response->getBody()->write(json_encode($producers));
+      return $response;
+    }else{
+      $producers = $pc->getAll();
+      return $this->get(Twig::class)->render($response,"producers.html.twig", ['producers' => $producers]);
+    }
 });
