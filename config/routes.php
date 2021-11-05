@@ -44,21 +44,23 @@ $app->post('/panier/add/{id}', function ($request, $response, array $args) {
     $already_in = false;
     $quantity = $request->getParsedBody()['input'];
 
-    //Check si l'item est déjà présent dans le panier
-    for ($i=0; $i<count($_SESSION['panier']); $i++ ) {
-        $item = unserialize($_SESSION['panier'][$i]);
-        if ($item->getProduct()->getId() == $args['id']) {
-            $old_qty = $item->getQuantity();
-            $item->setQuantity($old_qty + $quantity);
-            $_SESSION['panier'][$i] = serialize($item);
-            $already_in = true;
+    if ($quantity > 0){
+        //Check si l'item est déjà présent dans le panier
+        for ($i=0; $i<count($_SESSION['panier']); $i++ ) {
+            $item = unserialize($_SESSION['panier'][$i]);
+            if ($item->getProduct()->getId() == $args['id']) {
+                $old_qty = $item->getQuantity();
+                $item->setQuantity($old_qty + $quantity);
+                $_SESSION['panier'][$i] = serialize($item);
+                $already_in = true;
+            }
         }
-    }
-    if (!$already_in) {
-        $po = new ProductOrder();
-        $po->setProduct($prod);
-        $po->setQuantity($quantity);
-        array_push($_SESSION['panier'],serialize($po));
+        if (!$already_in) {
+            $po = new ProductOrder();
+            $po->setProduct($prod);
+            $po->setQuantity($quantity);
+            array_push($_SESSION['panier'],serialize($po));
+        }
     }
     
     return $this->get(Twig::class)->render($response, "index.html.twig");
