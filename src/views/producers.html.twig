@@ -26,8 +26,8 @@
             <td class="p-1 pl-3"><img src="{{producer.getUrlImg}}" alt=""></td>
             <td>{{producer.getName}}</td>
             <td>{{producer.getDescription}}</td>
-            <td><a href="#">{{producer.getEmail}}</a></td>
             <td><a href="/producer/{{producer.getId}}">à propos</a></td>
+            <td><a target="_blank" href="mailto:{{producer.getEmail()}}">{{producer.getEmail()}}</a></td>
           </tr>
           {% endfor %}
         </tbody>
