@@ -40,7 +40,7 @@
 					</form>
 				</div>
 				<div class="span-detail">
-					<h2>Produit par {{prod.getProducer().getName()}}</h2>
+					<h2>Produit par <a href="/producer/{{prod.getProducer().getId()}}">{{prod.getProducer().getName()}}</a></h2>
 				</div>
 				<div class="span-detail border bg-white" id="descriptionProduit">
 					<p>{{prod.getDescription()}}</p>
