@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
 		<script src="/js/main.js" defer></script>
+		<script src="/js/validation_cart.js" defer></script>
 		<title>LeHangar - Panier</title>
 	</head>
 	<body>
@@ -16,48 +17,78 @@
 			{% set total = 0 %}
 			<div class="container-detail mt-5 p-1">
 				<div class="span-detail box-shadow bg-white col-2 p-2">
-         {% if panier == null %}
-            <p> Votre panier est vide.</p>
-          {% else %}
-					{% for prodorder in panier %}
-          {% set prod = prodorder.getProduct() %}
-						<div class="rowProduct">
-							<div class="cell row-2">
-								<a href="/product/{{prod.getId()}}"><img class="cart-img" src="{{prod.getUrlImg()}}" alt="Image du produit {{prod.getName()}}"></a>
+					{% if panier == null %}
+						<p>Votre panier est vide.</p>
+					{% else %}
+						{% for prodorder in panier %}
+							{% set prod = prodorder.getProduct() %}
+							<div class="rowProduct">
+								<div class="cell row-2">
+									<a href="/product/{{prod.getId()}}"><img class="cart-img" src="{{prod.getUrlImg()}}" alt="Image du produit {{prod.getName()}}"></a>
+								</div>
+								<div class="cell">
+									<a href="/product/{{prod.getId()}}">{{prod.getName()}}</a>
+								</div>
+								<div class="cell">
+									<p>{{prod.getPrice()|number_format(2, ",", " ")}}€ /
+										{{prod.getAmountUnit()}}{{prod.getUnit()}}
+										x
+										{{prodorder.getQuantity()}}</p>
+								</div>
+								<div class="cell">
+									<a href="/producer/{{prod.getProducer().getId()}}">{{prod.getProducer().getName()}}</a>
+								</div>
+								<div class="cell">
+									<p class="fz-10">prix =
+										{{(prod.getPrice() * prodorder.getQuantity())|number_format(2, ",", " ")}}€
+									</p>
+								</div>
+								{% set total = total + prod.getPrice() * prodorder.getQuantity() %}
 							</div>
-							<div class="cell">
-								<a href="/product/{{prod.getId()}}">{{prod.getName()}}</a>
-							</div>
-							<div class="cell">
-								<p>{{prod.getPrice()|number_format(2, ",", " ")}}€ / {{prod.getAmountUnit()}}{{prod.getUnit()}} x {{prodorder.getQuantity()}}</p>
-							</div>
-							<div class="cell">
-								<a href="/producer/{{prod.getProducer().getId()}}">{{prod.getProducer().getName()}}</a>
-							</div>
-							<div class="cell">
-								<p class="fz-10">prix =
-									{{(prod.getPrice() * prodorder.getQuantity())|number_format(2, ",", " ")}}€
-								</p>
-							</div>
-							{% set total = total + prod.getPrice() * prodorder.getQuantity() %}
+						{% endfor %}
+					</div>
+					<div class="span-detail box-shadow bg-white p-2">
+						<h3>Total =
+							{{total|number_format(2, ",", " ")}}€</h3>
+					</div>
+
+					<div class="btns-panier">
+						<div class="p-2">
+							<a id="btnValidate">Valider la commande</a>
 						</div>
-					{% endfor %}
-				</div>
-				<div class="span-detail box-shadow bg-white p-2">
-					<h3>Total =
-						{{total|number_format(2, ",", " ")}}€</h3>
-				</div>
-				<div class="btns-panier">
-					<div class="p-2">
-						<a class="btnValidate" href="#">Valider la commande</a>
+						<div class="p-2">
+							<a class="btnEmptyCart" href="/panier/empty">Vider le panier</a>
+						</div>
 					</div>
-					<div class="p-2">
-						<a class="btnEmptyCart" href="/panier/empty">Vider le panier</a>
-					</div>
-				</div>
-        {% endif %}
+				{% endif %}
 			</div>
+			{% if panier != null %}
+				<div id='form_client' class="centered">
+					<form class="form formlogin span-detail box-shadow bg-white mt-3 p-4" action="/panier/validation" method="post">
+						<label for="order_name">
+							<b>Nom</b>
+						</label>
+						<input class="mb-3" id="order_name" type="text" autocomplete="username" placeholder="Saisissez votre nom" name="name" required>
+
+						<label for="order_adress">
+							<b>Adresse</b>
+						</label>
+						<input class="mb-3 adresse" id="order_adress" type="text" placeholder="Saisissez votre adresse" name="address" required>
+
+						<label for="order_phone">
+							<b>N° de téléphone</b>
+						</label>
+						<input class="mb-3" id="order_phone" type="text" autocomplete="username" placeholder="Saisissez votre n° de téléphone" name="phone" required>
+
+						<label for="order_mail">
+							<b>Adresse Email</b>
+						</label>
+						<input class="mb-3" id="order_mail" type="text" autocomplete="username" placeholder="Saisissez votre adresse mail" name="mail" required>
+
+						<button class="button_login" type="submit">Commander</button>
+					</form>
+				</div>
+			{% endif %}
 		</div>
 	</body>
-
-</html>
+</html></body></html>

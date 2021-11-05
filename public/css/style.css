@@ -406,6 +406,19 @@ html body .content #list-toggle:checked + label::after {
   width: 50px;
 }
 
+.formlogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  width: 500px;
+}
+
+.centered { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .span-detail .form__div {
   position: relative;
   height: 50px;
@@ -651,7 +664,7 @@ td a:hover {
   transition: transform 80ms ease-in;
 }
 
-.btnValidate, .btnEmptyCart {
+#btnValidate, .btnEmptyCart {
   border-radius: 20px;
   border: 1px solid green;
   background-color: #2ca95f;
@@ -664,12 +677,12 @@ td a:hover {
   transition: transform 80ms ease-in;
 }
 
-.btnValidate {
+#btnValidate {
   border: 1px solid green;
   background-color: #2ca95f;
 }
 
-.btnValidate:hover {
+#btnValidate:hover {
   background-color: #19da68;
 }
 
@@ -692,21 +705,22 @@ td a:hover {
   margin-top: 10px;
 }
 
-.formlogin {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  justify-content: space-evenly;
-  font-size: 20px;
-}
-
 .form input {
   margin: 10px;
   border-radius: 10px;
   width: 200px;
   height: 30px;
   text-align: center;
+}
+
+.form input.adresse {
+  width: 300px;
+}
+
+#form_client {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.8s ease;
 }
 
 .base_link {
@@ -716,4 +730,10 @@ td a:hover {
 
 .cart-img {
   max-height: 100px;
+}
+
+#form_user {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.8s ease;
 }
