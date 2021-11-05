@@ -341,3 +341,5 @@ phplint.cache
 
 *.ini
 *.env
+
+db_data/
