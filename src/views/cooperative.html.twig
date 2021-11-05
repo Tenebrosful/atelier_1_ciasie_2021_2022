@@ -1,43 +1,23 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
   <head>
-    <title>Todo App</title>
-    <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
-    <style>
-    /* Basic Style */
-    body {
-      background: #fff;
-      color: #333;
-      font-family: Lato, sans-serif;
-    }
-    .container {
-      display: block;
-      width: 400px;
-      margin: 100px auto 0;
-    }
-
-    /*Label avec le nom de la commande*/
-    .nomcommande{
-        margin-right: 2em;
-    }
-    </style>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/coop.css">
+    <title></title>
   </head>
   <body>
     <div class="container">
-      <p>
-     <button>Add</button>
-      </p>
 
       <h3>Liste commandes</h3>
       <ul id="incomplete-tasks">
       {% for ord in order %}
-       <li><label>{{ord.getClientName()}}</label><input class="checkbox"type="checkbox"></input><button class="voir">Voir</button>
+       <li name="{{ord.getId()}}">{{ord.getClientName()}} <label>Livré</label> :<input class="checkbox"type="checkbox"></input><button class="btn">Description</button>
        </li>
       {% endfor %}
       </ul>
 
       <h3>Historique</h3>
       <ul id="completed-tasks">
-
       </ul>
     </div>
 
