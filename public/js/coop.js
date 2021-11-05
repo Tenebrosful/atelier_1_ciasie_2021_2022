@@ -24,24 +24,24 @@ checkbox.forEach(e => {
 
 btnclose.forEach(btnc =>{
   btnc.addEventListener('click',closeModal);
-  function closeModal() {
-  var id = btnc.parentNode.parentNode.id;
-  popup = document.getElementById(id+"des");
-  popup.style.display='none';
-  }
 })
-
-
 
 boutons.forEach(btn => {
   btn.addEventListener('click',openMoadl);
-  function openMoadl() {
-    var id = btn.parentNode.id;
-    popup = document.getElementById(id+"des");
-    popup.style.display = "block";
-  }
 })
 
 description.forEach(pop =>{
   description.innerHTML = pop.parentNode.className;
 })
+
+function closeModal() {
+  var id = btnc.parentNode.parentNode.id;
+  const popup = document.getElementById(id+"des");
+  popup.style.display='none';
+}
+
+function openMoadl() {
+  var id = btn.parentNode.id;
+  const popup = document.getElementById(id+"des");
+  popup.style.display = "block";
+}
