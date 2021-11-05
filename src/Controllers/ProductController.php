@@ -21,6 +21,11 @@ class ProductController {
         return $this->em->find('Product',$id);
     }
 
+    public function getByCateg($array)
+    {
+        return $this->em->getRepository('Product')->findBy(array('category' => $this->em->getRepository('Category')->findBy(array("id" => $array))));
+    }
+
     public function getAll()
     {
         return $this->em->getRepository(Product::class)->findAll();

@@ -15,7 +15,6 @@ $app->get('/',function ($request, $response, array $args){
     $ct = new CategoryController($this->get(EntityManager::class));
     $products = $pc->getAll();
     $categories = $ct->getAll();
-    session_start();
     if (!isset($_SESSION['panier'])) {
         $_SESSION['panier'] = array();
     }
@@ -67,7 +66,7 @@ $app->post('/panier/add/{id}', function ($request, $response, array $args) {
 
 $app->get('/products', function ($request, $response, array $args){
     $pc = new ProductController($this->get(EntityManager::class));
-    $products = $pc->encodeProductsJson($pc->getAll());
+    $products = $pc->encodeProductsJson($pc->getByCateg(explode(',', $request->getQueryParams()["categ"])));
     $response->getBody()->write(json_encode($products));
     return $response;
 });
