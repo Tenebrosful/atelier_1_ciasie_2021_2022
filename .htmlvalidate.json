@@ -9,6 +9,7 @@
         "no-style-tag": "error",
         "no-unknown-elements": "error",
         "heading-level": "off",
-        "input-missing-label": "off"
+        "input-missing-label": "off",
+        "missing-doctype": "off"
     }
 }
