@@ -14,7 +14,7 @@ jobs:
         
   npm:
     name: Install Node Packages
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     needs: [checkout]
     steps:
       - name: npm ci
@@ -22,7 +22,7 @@ jobs:
         
   composer:
     name: Install Composer packages
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     needs: [checkout]
     steps:
       - name: Get composer cache directory
