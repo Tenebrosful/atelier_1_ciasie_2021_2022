@@ -39,7 +39,6 @@
 
 html {
   height: 100%;
-  overflow-y: auto;
 }
 
 head {
@@ -48,7 +47,7 @@ head {
 
 body {
   font-family: Montserrat, sans-serif;
-  overflow: hidden;
+  overflow: auto;
   background: radial-gradient(white, rgb(184	184	184));
   display: grid;
   grid-template-columns: 100%;
