@@ -27,6 +27,7 @@
             <td><a href="/producer/{{producer.getId()}}">{{producer.getName()}}</a></td>
             <td>{{producer.getDescription()}}</td>
             <td><a target="_blank" href="mailto:{{producer.getEmail()}}">{{producer.getEmail()}}</a></td>
+            <td><a target="_blank" href="tel:{{producer.getPhone()}}">{{producer.getPhone()}}</a></td>
           </tr>
           {% endfor %}
         </tbody>
