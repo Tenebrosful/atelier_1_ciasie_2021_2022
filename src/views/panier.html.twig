@@ -24,10 +24,10 @@
           {% set prod = prodorder.getProduct() %}
 						<div class="rowProduct">
 							<div class="cell row-2">
-								<img class="cart-img" src={{prod.getUrlImg()}} alt="">
+								<a href="/product/{{prod.getId()}}"><img class="cart-img" src={{prod.getUrlImg()}} alt=""></a>
 							</div>
 							<div class="cell">
-								<p>{{prod.getName()}}</p>
+								<a href="/product/{{prod.getId()}}">{{prod.getName()}}</a>
 							</div>
 							<div class="cell">
 								<p>{{prod.getPrice()}}€ / {{prod.getAmountUnit()}}{{prod.getUnit()}}  x {{prodorder.getQuantity()}}</p>
