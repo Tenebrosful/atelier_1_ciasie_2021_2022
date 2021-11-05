@@ -31,7 +31,7 @@
     {% for prod in products %}
       <div class="span">
         <a class="base_link" href="/product/{{prod.getId()}}">
-        <img class="span-img" src={{prod.getUrlImg()}} alt="">
+        <img class="span-img" src="{{prod.getUrlImg()}}" alt="">
         <h3>{{prod.getName()}}</h3>
         <p>{{prod.getPrice()|number_format(2, ",", " ")}}€ / {{prod.getAmountUnit()}}{{prod.getUnit()}}</p>
         </a>

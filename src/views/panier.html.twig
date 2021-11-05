@@ -24,7 +24,7 @@
           {% set prod = prodorder.getProduct() %}
 						<div class="rowProduct">
 							<div class="cell row-2">
-								<a href="/product/{{prod.getId()}}"><img class="cart-img" src={{prod.getUrlImg()}} alt=""></a>
+								<a href="/product/{{prod.getId()}}"><img class="cart-img" src="{{prod.getUrlImg()}}" alt="Image du produit {{prod.getName()}}"></a>
 							</div>
 							<div class="cell">
 								<a href="/product/{{prod.getId()}}">{{prod.getName()}}</a>

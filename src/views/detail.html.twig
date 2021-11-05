@@ -17,7 +17,7 @@
 			<h1 class="mt-4">{{prod.getName()}}</h1>
 			<div class="container-detail">
 				<div class="span-detail box-shadow bg-white">
-					<img id="detail-img" src={{prod.getUrlImg()}} alt="">
+					<img id="detail-img" src="{{prod.getUrlImg()}}" alt="">
 				</div>
 				<div class="span-detail bg-white">
 					<form class="add" method="post" action="/panier/add/{{prod.getId()}}" target="dummyframe">
