@@ -46,7 +46,7 @@ $app->get('/panier/empty', function ($request, $response, array $args) {
 
 $app->post('/panier/add/{id}', function ($request, $response, array $args) {
     $already_in = false;
-    $quantity = intval($request->getParsedBody()['input']);
+    $quantity = intval($request->getParsedBody()['qnt_article']);
 
     if ($quantity > 0) {
         //Check si l'item est déjà présent dans le panier
