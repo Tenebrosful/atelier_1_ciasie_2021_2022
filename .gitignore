@@ -338,3 +338,5 @@ vendor/
 
 # phplint
 phplint.cache
+
+*.ini
