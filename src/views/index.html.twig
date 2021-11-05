@@ -20,9 +20,14 @@
       <div class="side-menu">
         <h2 class="display-6 mt-3"> Catégories</h2>
           <table id="categorie" class="mt-4">
-            {% for categ in categories %}
-            <tr><td class="align-right"><input type="checkbox" name="categorie" value="{{categ.id}}" checked></td><td class="align-left">{{categ.name}}</td></tr>
-            {% endfor %}
+            <tbody>
+              {% for categ in categories %}
+              <tr>
+                <td class="align-right"><input type="checkbox" name="categorie" value="{{categ.id}}" checked></td>
+                <td class="align-left">{{categ.name}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
           </table>
           <button type="button" name="filter" id="filter" onclick="getProduct()">Filtrer</button>
       </div>
