@@ -654,7 +654,7 @@ td a:hover {
   transition: transform 80ms ease-in;
 }
 
-.btnValidate {
+.btnValidate, .btnEmptyCart {
   border-radius: 20px;
   border: 1px solid green;
   background-color: #2ca95f;
@@ -667,10 +667,29 @@ td a:hover {
   transition: transform 80ms ease-in;
 }
 
+.btnValidate {
+  border: 1px solid green;
+  background-color: #2ca95f;
+}
+
 .btnValidate:hover {
   background-color: #19da68;
 }
 
+.btnEmptyCart {
+  border: 1px solid red;
+  background-color: #ff4b2b;
+}
+
+.btnEmptyCart:hover {
+  background-color: lightcoral;
+}
+
+.btns-panier {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .login {
   text-align: center;
   margin-top: 10px;

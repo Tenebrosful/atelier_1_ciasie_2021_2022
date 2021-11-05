@@ -34,6 +34,11 @@ $app->get('/panier', function ($request, $response, array $args) {
     return $this->get(Twig::class)->render($response, "panier.html.twig", ['panier' => $panier_display]);
 });
 
+$app->get('/panier/empty', function ($request, $response, array $args) {
+    $_SESSION['panier'] = array();
+    return $this->get(Twig::class)->render($response, "panier.html.twig", ['panier' => null]);
+});
+
 $app->post('/panier/add/{id}', function ($request, $response, array $args) {
     $prod = (new ProductController($this->get(EntityManager::class)))->getById($args['id']);
     $already_in = false;
