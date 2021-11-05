@@ -33,6 +33,9 @@ jobs:
       - name: Run HTML-Validate
         run: npm run html-validate
 
+      - name: Run Twig-Validate
+        run: npm run twig-validate
+
       - name: Get composer cache directory
         id: composer_config
         uses: baschny/php-composer-action@v1
