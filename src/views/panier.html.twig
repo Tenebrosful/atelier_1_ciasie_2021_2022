@@ -32,19 +32,17 @@
 									<p>{{prod.getName()}}</p>
 								</div>
 								<div class="cell">
-									<p>{{prod.getAmountUnit()}}€ /
-										{{prod.getUnit()}}
-										x{{prodorder.getQuantity()}}</p>
+									<p>{{prod.getPrice()|number_format(2, ",", " ")}}€ / {{prod.getAmountUnit()}}{{prod.getUnit()}} x {{prodorder.getQuantity()}}</p>
 								</div>
 								<div class="cell">
 									<p>{{prod.getProducer().getName()}}</p>
 								</div>
 								<div class="cell">
 									<p class="fz-10">prix =
-										{{prod.getAmountUnit()*prodorder.getQuantity()}}€
+										{{(prod.getPrice() * prodorder.getQuantity())|number_format(2, ",", " ")}}€
 									</p>
 								</div>
-								{% set total = total + prod.getAmountUnit()*prodorder.getQuantity() %}
+								{% set total = total + prod.getPrice() * prodorder.getQuantity() %}
 							</div>
 						{% endfor %}
 					</div>
