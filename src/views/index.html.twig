@@ -2,18 +2,19 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/stylework.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <script src="js/main.js" defer></script>
-    <script src="js/index.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/index.js" defer></script>
     <title></title>
   </head>
   <body>
     <header>
       <nav>
         <ul>
-          <li><a href="#">Produits</a></li>
+          <li><a href="/catalog/">Produits</a></li>
           <li><a href="#">Producteurs</a></li>
           <li><a href="/panier/">Panier</a></li>
         </ul>
@@ -42,11 +43,11 @@
         </a>
         <form class="add" method="post" action="/panier/add/{{prod.getId()}}" target="dummyframe">
           <div class="mb-2">
-            <div class="justify-center">
+            <div class="inline-flex">
               <button title="Ajouter une quantité" aria-label="Ajouter une quantité" type="button" class="btn__qte"
               onclick="minus(qnt_article_{{prod.getId()}})"><i class="fas fa-minus"></i></button>
               <div class="form__div mb-3">
-                <input type="number" min="0" class="form__input" id="qnt_article_{{prod.getId()}}" value="0">
+                <input type="number" min="0" name="input" class="form__input" id="qnt_article_{{prod.getId()}}" value="0">
               </div>
               <button title="Retirer une quantité" aria-label="Retirer une quantité" type="button" class="btn__qte"
               onclick="plus(qnt_article_{{prod.getId()}})"><i class="fas fa-plus"></i></button>
