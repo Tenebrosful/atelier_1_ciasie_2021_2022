@@ -58,7 +58,7 @@ INSERT INTO `order` (`id`, `client_name`, `client_adress`, `client_email`, `clie
 (2, 'DUPONT', '26 boulevard des Colombes', 'dupoint@orange.com', '0774951544', '12', 0,1),
 (3, 'TULIPE', '12 AVENUE DES TRUITES', 'bellefleur@hotmail.fr', '0774951544', '19', 0,0);
 
-INSERT INTO `productOrder` (`order_id`, `product_id`, `amount`) VALUES
+INSERT INTO `productorder` (`order_id`, `product_id`, `quantity`) VALUES
 (1, 1, 4),
 (2, 1, 4),
 (1, 2, 3);
