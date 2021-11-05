@@ -61,12 +61,6 @@ $app->post('/panier/add/{id}', function ($request, $response, array $args) {
             array_push($_SESSION['panier'], [$args['id'], $quantity]);
         }
     }
-    if (!$already_in) {
-        $po = new ProductOrder();
-        $po->setProduct($prod);
-        $po->setQuantity($quantity);
-        array_push($_SESSION['panier'],serialize($po));
-    }
 
     return $this->get(Twig::class)->render($response, "index.html.twig");
 });
