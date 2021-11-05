@@ -41,7 +41,7 @@
               <button title="Ajouter une quantité" aria-label="Ajouter une quantité" type="button" class="btn__qte"
               onclick="minus(qnt_article_{{prod.getId()}})"><i class="fas fa-minus"></i></button>
               <div class="form__div mb-3">
-                <input type="number" min="0" name="input" class="form__input" id="qnt_article_{{prod.getId()}}" value="0">
+                <input type="number" min="1" name="input" class="form__input" id="qnt_article_{{prod.getId()}}" value="1" required>
               </div>
               <button title="Retirer une quantité" aria-label="Retirer une quantité" type="button" class="btn__qte"
               onclick="plus(qnt_article_{{prod.getId()}})"><i class="fas fa-plus"></i></button>
