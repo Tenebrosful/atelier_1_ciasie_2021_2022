@@ -5,19 +5,19 @@
 		<link rel="stylesheet" href="/css/style.css">
 		<link rel="stylesheet" href="/css/stylework.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
 		<script src="../js/main.js"></script>
 		<title>LeHangar -
 			{{prod.getName()}}</title>
 	</head>
 	<body>
 	{% include 'navbar.html.twig' %}
-    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    <iframe title="dummyframe" name="dummyframe" id="dummyframe" style="display: none;"></iframe>
 		<div class="">
 			<h1 class="mt-4">{{prod.getName()}}</h1>
 			<div class="container-detail">
 				<div class="span-detail box-shadow bg-white">
-					<img id="detail-img" src={{prod.getUrlImg()}} alt="">
+					<img id="detail-img" src="{{prod.getUrlImg()}}" alt="">
 				</div>
 				<div class="span-detail bg-white">
 					<form class="add" method="post" action="/panier/add/{{prod.getId()}}" target="dummyframe">
@@ -36,7 +36,7 @@
 							<p>{{prod.getPrice()|number_format(2, ",", " ")}}€ / {{prod.getAmountUnit()}}{{prod.getUnit()}}</p>
 							<br>
 						</div>
-						<input  type='submit' id="addcart_{{prod.getId()}}" class="btn" value="Ajouter au panier">
+						<button type="submit" id="addcart_{{prod.getId()}}" class="btn">Ajouter au panier</button>
 					</form>
 				</div>
 				<div class="span-detail">

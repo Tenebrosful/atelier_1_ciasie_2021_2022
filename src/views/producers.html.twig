@@ -23,7 +23,7 @@
         <tbody id="producersContainer">
           {% for producer in producers %}
           <tr>
-            <td class="p-1 pl-3"><a href="/producer/{{producer.getId()}}"><img src="{{producer.getUrlImg()}}" alt=""></a></td>
+            <td class="p-1 pl-3"><a href="/producer/{{producer.getId()}}"><img src="{{producer.getUrlImg()}}" alt="Image du producteur {{producer.getName()}}"></a></td>
             <td><a href="/producer/{{producer.getId()}}">{{producer.getName()}}</a></td>
             <td>{{producer.getDescription()}}</td>
             <td><a target="_blank" href="mailto:{{producer.getEmail()}}">{{producer.getEmail()}}</a></td>
