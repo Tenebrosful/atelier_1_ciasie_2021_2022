@@ -50,10 +50,16 @@ class Order
      *    @var string
      *    @ORM\Column(type="boolean")
      */
+    private $paid;
+    /**
+     * @var ProductOrder
+     * @ORM\OneToMany(targetEntity="ProductOrder",mappedBy="order")
+     */
+    private $productOrders;
 
     public function __construct()
     {
-       
+        $this->productOrders = new ArrayCollection();
     }
 
     public function getId(): int

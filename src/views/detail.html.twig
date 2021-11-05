@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
-<<<<<<< HEAD
-
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="/css/style.css">
@@ -13,22 +11,7 @@
 			{{prod.getName()}}</title>
 	</head>
 	<body>
-		<header>
-			<nav>
-				<ul>
-					<li>
-						<a href="/catalog/">Produits</a>
-					</li>
-					<li>
-						<a href="#">Producteurs</a>
-					</li>
-					<li>
-						<a href="/panier/">Panier</a>
-					</li>
-				</ul>
-				<a href='/'><label class="logo">LeHangar</label></a>
-			</nav>
-		</header>
+	{% include 'navbar.html.twig' %}
     <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
 		<div class="">
 			<h1 class="mt-4">{{prod.getName()}}</h1>
@@ -66,55 +49,4 @@
 			</div>
 		</div>
 	</body>
-=======
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="css/stylework.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title></title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#">Produits</a></li>
-          <li><a href="#">Producteurs</a></li>
-          <li><a href="#">Panier</a></li>
-        </ul>
-        <label class="logo">LeHangar</label>
-      </nav>
-    </header>
-    <h1 class="mt-4">{{prod.getName()}}</h1>
-    <div class="container-detail">
-      <div class="span-detail box-shadow bg-white">
-        <img id="detail-img" src={{prod.getUrlImg()}} alt="">
-      </div>
-      <div class="span-detail">
-        <div class="add">
-          <div style="margin-top: 30%;">
-            <div class="justify-center">
-              <a class="btn__qte" onclick="minus(prix)"><i class="fas fa-minus fa-2x"></i></a>
-              <div class="form__div mb-3">
-                <input type="number" class="form__input" id="prix" placeholder=" " value="0">
-              </div>
-              <a class="btn__qte" href="#" onclick="plus(prix)"><i class="fas fa-plus fa-2x"></i></a>
-            </div>
-            <p>{{prod.getAmountUnit()}}€ / {{prod.getUnit()}}</p>
-            <br>
-          </div>
-          <input class="btn" value="Ajouter au panier" onclick="add(prix)">
-        </div>
-      </div>
-      <div class="span-detail">
-        <h2>Produit par ...</h2>
-      </div>
-      <div class="span-detail border" id="descriptionProduit">
-        <p>{{prod.getDescription()}}</p>
-    </div>
-    </div>
-    <script src="./js/main.js"></script>
-  </body>
->>>>>>> 05f4e71d65f1a1c0d6ded1db4c81f81e2b5bacdd
 </html>
