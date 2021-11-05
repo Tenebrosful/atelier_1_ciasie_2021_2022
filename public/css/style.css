@@ -60,14 +60,13 @@ body {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  appearance: none;
+  -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
-  appearance: textfield;
 }
 
 /* ~~~~~~~~~~ Global setup ends ~~~~~~~~~~~~ */
@@ -578,6 +577,10 @@ td a:hover {
       );
   }
 
+  label.logo {
+    width: 100%;
+    text-align: center;
+  }
   nav {
     height: 120px;
     min-width: 464px;
@@ -684,7 +687,7 @@ td a:hover {
   font-size: 20px;
 }
 
-form input {
+.form input {
   margin: 10px;
   border-radius: 10px;
   width: 200px;

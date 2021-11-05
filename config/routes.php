@@ -15,6 +15,10 @@ $app->get('/',function ($request, $response, array $args){
     $ct = new CategoryController($this->get(EntityManager::class));
     $products = $pc->getAll();
     $categories = $ct->getAll();
+    session_start();
+    if (!isset($_SESSION['panier'])) {
+        $_SESSION['panier'] = array();
+    }
     return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories]);
 });
 

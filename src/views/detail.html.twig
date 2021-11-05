@@ -1,5 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
+<<<<<<< HEAD
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/stylework.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<script src="../js/main.js"></script>
+		<title>LeHangar -
+			{{prod.getName()}}</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<a href="/catalog/">Produits</a>
+					</li>
+					<li>
+						<a href="#">Producteurs</a>
+					</li>
+					<li>
+						<a href="/panier/">Panier</a>
+					</li>
+				</ul>
+				<a href='/'><label class="logo">LeHangar</label></a>
+			</nav>
+		</header>
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+		<div class="">
+			<h1 class="mt-4">{{prod.getName()}}</h1>
+			<div class="container-detail">
+				<div class="span-detail box-shadow bg-white">
+					<img id="detail-img" src={{prod.getUrlImg()}} alt="">
+				</div>
+				<div class="span-detail bg-white">
+					<form class="add" method="post" action="/panier/add/{{prod.getId()}}" target="dummyframe">
+						<div class="addProductPage">
+							<div class="inline-flex">
+								<button title="Retirer une quantité" aria-label="Retirer une quantité" type="button" class="btn__qte" onclick="minus(qnt_article)">
+									<i class="fas fa-minus fa-2x"></i>
+								</button>
+								<div class="form__div mr-3 mb-3">
+									<input type="number" name="input" min="0" class="form__input" id="qnt_article" placeholder=" " value="0">
+								</div>
+								<button title="Ajouter une quantité" aria-label="Ajouter une quantité" type="button" class="btn__qte" onclick="plus(qnt_article)">
+									<i class="fas fa-plus fa-2x"></i>
+								</button>
+							</div>
+							<p>{{prod.getAmountUnit()}}€ /
+								{{prod.getUnit()}}</p>
+							<br>
+						</div>
+						<input  type='submit' id="addcart_{{prod.getId()}}" class="btn" value="Ajouter au panier">
+					</form>
+				</div>
+				<div class="span-detail">
+					<h2>Produit par ...</h2>
+				</div>
+				<div class="span-detail border bg-white" id="descriptionProduit">
+					<p>{{prod.getDescription()}}</p>
+				</div>
+			</div>
+		</div>
+	</body>
+=======
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
@@ -49,4 +116,5 @@
     </div>
     <script src="./js/main.js"></script>
   </body>
+>>>>>>> 05f4e71d65f1a1c0d6ded1db4c81f81e2b5bacdd
 </html>
