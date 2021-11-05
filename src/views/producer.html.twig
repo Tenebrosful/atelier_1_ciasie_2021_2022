@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/stylework.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+		<script src="/js/main.js" defer></script>
+		<script src="/js/validation_cart.js" defer></script>
+		<title>LeHangar - {{producterName}}</title>
+	</head>
+	<body>
+		{% include 'navbar.html.twig' %}
+		<div class="mt-5">
+			<h1 class="mt-6">Mes produits</h1>
+			{% set total = 0 %}
+			<div class="container-detail mt-5 p-1">
+				<div class="span-detail box-shadow bg-white col-2 p-2">
+					{% if productOrders == null %}
+						<p>Aucune commande sur vos produits.</p>
+					{% else %}
+						{% for productOrder in productOrders %}
+							{% set prod = productOrder.getProduct() %}
+							<div class="rowProduct">
+								<div class="cell row-2">
+									<a href="/product/{{prod.getId()}}"><img class="cart-img" src="{{prod.getUrlImg()}}" alt="Image du produit {{prod.getName()}}"></a>
+								</div>
+								<div class="cell">
+									<a href="/product/{{prod.getId()}}">{{prod.getName()}}</a>
+								</div>
+								<div class="cell">
+									<p>{{prod.getPrice()|number_format(2, ",", " ")}}€ /
+										{{prod.getAmountUnit()}}{{prod.getUnit()}}
+										x
+										{{prodorder.getQuantity()}}</p>
+								</div>
+								<div class="cell">
+									<p>commandé par {{productOrder.getOrder().getClientName}}</p>
+								</div>
+								<div class="cell">
+									<p class="fz-10">prix =
+										{{(prod.getPrice() * prodorder.getQuantity())|number_format(2, ",", " ")}}€
+									</p>
+								</div>
+								{% set total = total + prod.getPrice() * prodorder.getQuantity() %}
+							</div>
+						{% endfor %}
+					</div>
+					<div class="span-detail box-shadow bg-white p-2">
+						<h3>Total =
+							{{total|number_format(2, ",", " ")}}€</h3>
+					</div>
+
+					<div class="btns-panier">
+						<div class="p-2">
+							<a id="btnValidate">Valider la commande</a>
+						</div>
+						<div class="p-2">
+							<a class="btnEmptyCart" href="/panier/empty">Vider le panier</a>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</body>
+</html>

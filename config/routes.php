@@ -10,13 +10,13 @@ require_once '../src/Controllers/ProductController.php';
 require_once '../src/Controllers/CategoryController.php';
 require_once '../src/Controllers/OrderController.php';
 require_once '../src/Controllers/ProducerController.php';
+require_once '../src/Controllers/UserProducerController.php';
 
 $app->get('/', function ($request, $response, array $args) {
     $pc = new ProductController($this->get(EntityManager::class));
     $ct = new CategoryController($this->get(EntityManager::class));
     $products = $pc->getAll();
     $categories = $ct->getAll();
-
     return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories]);
 });
 
@@ -90,6 +90,36 @@ $app->get('/products', function ($request, $response, array $args) {
     $products = $pc->encodeProductsJson($pc->getByCateg(explode(',', $request->getQueryParams()["categ"])));
     $response->getBody()->write(json_encode($products));
     return $response;
+});
+
+$app->get('/signIn', function ($request, $response) {
+    if (isset($_SESSION["messageErrorSignin"])) {
+        return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
+    } else {
+        return $this->get(Twig::class)->render($response, 'signIn.html.twig');
+    }
+});
+
+$app->get('/producer', function ($request, $response) {
+    if (isset($_SESSION["userId"])){
+        $poc = new UserProducerController($this->get(EntityManager::class));
+        $productOrders = $poc->getMyProduct();
+        return $this->get(Twig::class)->render($response, 'producer.html.twig', ['productOrders' => $productOrders, 'producerName' => $_SESSION["userName"]]);
+    } else {
+        return $this->get(Twig::class)->render($response, 'signIn.html.twig');
+    }
+});
+
+$app->post('/signIn', function ($request, $response) {
+    $parsedBody = $request->getParsedBody();
+    $upc = new UserProducerController($this->get(EntityManager::class));
+    $upc->signIn($parsedBody);
+    if(isset($_SESSION["messageErrorSignin"]) &&  (!isset($_SESSION["userId"]))){
+        return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
+    } else {
+        header("Location:http://localhost:8080/");
+        exit();
+    }
 });
 
 

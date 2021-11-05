@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/stylework.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+  <script src="../js/main.js" defer></script>
+  <title>LeHangar - Producteurs</title>
+</head>
+
+<body class="centered">
+  <div class="item-center">
+    <div class="mt-10" id="signInContainer">
+      <h1 class="p-2">Sign In</h1>
+      <div class="p-2 pt-19 pb-19">
+          <form action="/signIn" method="post" class="row centered">
+            <div class="col s6 row centered">
+              <label for="username" class="mt-1">Username: </label>
+            <div class="form__signIn mb-3">
+              <input type="text" name="username" class="form__input">
+            </div>
+            </div>
+            <div class="col s6 row centered">
+              <label for="password" class="mt-1">Password: </label>
+            <div class="form__signIn mb-3">
+              <input type="password" min="1" name="password" class="form__input">
+            </div>
+            </div>
+            <div class="col s12 pt-5">
+              <button type="submit" class="btn">Login</button>
+            </div>
+          </form>
+      </div>
+      <p class="messageError pb-3">{{messageError}}</p>
+    </div>
+  </div>
+</body>
+
+</html>

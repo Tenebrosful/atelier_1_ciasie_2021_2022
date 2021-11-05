@@ -149,6 +149,23 @@ nav ul li a {
   text-align: center;
 }
 
+#signInContainer{
+  margin: 0 auto;
+  margin-top: 5%;
+  width: 80%;
+  background-color: white;
+  box-shadow: 3px 2px 3px 1px rgb(0 0 0 / 40%);
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+  max-height: auto;
+}
+
+#signInContainer h1{
+  background-color: rgb(50 50 50 / 100%);
+  color: white;
+}
+
 .span {
   background-color: white;
   padding: 0.5px;
@@ -406,6 +423,12 @@ html body .content #list-toggle:checked + label::after {
   width: 50px;
 }
 
+.form__signIn {
+  position: relative;
+  height: 20px;
+  width: 200px;
+}
+
 .formlogin {
   display: flex;
   flex-direction: column;
@@ -419,6 +442,12 @@ html body .content #list-toggle:checked + label::after {
   justify-content: center;
   align-items: center;
 }
+
+.messageError{
+  color: firebrick;
+  text-align: center;
+}
+
 .span-detail .form__div {
   position: relative;
   height: 50px;
