@@ -33,7 +33,7 @@
 									<i class="fas fa-plus fa-2x"></i>
 								</button>
 							</div>
-							<p>{{prod.getPrice()}}€ / {{prod.getAmountUnit()}}{{prod.getUnit()}}</p>
+							<p>{{prod.getPrice()|number_format(2, ",", " ")}}€ / {{prod.getAmountUnit()}}{{prod.getUnit()}}</p>
 							<br>
 						</div>
 						<input  type='submit' id="addcart_{{prod.getId()}}" class="btn" value="Ajouter au panier">
