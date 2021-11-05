@@ -1,11 +1,19 @@
 # Squelette des fichiers de configs
 
-## bdd.env
-* driver=
-* username=
-* password=
-* host=
-* dbname=
-* port=
-* charset=
-* collation=
+## bdd.ini
+```
+driver=
+user=
+password=
+host=
+dbname=
+```
+Version pour Docker : 
+
+```
+driver=pdo_mysql
+user=
+password=
+host=mysql
+dbname=
+```
