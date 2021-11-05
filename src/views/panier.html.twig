@@ -33,7 +33,7 @@
 								<p>{{prod.getPrice()}}€ / {{prod.getAmountUnit()}}{{prod.getUnit()}}  x {{prodorder.getQuantity()}}</p>
 							</div>
 							<div class="cell">
-								<p>{{prod.getProducer().getName()}}</p>
+								<a href="/producer/{{prod.getProducer().getId()}}">{{prod.getProducer().getName()}}</a>
 							</div>
 							<div class="cell">
 								<p class="fz-10">prix =
