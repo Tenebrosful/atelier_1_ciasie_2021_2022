@@ -144,3 +144,5 @@ jobs:
     name: All linters done
     runs-on: ubuntu-latest
     needs: [css, scss, js, html, twig, php]
+    steps:
+      - name: All done
