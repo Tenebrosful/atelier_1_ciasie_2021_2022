@@ -22,13 +22,13 @@ $app->get('/',function ($request, $response, array $args){
     return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories]);
 });
 
-$app->get('/{id}', function ($request, $response, array $args) {
+$app->get('/product/{id}', function ($request, $response, array $args) {
     $pc = new ProductController($this->get(EntityManager::class));
     $prod = $pc->getById($args['id']);
     return $this->get(Twig::class)->render($response, "detail.html.twig", ['prod' => $prod]);
 });
 
-$app->get('/panier/', function ($request, $response, array $args) {
+$app->get('/panier', function ($request, $response, array $args) {
     session_start();
     $panier = $_SESSION['panier'];
     $panier_display = array();
@@ -65,7 +65,7 @@ $app->post('/panier/add/{id}', function ($request, $response, array $args) {
     return $this->get(Twig::class)->render($response, "index.html.twig");
 });
 
-$app->get('/products/', function ($request, $response, array $args){
+$app->get('/products', function ($request, $response, array $args){
     $pc = new ProductController($this->get(EntityManager::class));
     $products = $pc->encodeProductsJson($pc->getAll());
     $response->getBody()->write(json_encode($products));
@@ -73,7 +73,7 @@ $app->get('/products/', function ($request, $response, array $args){
 });
 
 
-$app->get('/coop/',function ($request, $response, array $args){
+$app->get('/coop',function ($request, $response, array $args){
     $pc = new OrderController($this->get(EntityManager::class));
     $order = $pc->getAll();
     return $this->get(Twig::class)->render($response,"cooperative.html.twig", ['order' => $order]);
