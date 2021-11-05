@@ -340,3 +340,4 @@ vendor/
 phplint.cache
 
 *.ini
+*.env
