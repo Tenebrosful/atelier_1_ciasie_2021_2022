@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="css/stylework.css">
-    <link rel="stylesheet" href="/css/stylework.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="/js/main.js" defer></script>
@@ -17,8 +16,8 @@
     {% set total = 0 %}
     <div class="container-detail mt-5 p-1">
       <div class="span-detail box-shadow bg-white col-2 p-2">
-        <div class="rowProduct">
         {% for prodorder in panier %}
+        <div class="rowProduct">
           <div class="cell row-2">
             <img class = "cart-img"
               src={{prodorder.getProduct().getUrlImg()}}
@@ -37,8 +36,8 @@
             <p class="fz-10">prix = {{prodorder.getProduct().getAmountUnit()*prodorder.getQuantity()}}€ </p>
           </div>
           {% set total = total + prodorder.getProduct().getAmountUnit()*prodorder.getQuantity() %}
-        {% endfor %}
         </div>
+        {% endfor %}
       </div>
       <div class="span-detail box-shadow bg-white p-2">
         <h3>Total = {{total}}€</h3>
