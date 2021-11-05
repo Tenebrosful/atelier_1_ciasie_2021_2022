@@ -10,7 +10,7 @@
     *   Modèles de donnée `UML`
     *   Modèles de Base de Donnée `PHP`
     *   Setup Git, workflows et linters
-    *   Review du Front et améliorations `HTML, CSS, JS`
+    *   Review du Front et améliorations `HTML, CSS, JS, Twig`
     *   Validation W3C `HTML, CSS`
 - Tritan Blot `blot32u`
     *   Scénarios d'usage `UML`
