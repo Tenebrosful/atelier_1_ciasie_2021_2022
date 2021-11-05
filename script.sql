@@ -53,10 +53,10 @@ INSERT INTO `product` (`id`, `producer_id`,`name`, `price`, `amount_unit`, `unit
 (3, 3, 'Navet BIO', '2', '2', '1kg', 'Navet', 'https://www.meillandrichardier.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/4/4/4461-4462-navet_de_nancy-ho-tg171102.jpg');
 
 
-INSERT INTO `order` (`id`, `client_name`, `client_adress`, `client_email`, `client_phone`, `total_price`,`delivered` ) VALUES
-(1, 'BLOT', '8 rue des Rouliers', 'tristan.blot@7.com', '0674954544', '25', 1),
-(2, 'DUPONT', '26 boulevard des Colombes', 'dupoint@orange.com', '0774951544', '12', 0),
-(3, 'TULIPE', '12 AVENUE DES TRUITES', 'bellefleur@hotmail.fr', '0774951544', '19', 0);
+INSERT INTO `order` (`id`, `client_name`, `client_adress`, `client_email`, `client_phone`, `total_price`,`delivered`, `paid` ) VALUES
+(1, 'BLOT', '8 rue des Rouliers', 'tristan.blot@7.com', '0674954544', '25', 1,1),
+(2, 'DUPONT', '26 boulevard des Colombes', 'dupoint@orange.com', '0774951544', '12', 0,1),
+(3, 'TULIPE', '12 AVENUE DES TRUITES', 'bellefleur@hotmail.fr', '0774951544', '19', 0,0);
 
 INSERT INTO `productOrder` (`order_id`, `product_id`, `amount`) VALUES
 (1, 1, 4),
