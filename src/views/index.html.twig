@@ -33,9 +33,9 @@
         <a class="base_link" href="/product/{{prod.getId()}}">
         <img class="span-img" src={{prod.getUrlImg()}} alt="">
         <h3>{{prod.getName()}}</h3>
-        <p>{{prod.getAmountUnit()}}€ / {{prod.getUnit()}}</p>
+        <p>{{prod.getPrice()}}€ / {{prod.getAmountUnit()}} {{prod.getUnit()}}</p>
         </a>
-                <form class="add" method="post" action="/panier/add/{{prod.getId()}}" target="dummyframe">
+        <form class="add" method="post" action="/panier/add/{{prod.getId()}}" target="dummyframe">
           <div class="mb-2">
             <div class="inline-flex">
               <button title="Ajouter une quantité" aria-label="Ajouter une quantité" type="button" class="btn__qte"

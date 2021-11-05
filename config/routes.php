@@ -10,13 +10,13 @@ require_once '../src/Controllers/ProductController.php';
 require_once '../src/Controllers/CategoryController.php';
 require_once '../src/Controllers/OrderController.php';
 
-$app->get('/',function ($request, $response, array $args){
+$app->get('/', function ($request, $response, array $args) {
     $pc = new ProductController($this->get(EntityManager::class));
     $ct = new CategoryController($this->get(EntityManager::class));
     $products = $pc->getAll();
     $categories = $ct->getAll();
-    
-    return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories]);
+
+    return $this->get(Twig::class)->render($response, "index.html.twig", ['products' => $products, 'categories' => $categories]);
 });
 
 $app->get('/product/{id}', function ($request, $response, array $args) {
@@ -47,22 +47,24 @@ $app->post('/panier/add/{id}', function ($request, $response, array $args) {
     $already_in = false;
     $quantity = $request->getParsedBody()['input'];
 
-    //Check si l'item est déjà présent dans le panier
-    for ($i=0; $i<count($_SESSION['panier']); $i++) {
+    if ($quantity > 0) {
+        //Check si l'item est déjà présent dans le panier
+        for ($i = 0; $i < count($_SESSION['panier']); $i++) {
 
-        if ($_SESSION['panier'][$i][0]== $args['id']) {
-            $_SESSION['panier'][$i][1]+=$quantity;
-            $already_in = true;
+            if ($_SESSION['panier'][$i][0] == $args['id']) {
+                $_SESSION['panier'][$i][1] += $quantity;
+                $already_in = true;
+            }
+        }
+        if (!$already_in) {
+            array_push($_SESSION['panier'], [$args['id'], $quantity]);
         }
     }
-    if (!$already_in) {
-        array_push($_SESSION['panier'],[$args['id'],$quantity]);
-    }
-    
+
     return $this->get(Twig::class)->render($response, "index.html.twig");
 });
 
-$app->get('/products', function ($request, $response, array $args){
+$app->get('/products', function ($request, $response, array $args) {
     $pc = new ProductController($this->get(EntityManager::class));
     $products = $pc->encodeProductsJson($pc->getByCateg(explode(',', $request->getQueryParams()["categ"])));
     $response->getBody()->write(json_encode($products));
@@ -70,8 +72,8 @@ $app->get('/products', function ($request, $response, array $args){
 });
 
 
-$app->get('/coop',function ($request, $response, array $args){
+$app->get('/coop', function ($request, $response, array $args) {
     $pc = new OrderController($this->get(EntityManager::class));
     $order = $pc->getAll();
-    return $this->get(Twig::class)->render($response,"cooperative.html.twig", ['order' => $order]);
+    return $this->get(Twig::class)->render($response, "cooperative.html.twig", ['order' => $order]);
 });

@@ -47,11 +47,14 @@ INSERT INTO `producer` (`id`, `name`, `adress`, `email`, `phone`, `url_img`, `de
 (2, 'EARL Vauti', '14 rue de leglise', '7u5fzlejetv@temporary-mail.net', '0715264857', 'https://thumbs.dreamstime.com/z/conception-de-logo-ferme-cru-avec-le-symbole-grange-140759530.jpg','Une boîte qui produit en balle'),
 (3, 'M.petit', '2 rue du chateau', 'e9txjt64s8b@temporary-mail.net', '0698764356', 'https://cocktail-graphic.com/wp-content/uploads/2017/11/Logo-FERME-AULNAYS.jpg','Un producteur cool');
 
-INSERT INTO `product` (`id`, `producer_id`,`name`, `price`, `amount_unit`, `unit`, `description`, `url_img`) VALUES
-(1, 1, 'Lait BIO', '0.80', '0.80', '1L', 'Lait BIO produit dans une ferme par des chèvre unijambiste', 'https://catalog-media.lafourche.fr/naturavenir-lait-de-vache-entier-sterilise-france-bio-075litre-582b89986c4a51bcce48d0e231168537d59b67c4.png?width=1080&quality=75'),
-(2, 2, 'Crème fraiche BIO', '7.20', '1.80', '20cl', 'Crème fraiche mais trop', 'https://panieronaturel.com/wp-content/uploads/2020/01/cr%C3%A8me-fraiche.jpg'),
-(3, 3, 'Navet BIO', '2', '2', '1kg', 'Navet', 'https://www.meillandrichardier.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/4/4/4461-4462-navet_de_nancy-ho-tg171102.jpg');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES
+(1, 'Produit Laitier', 'Produits issue du lait'),
+(2, 'Légume', 'Légumes');
 
+INSERT INTO `product` (`id`, `category_id`, `producer_id`,`name`, `price`, `amount_unit`, `unit`, `description`, `url_img`) VALUES
+(1, 1, 1, 'Lait BIO', '0.80', '1', 'l', 'Lait BIO produit dans une ferme par des chèvre unijambiste', 'https://catalog-media.lafourche.fr/naturavenir-lait-de-vache-entier-sterilise-france-bio-075litre-582b89986c4a51bcce48d0e231168537d59b67c4.png?width=1080&quality=75'),
+(2, 1, 2, 'Crème fraiche BIO', '7.20', '20', 'cl', 'Crème fraiche mais trop', 'https://panieronaturel.com/wp-content/uploads/2020/01/cr%C3%A8me-fraiche.jpg'),
+(3, 2, 3, 'Navet BIO', '2', '1', 'kg', 'Navet', 'https://www.meillandrichardier.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/4/4/4461-4462-navet_de_nancy-ho-tg171102.jpg');
 
 INSERT INTO `order` (`id`, `client_name`, `client_adress`, `client_email`, `client_phone`, `total_price`,`delivered`, `paid` ) VALUES
 (1, 'BLOT', '8 rue des Rouliers', 'tristan.blot@7.com', '0674954544', '25', 1,1),
