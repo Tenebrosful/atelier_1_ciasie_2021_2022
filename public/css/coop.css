@@ -29,8 +29,6 @@ body {
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     height: 500px;
-    position: -webkit-sticky;
-    position: sticky;
     top: 125px;
     left: 30%;
     display: none;
