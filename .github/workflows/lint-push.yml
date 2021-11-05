@@ -24,7 +24,9 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: css-linted
-          path: ./**/*.css
+          path: | 
+            ./**/*.css
+            !node_modules/
         
   scss:
     name: Lint scss
@@ -42,7 +44,9 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: scss-linted
-          path: ./**/*.css
+          path: | 
+            ./**/*.scss
+            !node_modules/
         
   js:
     name: Lint js
@@ -60,7 +64,9 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: js-linted
-          path: ./**/*.js
+          path: | 
+            ./**/*.js
+            !node_modules/
         
   html:
     name: Lint html
