@@ -21,27 +21,28 @@
             <p> Votre panier est vide.</p>
           {% else %}
 					{% for prodorder in panier %}
+          {% set prod = prodorder.getProduct() %}
 						<div class="rowProduct">
 							<div class="cell row-2">
-								<img class="cart-img" src={{prodorder.getProduct().getUrlImg()}} alt="">
+								<img class="cart-img" src={{prod.getUrlImg()}} alt="">
 							</div>
 							<div class="cell">
-								<p>{{prodorder.getProduct().getName()}}</p>
+								<p>{{prod.getName()}}</p>
 							</div>
 							<div class="cell">
-								<p>{{prodorder.getProduct().getAmountUnit()}}€ /
-									{{prodorder.getProduct().getUnit()}}
+								<p>{{prod.getAmountUnit()}}€ /
+									{{prod.getUnit()}}
 									x{{prodorder.getQuantity()}}</p>
 							</div>
 							<div class="cell">
-								<p>Michel</p>
+								<p>{{prod.getProducer().getName()}}</p>
 							</div>
 							<div class="cell">
 								<p class="fz-10">prix =
-									{{prodorder.getProduct().getAmountUnit()*prodorder.getQuantity()}}€
+									{{prod.getAmountUnit()*prodorder.getQuantity()}}€
 								</p>
 							</div>
-							{% set total = total + prodorder.getProduct().getAmountUnit()*prodorder.getQuantity() %}
+							{% set total = total + prod.getAmountUnit()*prodorder.getQuantity() %}
 						</div>
 					{% endfor %}
 				</div>
