@@ -26,7 +26,6 @@ $app->get('/product/{id}', function ($request, $response, array $args) {
 });
 
 $app->get('/panier', function ($request, $response, array $args) {
-    session_start();
     $panier = $_SESSION['panier'];
     $panier_display = array();
     foreach ($panier as $item) {
@@ -36,7 +35,6 @@ $app->get('/panier', function ($request, $response, array $args) {
 });
 
 $app->post('/panier/add/{id}', function ($request, $response, array $args) {
-    session_start();
     $prod = (new ProductController($this->get(EntityManager::class)))->getById($args['id']);
     $already_in = false;
     $quantity = $request->getParsedBody()['input'];
