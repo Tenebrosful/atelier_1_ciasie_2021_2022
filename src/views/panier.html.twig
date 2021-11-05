@@ -5,10 +5,10 @@
 		<link rel="stylesheet" href="/css/style.css">
 		<link rel="stylesheet" href="/css/stylework.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
 		<script src="/js/main.js" defer></script>
 		<script src="/js/validation_cart.js" defer></script>
-		<title></title>
+		<title>LeHangar - Panier</title>
 	</head>
 	<body>
 		{% include 'navbar.html.twig' %}
@@ -16,26 +16,27 @@
 			<h1 class="mt-6">Mon panier</h1>
 			{% set total = 0 %}
 			<div class="container-detail mt-5 p-1">
-
 				<div class="span-detail box-shadow bg-white col-2 p-2">
 					{% if panier == null %}
-						<p>
-							Votre panier est vide.</p>
+						<p>Votre panier est vide.</p>
 					{% else %}
 						{% for prodorder in panier %}
 							{% set prod = prodorder.getProduct() %}
 							<div class="rowProduct">
 								<div class="cell row-2">
-									<img class="cart-img" src={{prod.getUrlImg()}} alt="">
+									<a href="/product/{{prod.getId()}}"><img class="cart-img" src="{{prod.getUrlImg()}}" alt="Image du produit {{prod.getName()}}"></a>
 								</div>
 								<div class="cell">
-									<p>{{prod.getName()}}</p>
+									<a href="/product/{{prod.getId()}}">{{prod.getName()}}</a>
 								</div>
 								<div class="cell">
-									<p>{{prod.getPrice()|number_format(2, ",", " ")}}€ / {{prod.getAmountUnit()}}{{prod.getUnit()}} x {{prodorder.getQuantity()}}</p>
+									<p>{{prod.getPrice()|number_format(2, ",", " ")}}€ /
+										{{prod.getAmountUnit()}}{{prod.getUnit()}}
+										x
+										{{prodorder.getQuantity()}}</p>
 								</div>
 								<div class="cell">
-									<p>{{prod.getProducer().getName()}}</p>
+									<a href="/producer/{{prod.getProducer().getId()}}">{{prod.getProducer().getName()}}</a>
 								</div>
 								<div class="cell">
 									<p class="fz-10">prix =
@@ -47,7 +48,8 @@
 						{% endfor %}
 					</div>
 					<div class="span-detail box-shadow bg-white p-2">
-						<h3>Total = {{total|number_format(2, ",", " ")}}€</h3>
+						<h3>Total =
+							{{total|number_format(2, ",", " ")}}€</h3>
 					</div>
 
 					<div class="btns-panier">
@@ -61,7 +63,7 @@
 				{% endif %}
 			</div>
 			{% if panier != null %}
-				<div id='form_client' class="centered">
+				<div id="form_client" class="centered">
 					<form class="form formlogin span-detail box-shadow bg-white mt-3 p-4" action="/panier/validation" method="post">
 						<label for="order_name">
 							<b>Nom</b>
@@ -89,4 +91,4 @@
 			{% endif %}
 		</div>
 	</body>
-</html></body></html>
+</html>
