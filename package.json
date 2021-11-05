@@ -18,7 +18,7 @@
     "csslint": "npx stylelint **/*.css --fix",
     "scsslint": "npx stylelint **/*.scss --fix",
     "phplint": "./vendor/bin/phplint",
-    "eslint": "npx eslint . --ext .html,.js,.twig --fix",
+    "eslint": "npx eslint . --fix",
     "html-validate": "npx html-validate .",
     "twig-validate": "npx html-validate . --ext twig"
   }
