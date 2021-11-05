@@ -64,6 +64,26 @@ $app->post('/panier/add/{id}', function ($request, $response, array $args) {
     return $this->get(Twig::class)->render($response, "index.html.twig");
 });
 
+$app->post('/panier/validation', function ($request, $response, array $args) {
+    $parsedBody = $request->getParsedBody();
+    $oc = new OrderController($this->get(EntityManager::class));
+    $order = $oc->createOrder($parsedBody);
+    $total_price = 0;
+    foreach ($_SESSION['panier'] as $item) {
+        $po = new ProductOrder();
+        $prod = (new ProductController($this->get(EntityManager::class)))->getById($item[0]);
+        $po->setProduct($prod);
+        $po->setQuantity($item[1]);
+        $po->setOrder($order);
+        $total_price+=$prod->getPrice() * $item[1];
+        $this->get(EntityManager::class)->persist($po);
+        $this->get(EntityManager::class)->flush();
+    }
+    $oc->computeTotalPrice($order->getId(),$total_price);
+    $_SESSION['panier'] = array();
+    return $this->get(Twig::class)->render($response, "panier.html.twig");
+});
+
 $app->get('/products', function ($request, $response, array $args) {
     $pc = new ProductController($this->get(EntityManager::class));
     $products = $pc->encodeProductsJson($pc->getByCateg(explode(',', $request->getQueryParams()["categ"])));
