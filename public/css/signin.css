@@ -15,17 +15,16 @@ h1 {
 }
 
 .logo {
-    width: 100%;
-    text-align: left;
-    float: left;
-    color: cornsilk;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 60px;
-    margin-left: 40px;
-    margin-right: 20px;
-  }
-
+  width: 100%;
+  text-align: left;
+  float: left;
+  color: cornsilk;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 60px;
+  margin-left: 40px;
+  margin-right: 20px;
+}
 
 nav {
   background:
