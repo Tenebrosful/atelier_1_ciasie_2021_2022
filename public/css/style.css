@@ -149,7 +149,7 @@ nav ul li a {
   text-align: center;
 }
 
-#signInContainer{
+#signInContainer {
   margin: 0 auto;
   margin-top: 5%;
   width: 80%;
@@ -161,7 +161,7 @@ nav ul li a {
   max-height: auto;
 }
 
-#signInContainer h1{
+#signInContainer h1 {
   background-color: rgb(50 50 50 / 100%);
   color: white;
 }
@@ -437,13 +437,13 @@ html body .content #list-toggle:checked + label::after {
   width: 500px;
 }
 
-.centered { 
+.centered {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.messageError{
+.messageError {
   color: firebrick;
   text-align: center;
 }
@@ -582,7 +582,6 @@ td a:hover {
   height: 50px;
 }
 
-
 .rowProduct {
   border-radius: 10px;
   border: solid black 1px;
@@ -626,6 +625,7 @@ h2 a {
     width: 100%;
     text-align: center;
   }
+
   nav {
     height: 120px;
     min-width: 464px;
@@ -701,7 +701,8 @@ h2 a {
   transition: transform 80ms ease-in;
 }
 
-#btnValidate, .btnEmptyCart {
+#btnValidate,
+.btnEmptyCart {
   border-radius: 20px;
   border: 1px solid green;
   background-color: #2ca95f;
@@ -737,6 +738,7 @@ h2 a {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .login {
   text-align: center;
   margin-top: 10px;

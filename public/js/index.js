@@ -1,4 +1,4 @@
-/*global axios*/
+/* global axios*/
 
 let categories = document.getElementsByName("categorie")
 let filter = document.getElementById("filter")
@@ -6,13 +6,13 @@ let filter = document.getElementById("filter")
 async function getProduct(){
   let listCateg = []
   categories.forEach(element => {
-    if(element.checked){
+    if(element.checked)
       listCateg.push(element.value)
-    }
+    
   })
   axios.get('/products?categ='+listCateg,)
     .then(function (response) {
-      //let products = JSON.parse(response)
+      // let products = JSON.parse(response)
       let data = JSON.parse(response.data)
       let container = document.getElementById("container")
       let container_inner = ""

@@ -29,9 +29,9 @@ button_gerant.onclick = function() {
     if (button_prod.clicked) 
       button_prod.click();
         
-      this.style.backgroundColor = '#f42400';
-      this.style.color = '#e5e5e5';    
-      target.style.height = target.scrollHeight+"px";
+    this.style.backgroundColor = '#f42400';
+    this.style.color = '#e5e5e5';    
+    target.style.height = target.scrollHeight+"px";
   }
   else{
     this.style.backgroundColor = '#ff4b2b';

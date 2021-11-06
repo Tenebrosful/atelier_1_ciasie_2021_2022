@@ -1,4 +1,4 @@
-/*global axios*/
+/* global axios*/
 
 function getProducers(number){
   let page = document.getElementById("page")
@@ -7,7 +7,7 @@ function getProducers(number){
     page.value = nbpage
     axios.get('/producers?page='+nbpage ,)
       .then(function (response) {
-        //let products = JSON.parse(response)
+        // let products = JSON.parse(response)
         let data = JSON.parse(response.data)
         let container = document.getElementById("producersContainer")
         let container_inner = ""
