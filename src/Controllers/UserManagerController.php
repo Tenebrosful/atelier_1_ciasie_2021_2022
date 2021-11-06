@@ -40,6 +40,7 @@ class UserManagerController {
             }
             else {
                 $_SESSION["userId"] = $user->getId();
+                $_SESSION["typeUser"] = "gerant";
             }
         } else {
             $_SESSION["messageErrorSignin"] = "Veuillez remplir tous les champs !";
