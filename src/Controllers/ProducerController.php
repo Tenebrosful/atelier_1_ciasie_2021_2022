@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 use Doctrine\ORM\EntityManager;
 
-require_once '/database/models/Producer';
+require_once __DIR__ . '/../database/models/Producer.php';
 
-class OrderController {
+class ProducerController {
 
     /**
      * @var EntityManager
@@ -13,7 +13,7 @@ class OrderController {
 
     public function __construct(EntityManager $em)
     {
-        $this->em = $em; 
+        $this->em = $em;
     }
 
     public function getById(int $id): Order
@@ -26,7 +26,22 @@ class OrderController {
         return $this->em->getRepository(Producer::class)->findAll();
     }
 
-    public function createProducer(array $args) 
+    public function getByPage($page)
+    {
+        if($page != 1){
+          $page = 10*($page-1);
+        }
+
+        $qb = $this->em->createQueryBuilder();
+        $qb->add('select', 'p')
+           ->add('from', 'Producer p')
+           ->add('orderBy', 'p.name ASC')
+           ->setFirstResult( $page -1 )
+           ->setMaxResults( 10 );
+        return $qb->getQuery()->getResult();
+    }
+
+    public function createProducer(array $args)
     {
         $producer = new Producer();
         $producer->setName($args['name']);
@@ -45,6 +60,21 @@ class OrderController {
             return true;
         }
         return false;
+    }
+
+    public function encodeProductsJson($array){
+      $dataArray = array();
+      foreach ($array as $product){
+        array_push($dataArray,array(
+          'id' => $product->getId(),
+          'name' => $product->getName(),
+          'email' => $product->getEmail(),
+          'phone' => $product->getPhone(),
+          'description' => $product->getDescription(),
+          'url_img' => $product->getUrlImg()
+        ));
+      }
+      return json_encode($dataArray);
     }
 
 }

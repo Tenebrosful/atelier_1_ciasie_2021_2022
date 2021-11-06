@@ -30,24 +30,22 @@ class OrderController {
     {
         $order = new Order();
         $order->setClientName($args['name']);
-        $order->setClientAdress($args['adress']);
-        $order->setClientEmail($args['email']);
+        $order->setClientAdress($args['address']);
+        $order->setClientEmail($args['mail']);
         $order->setClientPhone($args['phone']);
         $order->setPaid(false);
         $order->setDelivered(false);
+        $order->setTotalPrice(0);
         $this->em->persist($order);
         $this->em->flush();
+        return $order;
     }
 
-    public function computeTotalPrice($id) {
+    public function computeTotalPrice($id,$price) {
         $order = $this->getById($id);
-        $pos = $order->getProductOrders();
-        $total_price = 0;
-        foreach ($pos as $po) {
-            $total_price+=$po->getQuantity() * $po->getProduct()->getPrice(); 
-        }
-        $order->setTotalPrice($total_price);
-
+        $order->setTotalPrice($price);
+        $this->em->persist($order);
+        $this->em->flush();
     }
     public function deleteOrder(int $id): bool
     {

@@ -8,20 +8,20 @@
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
 		<script src="/js/main.js" defer></script>
 		<script src="/js/validation_cart.js" defer></script>
-		<title>LeHangar - Panier</title>
+		<title>LeHangar - {{producterName}}</title>
 	</head>
 	<body>
 		{% include 'navbar.html.twig' %}
 		<div class="mt-5">
-			<h1 class="mt-6">Mon panier</h1>
+			<h1 class="mt-6">Mes produits</h1>
 			{% set total = 0 %}
 			<div class="container-detail mt-5 p-1">
 				<div class="span-detail box-shadow bg-white col-2 p-2">
-					{% if panier == null %}
-						<p>Votre panier est vide.</p>
+					{% if productOrders == null %}
+						<p>Aucune commande sur vos produits.</p>
 					{% else %}
-						{% for prodorder in panier %}
-							{% set prod = prodorder.getProduct() %}
+						{% for productOrder in productOrders %}
+							{% set prod = productOrder.getProduct() %}
 							<div class="rowProduct">
 								<div class="cell row-2">
 									<a href="/product/{{prod.getId()}}"><img class="cart-img" src="{{prod.getUrlImg()}}" alt="Image du produit {{prod.getName()}}"></a>
@@ -36,7 +36,7 @@
 										{{prodorder.getQuantity()}}</p>
 								</div>
 								<div class="cell">
-									<a href="/producer/{{prod.getProducer().getId()}}">{{prod.getProducer().getName()}}</a>
+									<p>commandé par {{productOrder.getOrder().getClientName}}</p>
 								</div>
 								<div class="cell">
 									<p class="fz-10">prix =
@@ -62,33 +62,6 @@
 					</div>
 				{% endif %}
 			</div>
-			{% if panier != null %}
-				<div id="form_client" class="centered">
-					<form class="form formlogin span-detail box-shadow bg-white mt-3 p-4" action="/panier/validation" method="post">
-						<label for="order_name">
-							<b>Nom</b>
-						</label>
-						<input class="mb-3" id="order_name" type="text" autocomplete="username" placeholder="Saisissez votre nom" name="name" required>
-
-						<label for="order_adress">
-							<b>Adresse</b>
-						</label>
-						<input class="mb-3 adresse" id="order_adress" type="text" placeholder="Saisissez votre adresse" name="address" required>
-
-						<label for="order_phone">
-							<b>N° de téléphone</b>
-						</label>
-						<input class="mb-3" id="order_phone" type="text" autocomplete="username" placeholder="Saisissez votre n° de téléphone" name="phone" required>
-
-						<label for="order_mail">
-							<b>Adresse Email</b>
-						</label>
-						<input class="mb-3" id="order_mail" type="text" autocomplete="username" placeholder="Saisissez votre adresse mail" name="mail" required>
-
-						<button class="button_login" type="submit">Commander</button>
-					</form>
-				</div>
-			{% endif %}
 		</div>
 	</body>
 </html>

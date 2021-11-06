@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/stylework.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/producers.js" defer></script>
+  <title>LeHangar - Producteurs</title>
+</head>
+
+<body>
+  {% include 'navbar.html.twig' %}
+  <div class="">
+    <h1 class="titreListe">Liste des producteurs</h1>
+    <div class="list">
+      <table class="border">
+        <tbody id="producersContainer">
+          {% for producer in producers %}
+          <tr>
+            <td class="p-1 pl-3"><a href="/producer/{{producer.getId()}}"><img src="{{producer.getUrlImg()}}" alt="Image du producteur {{producer.getName()}}"></a></td>
+            <td><a href="/producer/{{producer.getId()}}">{{producer.getName()}}</a></td>
+            <td>{{producer.getDescription()}}</td>
+            <td><a target="_blank" href="mailto:{{producer.getEmail()}}">{{producer.getEmail()}}</a></td>
+            <td><a target="_blank" href="tel:{{producer.getPhone()}}">{{producer.getPhone()}}</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="page mt-2 mr-2">
+        <a href="#" onclick="getProducers(-1)" aria-label="Page précédente"><i class="fas fa-arrow-left mr-2"></i></a>
+        <p id="pageText">page 1</p><a href="#" onclick="getProducers(1)" aria-label="Page suivante"><i class="fas fa-arrow-right ml-2"></i></a>
+        <input type="hidden" id="page" name="" value="1">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

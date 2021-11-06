@@ -17,12 +17,16 @@ services:
         volumes:
             - .:/var/www
             - logs:/var/www/logs
-    db:
+        links:
+            - mysql:db
+    mysql:
         image: mysql:5.6
         restart: always
+        command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;'
         env_file:
             - docker-compose.env
         volumes:
+          - ./db_data:/var/lib/mysql
           - ./script.sql:/docker-entrypoint-initdb.d/script.sql
 
     phpmyadmin:
@@ -32,11 +36,12 @@ services:
             - 8100:80
         environment:
             - PMA_ARBITRARY=1
+        links:
+            - mysql:db
     composer:
         image: composer
         volumes: 
             - .:/var/www
         working_dir: /var/www
-
-
-
+        command:
+            - install

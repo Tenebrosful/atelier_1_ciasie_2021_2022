@@ -13,6 +13,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 session_start();
 
+if (!isset($_SESSION['panier']))
+    $_SESSION['panier'] = [];
+
 $app = \DI\Bridge\Slim\Bridge::create();
 
 // Instantiate PHP-DI ContainerBuilder

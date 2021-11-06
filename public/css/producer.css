@@ -1,0 +1,39 @@
+
+ul {
+    list-style: none;
+    margin: 0;
+    position: unset;
+}
+
+img{
+    max-width: 200px;
+    z-index: 200;
+    vertical-align:top;
+
+}
+p{
+    margin-top: 1em;
+}
+
+.desc{
+    display: inline-block;
+    vertical-align:top;
+    margin-top: 3em;
+}
+h4{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 3em;
+    display: inline-block;
+    margin-left: 0;
+}
+.producer {
+    margin-top: 1em;
+    border: 1px solid;
+    margin-bottom: 0.3em;
+    padding: 1em;
+    width: 100vh;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgb(255, 255, 255);
+}
+
