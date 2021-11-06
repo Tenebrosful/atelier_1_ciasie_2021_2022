@@ -616,7 +616,7 @@ h2 a {
       );
   }
 
-  label.logo {
+  .logo {
     width: 100%;
     text-align: center;
   }
@@ -628,6 +628,9 @@ h2 a {
 
   h1 {
     margin-top: 10%;
+  }
+  html body .content {
+    top: 120px;
   }
 }
 
