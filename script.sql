@@ -37,10 +37,15 @@ CREATE TABLE category (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NUL
 
 CREATE TABLE producer (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, url_img VARCHAR(255) NOT NULL, adress VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, phone VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB;
 
+CREATE TABLE userproducer (id INT AUTO_INCREMENT NOT NULL, producer_id INT DEFAULT NULL, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, INDEX IDX_D34A04AD12469DA3 (producer_id),PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB;
+
+CREATE TABLE usermanager (id INT AUTO_INCREMENT NOT NULL, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB;
+
 ALTER TABLE productorder ADD CONSTRAINT FK_25E4C1224584665A FOREIGN KEY (product_id) REFERENCES product (id);
 ALTER TABLE productorder ADD CONSTRAINT FK_25E4C1228D9F6D38 FOREIGN KEY (order_id) REFERENCES `order` (id);
 ALTER TABLE product ADD CONSTRAINT FK_D34A04AD12469DE2 FOREIGN KEY (category_id) REFERENCES category (id);
 ALTER TABLE product ADD CONSTRAINT FK_D34A04AD89B658FE FOREIGN KEY (producer_id) REFERENCES producer (id);
+ALTER TABLE userproducer ADD CONSTRAINT FK_D34A04AD12469DA3 FOREIGN KEY (producer_id) REFERENCES producer (id);
 
 INSERT INTO `producer` (`id`, `name`, `adress`, `email`, `phone`, `url_img`, `description`) VALUES
 (1, 'Ferme du Bocage', '2 rue des rouliers', 'afnu49s069@temporary-mail.net', '0745616542', 'https://hlbedition.com/wp-content/uploads/2019/03/logo-LFCC-01.png','Petite ferme sympa'),
@@ -65,3 +70,14 @@ INSERT INTO `productorder` (`order_id`, `product_id`, `quantity`) VALUES
 (1, 1, 4),
 (2, 1, 4),
 (1, 2, 3);
+
+-- Password = azer1234
+INSERT INTO `userproducer` (`producer_id`, `username`, `password`) VALUES
+(1, 'bocage1u', '$2y$10$H4HFT1dmca3.9wi3W73Ko.stLLElXVQPOejMMsGCabLDURXpGx6aO'),
+(2, 'earl1u', '$2y$10$HJO7yz091RkS2T4fGTfASOnxGrFQ7T3sWXogxUMm1JU8t.Ube/n3S'),
+(3, 'mpetit1u', '$2y$10$zt99W.2al/GPmbVX.1MpveibLfG89zeSVZCLWzBf1ntlvKxmsIwCi');
+
+-- Password = azer1234
+INSERT INTO `usermanager` (`username`, `password`) VALUES
+('employe1', '$2y$10$H4HFT1dmca3.9wi3W73Ko.stLLElXVQPOejMMsGCabLDURXpGx6aO'),
+('employe2', '$2y$10$HJO7yz091RkS2T4fGTfASOnxGrFQ7T3sWXogxUMm1JU8t.Ube/n3S');
