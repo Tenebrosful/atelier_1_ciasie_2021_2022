@@ -11,6 +11,7 @@ require_once '../src/Controllers/CategoryController.php';
 require_once '../src/Controllers/OrderController.php';
 require_once '../src/Controllers/ProducerController.php';
 require_once '../src/Controllers/UserProducerController.php';
+require_once '../src/Controllers/UserManagerController.php';
 
 $app->get('/', function ($request, $response, array $args) {
     $pc = new ProductController($this->get(EntityManager::class));
@@ -114,12 +115,25 @@ $app->get('/signIn', function ($request, $response) {
 
 $app->post('/signIn', function ($request, $response) {
     $parsedBody = $request->getParsedBody();
-    if(isset($request->getQueryParams()["type"])){
-      if($request->getQueryParams()["type"] == "prod"){
-      $uc = new UserProducerController($this->get(EntityManager::class));
-      }
+
+    if(!isset($request->getQueryParams()["type"])) { $_SESSION["messageErrorSignin"] = "Type de compte manquant"; }
+    else {
+        $account_type = $request->getQueryParams()["type"];
+        switch ($account_type) {
+            case "prod":
+                $uc = new UserProducerController($this->get(EntityManager::class));
+                break;
+            case "manager":
+                $uc = new UserManagerController($this->get(EntityManager::class));
+                break;
+            default:
+                $_SESSION["messageErrorSignin"] = "Type de compte invalide";
+        }
+
+        if (isset($uc)){ $uc->signIn($parsedBody); }
     }
-    $uc->signIn($parsedBody);
+
+    print_r(isset($_SESSION["messageErrorSignin"]), (!isset($_SESSION["userId"])), isset($_SESSION["messageErrorSignin"]) || (!isset($_SESSION["userId"])));
 
     if(isset($_SESSION["messageErrorSignin"]) || (!isset($_SESSION["userId"]))){
         return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
