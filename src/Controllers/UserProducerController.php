@@ -37,11 +37,8 @@ class UserProducerController {
 
         if ($args['username'] != "" && $args['password'] != ""){
             $user = $this->em->getRepository(UserProducer::class)->findOneBy(['username' => $args['username']]);
-            if ($user == null) {
-                $_SESSION["messageErrorSignin"] = "Cet utilisateur est introuvable.";
-            }
-            else if (!password_verify($args['password'], $user->getPassword())) {
-                $_SESSION["messageErrorSignin"] = "Mot de passe incorrect.";
+            if ($user == null || !password_verify($args['password'], $user->getPassword())) {
+                $_SESSION["messageErrorSignin"] = "Les identifiants ne correspondent pas à un compte enregistré.";
             }
             else {
                 $_SESSION["userName"] = $user->getProducer()->getName();
