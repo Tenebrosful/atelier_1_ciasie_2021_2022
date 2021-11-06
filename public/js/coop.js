@@ -18,13 +18,13 @@ checkbox.forEach(e => {
         data: null,
         method: 'post',
         url: '/coop/' + e.id
-    })
-    .then(function (reponse) {
-        console.log(reponse);
-    })
-    .catch(function (erreur) {
-        console.log(erreur);
-    });
+      })
+        .then(function (reponse) {
+          console.log(reponse);
+        })
+        .catch(function (erreur) {
+          console.log(erreur);
+        });
     }
     else {
       console.log("Checkbox is not checked..");
