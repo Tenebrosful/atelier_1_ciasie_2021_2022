@@ -121,7 +121,7 @@ $app->post('/signIn', function ($request, $response) {
     if(isset($_SESSION["messageErrorSignin"]) &&  (!isset($_SESSION["userId"]))){
         return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
     } else {
-        header("Location:http://localhost:8080/");
+        header("Location:/");
         exit();
     }
 });
