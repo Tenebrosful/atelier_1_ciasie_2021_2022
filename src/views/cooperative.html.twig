@@ -15,21 +15,24 @@
       <div>
         <h3>Liste commandes</h3>
         <ul id="incomplete-tasks">
-        {% for ord in order %}
-        {% set pos=ord.getProductOrders.toArray()%}
-        <li class="li" id="{{ord.getId()}}"> <label>{{ord.getClientName()}}</label>     
-        <p>Produits : 
-          {% for po in pos %}
-          {{po.getProduct().getName()}} ({{po.getProduct().getProducer().getName()}}) x{{po.getQuantity()}}
+          {% for ord in order %}
+          {% set pos=ord.getProductOrders.toArray()%}
+          <li class="li" id="row-{{ord.getId()}}">
+            <label>{{ord.getClientName()}}</label>     
+            <p>Produits : 
+              {% for po in pos %}
+              {{po.getProduct().getName()}} ({{po.getProduct().getProducer().getName()}}) x{{po.getQuantity()}}
+              {% endfor %}
+            </p>
+            <p> {{ord.getTotalPrice()}}€</p>
+            <label class="livrec">Livré:</label>
+            <input id="{{ord.getId()}}" class="checkbox"type="checkbox">
+            <button type="button" class="btn">Description</button>
+            <div id="{{ord.getId()}}des" class="popup">
+            <span id="btnClose" class="btnClose">&times;</span>
+            </div>
+          </li>
           {% endfor %}
-          </p>
-          <p> {{ord.getTotalPrice()}}€</p>
-          <label class="livrec">Livré:</label><input id="{{ord.getId()}}" class="checkbox"type="checkbox"></input><button class="btn">Description</button>
-          <div id="{{ord.getId()}}des" class="popup">
-          <span id="btnClose" class="btnClose">&times;</span>
-          </div>
-        </li>
-        {% endfor %}
         </ul>
       </div>
       <div>
