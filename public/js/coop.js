@@ -1,3 +1,5 @@
+/* global axios */
+
 const checkbox = document.querySelectorAll("input");
 let completed = document.getElementById("completed-tasks");
 let incompleted = document.getElementById("incomplete-tasks");
