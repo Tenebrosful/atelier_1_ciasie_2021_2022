@@ -15,9 +15,9 @@ checkbox.forEach(e => {
       test.className = "delivred li";
       completed.appendChild(test);
       axios({
+        data: null,
         method: 'post',
-        url: '/coop/' + e.id,
-        data: null
+        url: '/coop/' + e.id
     })
     .then(function (reponse) {
         console.log(reponse);
