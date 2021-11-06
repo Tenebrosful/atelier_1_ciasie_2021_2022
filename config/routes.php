@@ -99,6 +99,13 @@ $app->get('/coop', function ($request, $response, array $args) {
     return $this->get(Twig::class)->render($response, "cooperative.html.twig", ['order' => $order]);
 });
 
+$app->post('/coop/{id}',function ($request, $response, array $args) {
+    $oc = new OrderController($this->get(EntityManager::class));
+    $oc->setDelivered($args['id']);
+    $orders = $oc->getAll();
+    return $this->get(Twig::class)->render($response, "cooperative.html.twig", ['order' => $orders]);
+});
+
 $app->get('/producers',function ($request, $response, array $args){
     $pc = new ProducerController($this->get(EntityManager::class));
     if(isset($request->getQueryParams()["page"])){
