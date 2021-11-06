@@ -127,12 +127,23 @@ $app->get('/signIn', function ($request, $response) {
 
 $app->post('/signIn', function ($request, $response) {
     $parsedBody = $request->getParsedBody();
-    if(isset($request->getQueryParams()["type"])){
-      if($request->getQueryParams()["type"] == "prod"){
-      $uc = new UserProducerController($this->get(EntityManager::class));
-      }else $uc = new UserManagerController($this->get(EntityManager::class));
+    
+    if(!isset($request->getQueryParams()["type"])) { $_SESSION["messageErrorSignin"] = "Type de compte manquant"; }
+    else {
+        $account_type = $request->getQueryParams()["type"];
+        switch ($account_type) {
+            case "prod":
+                $uc = new UserProducerController($this->get(EntityManager::class));
+                break;
+            case "manager":
+                $uc = new UserManagerController($this->get(EntityManager::class));
+                break;
+            default:
+                $_SESSION["messageErrorSignin"] = "Type de compte invalide";
+        }
+
+        if (isset($uc)){ $uc->signIn($parsedBody); }
     }
-    $uc->signIn($parsedBody);
 
     if(isset($_SESSION["messageErrorSignin"]) || (!isset($_SESSION["userId"]))){
         header("Location:/signIn");
@@ -142,7 +153,7 @@ $app->post('/signIn', function ($request, $response) {
             case "prod":
                 header("Location:/producer");
                 break;
-            case "gerant":
+            case "manager":
                 header("Location:/coop");
                 break;
             default:
