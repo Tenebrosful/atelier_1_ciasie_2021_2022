@@ -6,7 +6,7 @@
 - [Setup BDD côté PHP](config/)
 - Setup DBB côté Docker
 
-Créer le fichier docker-compose.env à la racine du projet comme suit : 
+Créer le fichier docker-compose.env à la racine du projet comme suit :
 ```
 MYSQL_ROOT_PASSWORD=
 MYSQL_USER=
@@ -60,4 +60,8 @@ MYSQL_DATABASE=
     *   Scénarios d'usage `UML`
     *   Maquette Web `Schema`
     *   Maquette Web Client `HTML, CSS, JS`
+    *   Style.css et stylework.css `HTML, CSS`
     *   Conversion des pages statiques en pages dynamiques `HTML, Twig, PHP`
+    *   Controlleur UserProducer et routes signIn `PHP`
+    *   Controlleur Product et filtrage par catégories dans index.html  `HTML, Twig, PHP, JS`
+    *   Controlleur Producer, page liste producteur et gestion de la liste des producteurs `HTML, Twig, PHP, JS`
