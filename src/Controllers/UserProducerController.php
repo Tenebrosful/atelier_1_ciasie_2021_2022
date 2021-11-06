@@ -37,11 +37,8 @@ class UserProducerController {
 
         if ($args['username'] != "" && $args['password'] != ""){
             $user = $this->em->getRepository(UserProducer::class)->findOneBy(['username' => $args['username']]);
-            if ($user == null) {
-                $_SESSION["messageErrorSignin"] = "Cet utilisateur est introuvable.";
-            }
-            else if (!password_verify($args['password'], $user->getPassword())) {
-                $_SESSION["messageErrorSignin"] = "Mot de passe incorrect.";
+            if ($user == null || !password_verify($args['password'], $user->getPassword())) {
+                $_SESSION["messageErrorSignin"] = "Les identifiants ne correspondent pas à un compte enregistré.";
             }
             else {
                 $_SESSION["userName"] = $user->getProducer()->getName();
@@ -53,10 +50,10 @@ class UserProducerController {
     }
 
     public function getMyProduct(){
-        $qb = $this->em->createQuery("SELECT COUNT(pr.id) AS nb, p, SUM(p.quantity) AS quantity FROM ProductOrder p JOIN p.product pr JOIN p.order o JOIN pr.producer pdc WHERE pdc.id = ".$_SESSION['userId']." GROUP BY pr.id ");
-        echo json_encode($qb->getResult()[0][0]->getProduct()->getName());
-        return $qb->getQuery()->getResult();
-        //return $this->em->getRepository('ProductOrder')->findBy(array('product' => $this->em->getRepository('producer')->findBy(array("id" => $_SESSION["userId"]))));
+        $qb = $this->em->createQuery(`SELECT COUNT(pr.id) AS nb, p as po, SUM(p.quantity) AS quantity
+        FROM ProductOrder p JOIN p.product pr JOIN p.order o JOIN pr.producer pdc
+        WHERE pdc.id = `.$_SESSION['userId'].` AND o.delivered = 0 GROUP BY pr.id`);
+        return $qb->getResult();
     }
 
 }

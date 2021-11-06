@@ -443,11 +443,6 @@ html body .content #list-toggle:checked + label::after {
   align-items: center;
 }
 
-.messageError {
-  color: firebrick;
-  text-align: center;
-}
-
 .span-detail .form__div {
   position: relative;
   height: 50px;

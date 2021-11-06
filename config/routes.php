@@ -112,12 +112,17 @@ $app->get('/producer', function ($request, $response) {
 
 $app->post('/signIn', function ($request, $response) {
     $parsedBody = $request->getParsedBody();
-    $upc = new UserProducerController($this->get(EntityManager::class));
-    $upc->signIn($parsedBody);
-    if(isset($_SESSION["messageErrorSignin"]) &&  (!isset($_SESSION["userId"]))){
+    if(isset($request->getQueryParams()["type"])){
+      if($request->getQueryParams()["type"] == "prod"){
+      $uc = new UserProducerController($this->get(EntityManager::class));
+      }
+    }
+    $uc->signIn($parsedBody);
+
+    if(isset($_SESSION["messageErrorSignin"]) || (!isset($_SESSION["userId"]))){
         return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
     } else {
-        header("Location:http://localhost:8080/");
+        header("Location:/");
         exit();
     }
 });

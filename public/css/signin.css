@@ -102,3 +102,8 @@ form input {
   height: 30px;
   text-align: center;
 }
+
+.messageError {
+  color: firebrick;
+  text-align: center;
+}
