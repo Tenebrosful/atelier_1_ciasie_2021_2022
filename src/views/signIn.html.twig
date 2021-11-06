@@ -26,6 +26,8 @@
     <button type="button" id="button_gerant"> Gérant de coopérative </button>
   </div>
 
+  <p class="messageError">{{messageError}}</p>
+
   <form id="form_prod" name="form_prod" action="/signIn?type=prod" method="post">
     <div class="formlogin">
       <label for="prod_username"><b>Identifiant</b></label>
@@ -51,7 +53,6 @@
       <button class="button_login" type="submit">Login</button>
     </div>
   </form>
-  <p class="messageError">{{messageError}}</p>
 </body>
 
 </html>
