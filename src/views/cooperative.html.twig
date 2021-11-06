@@ -22,7 +22,7 @@
             <p>Produits : {% for po in pos %}{{po.getProduct().getName()}} ({{po.getProduct().getProducer().getName()}}) x{{po.getQuantity()}}{% endfor %}</p>
             <p> {{ord.getTotalPrice()}}€</p>
             <label class="livrec">Livré:</label>
-            <input id="{{ord.getId()}}" class="checkbox"type="checkbox">
+            <input id="{{ord.getId()}}" class="checkbox" type="checkbox">
             <button type="button" class="btn">Description</button>
             <div id="{{ord.getId()}}des" class="popup">
             <span id="btnClose" class="btnClose">&times;</span>
