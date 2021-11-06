@@ -92,19 +92,21 @@ $app->get('/products', function ($request, $response, array $args) {
     return $response;
 });
 
-$app->get('/signIn', function ($request, $response) {
-    if (isset($_SESSION["messageErrorSignin"])) {
-        return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
-    } else {
-        return $this->get(Twig::class)->render($response, 'signIn.html.twig');
-    }
-});
-
 $app->get('/producer', function ($request, $response) {
     if (isset($_SESSION["userId"])){
         $poc = new UserProducerController($this->get(EntityManager::class));
         $productOrders = $poc->getMyProduct();
         return $this->get(Twig::class)->render($response, 'producer.html.twig', ['productOrders' => $productOrders, 'producerName' => $_SESSION["userName"]]);
+    } else {
+        return $this->get(Twig::class)->render($response, 'signIn.html.twig');
+    }
+});
+
+$app->get('/signIn', function ($request, $response) {
+    if (isset($_SESSION["messageErrorSignin"])) {
+        $error_message = $_SESSION["messageErrorSignin"];
+        unset($_SESSION["messageErrorSignin"]);
+        return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $error_message]);
     } else {
         return $this->get(Twig::class)->render($response, 'signIn.html.twig');
     }
