@@ -136,8 +136,6 @@ $app->post('/signIn', function ($request, $response) {
         if (isset($uc)){ $uc->signIn($parsedBody); }
     }
 
-    print_r(isset($_SESSION["messageErrorSignin"]), (!isset($_SESSION["userId"])), isset($_SESSION["messageErrorSignin"]) || (!isset($_SESSION["userId"])));
-
     if(isset($_SESSION["messageErrorSignin"]) || (!isset($_SESSION["userId"]))){
         return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
     } else {
