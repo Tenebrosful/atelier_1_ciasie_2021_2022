@@ -1,3 +1,5 @@
+/* global axios */
+
 const checkbox = document.querySelectorAll("input");
 let completed = document.getElementById("completed-tasks");
 let incompleted = document.getElementById("incomplete-tasks");
@@ -10,8 +12,19 @@ checkbox.forEach(e => {
     let test = e.parentNode;
     if (this.checked) {
       e.parentNode.className = "checked";
-      test.className = "delivred";
+      test.className = "delivred li";
       completed.appendChild(test);
+      axios({
+        data: null,
+        method: 'post',
+        url: '/coop/' + e.id
+    })
+    .then(function (reponse) {
+        console.log(reponse);
+    })
+    .catch(function (erreur) {
+        console.log(erreur);
+    });
     }
     else {
       console.log("Checkbox is not checked..");

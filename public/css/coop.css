@@ -4,10 +4,10 @@ body {
   height: 100%;
 }
 
-.container {
+.containercom {
+  display: flex;
   margin-left: 1em;
-  margin-right: auto;
-  max-width: 1100px;
+  justify-content: center;
 }
 
 .checked {
@@ -25,8 +25,8 @@ body {
 
 .popup {
   width: 30%;
-  background-color: rgb(243 243 243);
-  box-shadow: 0 15px 20px rgb(0 0 0 / 30%);
+  background-color: rgb(243, 243, 243);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   height: 500px;
   top: 125px;
@@ -34,6 +34,8 @@ body {
   display: none;
   position: absolute;
 }
+
+
 
 .btn {
   margin-left: 5em;
@@ -45,15 +47,17 @@ label {
   font-size: 1.5em;
   -webkit-text-stroke: 0.5px black; /* width and color */
   font-family: sans, sans-serif;
-  color: rgb(255 244 221);
+  color: rgb(255, 244, 221);
 }
 
-.livrec {
+.livrec{
   margin-right: 0;
   -webkit-text-stroke: inherit;
   color: black;
   font-size: inherit;
 }
+
+
 
 input {
   margin-left: 1em;
@@ -63,11 +67,11 @@ ul {
   list-style: none;
 }
 
-li {
+.li {
   border: 0.1rem solid;
   margin-bottom: 0.3em;
   border-radius: 10px;
-  border-color: rgb(112 255 76);
+  border-color: rgb(112, 255, 76);
   padding: 1em;
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
 }

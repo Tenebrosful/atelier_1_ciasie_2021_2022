@@ -20,7 +20,12 @@ class OrderController {
     {
         return $this->em->find('Order',$id);
     }
-
+    public function setDelivered(int $id) {
+        $order = $this->getById($id);
+        $order->setDelivered(!$order->getDelivered());
+        $this->em->persist($order);
+        $this->em->flush();
+    }
     public function getAll()
     {
         return $this->em->getRepository(Order::class)->findAll();
