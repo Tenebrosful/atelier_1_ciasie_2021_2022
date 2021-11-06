@@ -39,6 +39,9 @@ MYSQL_DATABASE=
     *   Setup Git, workflows et linters
     *   Review du Front et améliorations `HTML, CSS, JS, Twig`
     *   Validation W3C `HTML, CSS`
+    *   Conversion de la navbar en twig `Twig`
+    *   Update DBB et données initiales `PHP, SQL`
+    *   Authentification coopérative `PHP`
 - Tritan Blot `blot32u`
     *   Scénarios d'usage `UML`
     *   Maquette Web `Schema`
