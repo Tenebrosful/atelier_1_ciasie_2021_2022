@@ -18,12 +18,8 @@
           {% for ord in order %}
           {% set pos=ord.getProductOrders.toArray()%}
           <li class="li" id="row-{{ord.getId()}}">
-            <label>{{ord.getClientName()}}</label>     
-            <p>Produits : 
-              {% for po in pos %}
-              {{po.getProduct().getName()}} ({{po.getProduct().getProducer().getName()}}) x{{po.getQuantity()}}
-              {% endfor %}
-            </p>
+            <label>{{ord.getClientName()}}</label>
+            <p>Produits : {% for po in pos %}{{po.getProduct().getName()}} ({{po.getProduct().getProducer().getName()}}) x{{po.getQuantity()}}{% endfor %}</p>
             <p> {{ord.getTotalPrice()}}€</p>
             <label class="livrec">Livré:</label>
             <input id="{{ord.getId()}}" class="checkbox"type="checkbox">
