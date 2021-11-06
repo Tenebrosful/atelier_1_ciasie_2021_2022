@@ -8,34 +8,99 @@ on:
       - 'push-action/**'
 
 jobs:
-  lint:
-    name: Linters - Push
+  css:
+    name: Lint css
     runs-on: ubuntu-latest
     steps:
       - name: check out code 🛎
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-          
+        
       - name: npm ci
         run: npm ci
-        
+    
       - name: Run Stylelint css
         run: npm run csslint
-
-      - name: Run Stylelint
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: css-linted
+          path: | 
+            ./**/*.css
+            !node_modules/
+        
+  scss:
+    name: Lint scss
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out code 🛎
+        uses: actions/checkout@v2
+        
+      - name: npm ci
+        run: npm ci
+          
+      - name: Run Stylelint scss
         run: npm run scsslint
         
+      - uses: actions/upload-artifact@v2
+        with:
+          name: scss-linted
+          path: | 
+            ./**/*.scss
+            !node_modules/
+        
+  js:
+    name: Lint js
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out code 🛎
+        uses: actions/checkout@v2
+        
+      - name: npm ci
+        run: npm ci
+    
       - name: Run ESLint
         run: npm run eslint
         
+      - uses: actions/upload-artifact@v2
+        with:
+          name: js-linted
+          path: | 
+            ./**/*.js
+            !node_modules/
+        
+  html:
+    name: Lint html
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out code 🛎
+        uses: actions/checkout@v2
+        
+      - name: npm ci
+        run: npm ci
+    
       - name: Run HTML-Validate
         run: npm run html-validate
-
-      - name: Run Twig-Validate
+  
+  twig:
+    name: Lint twig
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out code 🛎
+        uses: actions/checkout@v2
+        
+      - name: npm ci
+        run: npm ci
+    
+      - name: Run HTML-Validate for .twig files
         run: npm run twig-validate
-
+        
+  php:
+    name: Lint PHP
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out code 🛎
+        uses: actions/checkout@v2
+        
       - name: Get composer cache directory
         id: composer_config
         uses: baschny/php-composer-action@v1
@@ -50,10 +115,33 @@ jobs:
 
       - name: Run composer install
         uses: baschny/php-composer-action@v1
-        
+    
       - name: Run PHPlint
         run: npm run phplint
         
+  push:
+    name: Push changes
+    runs-on: ubuntu-latest
+    needs: [css, scss, js, html, twig, php]
+    steps:
+      - name: check out code 🛎
+        uses: actions/checkout@v2
+        
+      - uses: actions/download-artifact@v2
+        with:
+          name: css-linted
+          
+      - uses: actions/download-artifact@v2
+        with:
+          name: scss-linted
+          
+      - uses: actions/download-artifact@v2
+        with:
+          name: js-linted
+    
+      - name: Display structure of downloaded files
+        run: ls -R
+    
       - name: Commit files
         continue-on-error: true
         run: |
