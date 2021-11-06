@@ -46,7 +46,8 @@ label {
   font-weight: bold;
   font-size: 1.5em;
   -webkit-text-stroke: 0.5px black; /* width and color */
-  font-family: sans; color: rgb(255, 244, 221);
+  font-family: sans, sans-serif;
+  color: rgb(255, 244, 221);
 }
 
 .livrec{
