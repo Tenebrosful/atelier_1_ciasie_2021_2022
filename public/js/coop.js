@@ -10,8 +10,19 @@ checkbox.forEach(e => {
     let test = e.parentNode;
     if (this.checked) {
       e.parentNode.className = "checked";
-      test.className = "delivred";
+      test.className = "delivred li";
       completed.appendChild(test);
+      axios({
+        method: 'post',
+        url: '/coop/' + e.id,
+        data: null
+    })
+    .then(function (reponse) {
+        console.log(reponse);
+    })
+    .catch(function (erreur) {
+        console.log(erreur);
+    });
     }
     else {
       console.log("Checkbox is not checked..");
