@@ -28,7 +28,7 @@ checkbox.forEach(e => {
     }
     else {
       console.log("Checkbox is not checked..");
-      e.parentNode.className = "notchecked";
+      e.parentNode.className = "notchecked li";
       incompleted.appendChild(test);
     } 
   });
