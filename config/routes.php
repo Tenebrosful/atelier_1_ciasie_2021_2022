@@ -17,6 +17,9 @@ $app->get('/', function ($request, $response, array $args) {
     $ct = new CategoryController($this->get(EntityManager::class));
     $products = $pc->getAll();
     $categories = $ct->getAll();
+    if(isset($_SESSION["typeUser"])){
+        return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories, "typeUser" => $_SESSION["typeUser"]]);
+    }else
     return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories]);
 });
 

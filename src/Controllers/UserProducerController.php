@@ -43,6 +43,7 @@ class UserProducerController {
             else {
                 $_SESSION["userName"] = $user->getProducer()->getName();
                 $_SESSION["userId"] = $user->getProducer()->getId();
+                $_SESSION["typeUser"] = "prod";
             }
         } else {
             $_SESSION["messageErrorSignin"] = "Veuillez remplir tous les champs !";
@@ -50,9 +51,7 @@ class UserProducerController {
     }
 
     public function getMyProduct(){
-        $qb = $this->em->createQuery(`SELECT COUNT(pr.id) AS nb, p as po, SUM(p.quantity) AS quantity
-        FROM ProductOrder p JOIN p.product pr JOIN p.order o JOIN pr.producer pdc
-        WHERE pdc.id = `.$_SESSION['userId'].` AND o.delivered = 0 GROUP BY pr.id`);
+        $qb = $this->em->createQuery("SELECT COUNT(pr.id) AS nb, p as po, SUM(p.quantity) AS quantity FROM ProductOrder p JOIN p.product pr JOIN p.order o JOIN pr.producer pdc WHERE pdc.id = ".$_SESSION['userId']." AND o.delivered = 0 GROUP BY pr.id");
         return $qb->getResult();
     }
 
