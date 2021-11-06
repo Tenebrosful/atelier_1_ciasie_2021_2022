@@ -53,8 +53,10 @@ class UserProducerController {
     }
 
     public function getMyProduct(){
-        $qb = $this->em->createQuery("SELECT COUNT(pr.id) AS nb, p, SUM(p.quantity) AS quantity FROM ProductOrder p JOIN p.product pr JOIN p.order o JOIN pr.producer pdc WHERE pdc.id = ".$_SESSION['userId']." GROUP BY pr.id ");
-        return $qb->getQuery()->getResult();
+        $qb = $this->em->createQuery(`SELECT COUNT(pr.id) AS nb, p as po, SUM(p.quantity) AS quantity
+        FROM ProductOrder p JOIN p.product pr JOIN p.order o JOIN pr.producer pdc
+        WHERE pdc.id = `.$_SESSION['userId'].` AND o.delivered = 0 GROUP BY pr.id`);
+        return $qb->getResult();
         //return $this->em->getRepository('ProductOrder')->findBy(array('product' => $this->em->getRepository('producer')->findBy(array("id" => $_SESSION["userId"]))));
     }
 

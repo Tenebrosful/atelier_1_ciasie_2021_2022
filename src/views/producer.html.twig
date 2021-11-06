@@ -21,7 +21,7 @@
 						<p>Aucune commande sur vos produits.</p>
 					{% else %}
 						{% for productOrder in productOrders %}
-							{% set prod = productOrder.getProduct() %}
+							{% set prod = productOrder.po.getProduct() %}
 							<div class="rowProduct">
 								<div class="cell row-2">
 									<a href="/product/{{prod.getId()}}"><img class="cart-img" src="{{prod.getUrlImg()}}" alt="Image du produit {{prod.getName()}}"></a>
@@ -33,12 +33,9 @@
 									<p>{{prod.getPrice()|number_format(2, ",", " ")}}€ /
 										{{prod.getAmountUnit()}}{{prod.getUnit()}}
 										x
-										{{productOrder.quantity}</p>
+										{{productOrder.quantity}}</p>
 								</div>
-								<div class="cell">
-
-								</div>
-								<div class="cell">
+								<div class="cell col-2">
 									<p class="fz-10">prix =
 										{{(prod.getPrice() * productOrder.quantity)|number_format(2, ",", " ")}}€
 									</p>
@@ -50,15 +47,6 @@
 					<div class="span-detail box-shadow bg-white p-2">
 						<h3>Total =
 							{{total|number_format(2, ",", " ")}}€</h3>
-					</div>
-
-					<div class="btns-panier">
-						<div class="p-2">
-							<a id="btnValidate">Valider la commande</a>
-						</div>
-						<div class="p-2">
-							<a class="btnEmptyCart" href="/panier/empty">Vider le panier</a>
-						</div>
 					</div>
 				{% endif %}
 			</div>
