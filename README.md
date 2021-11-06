@@ -18,6 +18,15 @@ MYSQL_DATABASE=
 ## Démarrage
 - `composer run start` ou `composer run restart`
 
+## Identifiants
+* Tous les mots de passe sont `azer1234`
+* Producteur
+    - bocage1u
+    - earl1u
+    - mpetit1u
+* Coopération
+    - employe1
+    - employe2
 ## Documents fournis
 - [Présentation du sujet](https://arche.univ-lorraine.fr/pluginfile.php/2676892/mod_resource/content/0/prez-cc.pdf "Présentation du sujet sous forme de slides hébergé sur Arches")
 - [Cahier des charges](https://arche.univ-lorraine.fr/pluginfile.php/2676864/mod_resource/content/0/atelier-1-2021-CC.pdf "Cachier des charges sous forme PDF hébergé sur Arches")
