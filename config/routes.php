@@ -17,12 +17,18 @@ $app->get('/', function ($request, $response, array $args) {
     $ct = new CategoryController($this->get(EntityManager::class));
     $products = $pc->getAll();
     $categories = $ct->getAll();
+    if(isset($_SESSION["typeUser"])){
+        return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories, "typeUser" => $_SESSION["typeUser"]]);
+    }else
     return $this->get(Twig::class)->render($response,"index.html.twig", ['products' => $products, 'categories' => $categories]);
 });
 
 $app->get('/product/{id}', function ($request, $response, array $args) {
     $pc = new ProductController($this->get(EntityManager::class));
     $prod = $pc->getById($args['id']);
+    if(isset($_SESSION["typeUser"])){
+        return $this->get(Twig::class)->render($response,"detail.html.twig", ['prod' => $prod, "typeUser" => $_SESSION["typeUser"]]);
+    }else
     return $this->get(Twig::class)->render($response, "detail.html.twig", ['prod' => $prod]);
 });
 
@@ -36,11 +42,17 @@ $app->get('/panier', function ($request, $response, array $args) {
         $po->setQuantity($item[1]);
         array_push($panier_display, $po);
     }
+    if(isset($_SESSION["typeUser"])){
+        return $this->get(Twig::class)->render($response, "panier.html.twig", ['panier' => $panier_display, "typeUser" => $_SESSION["typeUser"]]);
+    }else
     return $this->get(Twig::class)->render($response, "panier.html.twig", ['panier' => $panier_display]);
 });
 
 $app->get('/panier/empty', function ($request, $response, array $args) {
     $_SESSION['panier'] = array();
+    if(isset($_SESSION["typeUser"])){
+        return $this->get(Twig::class)->render($response, "panier.html.twig", ['panier' => null, "typeUser" => $_SESSION["typeUser"]]);
+    }else
     return $this->get(Twig::class)->render($response, "panier.html.twig", ['panier' => null]);
 });
 
@@ -92,19 +104,21 @@ $app->get('/products', function ($request, $response, array $args) {
     return $response;
 });
 
-$app->get('/signIn', function ($request, $response) {
-    if (isset($_SESSION["messageErrorSignin"])) {
-        return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
+$app->get('/producer', function ($request, $response) {
+    if (isset($_SESSION["userId"])){
+        $poc = new UserProducerController($this->get(EntityManager::class));
+        $productOrders = $poc->getMyProduct();
+        return $this->get(Twig::class)->render($response, 'producer.html.twig', ['productOrders' => $productOrders, 'producerName' => $_SESSION["userName"], "typeUser" =>$_SESSION["typeUser"]]);
     } else {
         return $this->get(Twig::class)->render($response, 'signIn.html.twig');
     }
 });
 
-$app->get('/producer', function ($request, $response) {
-    if (isset($_SESSION["userId"])){
-        $poc = new UserProducerController($this->get(EntityManager::class));
-        $productOrders = $poc->getMyProduct();
-        return $this->get(Twig::class)->render($response, 'producer.html.twig', ['productOrders' => $productOrders, 'producerName' => $_SESSION["userName"]]);
+$app->get('/signIn', function ($request, $response) {
+    if (isset($_SESSION["messageErrorSignin"])) {
+        $error_message = $_SESSION["messageErrorSignin"];
+        unset($_SESSION["messageErrorSignin"]);
+        return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $error_message]);
     } else {
         return $this->get(Twig::class)->render($response, 'signIn.html.twig');
     }
@@ -122,15 +136,35 @@ $app->post('/signIn', function ($request, $response) {
     if(isset($_SESSION["messageErrorSignin"]) || (!isset($_SESSION["userId"]))){
         return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
     } else {
-        header("Location:/");
+        switch ($_SESSION["typeUser"]){
+            case "prod":
+                header("Location:/producer");
+                break;
+            case "gerant":
+                header("Location:/coop");
+                break;
+            default:
+                header("Location:/");
+        }
+
         exit();
     }
 });
+
+$app->get('/signOut', function ($request, $response) {
+    session_destroy();
+    header("Location:/signIn");
+    exit();
+});
+
 
 
 $app->get('/coop', function ($request, $response, array $args) {
     $pc = new OrderController($this->get(EntityManager::class));
     $order = $pc->getAll();
+    if(isset($_SESSION["typeUser"])){
+        return $this->get(Twig::class)->render($response, "cooperative.html.twig", ['order' => $order, "typeUser" => $_SESSION["typeUser"]]);
+    }else
     return $this->get(Twig::class)->render($response, "cooperative.html.twig", ['order' => $order]);
 });
 
@@ -142,6 +176,9 @@ $app->get('/producers',function ($request, $response, array $args){
       return $response;
     }else{
       $producers = $pc->getAll();
+      if(isset($_SESSION["typeUser"])){
+          return $this->get(Twig::class)->render($response,"producers.html.twig", ['producers' => $producers, "typeUser" => $_SESSION["typeUser"]]);
+      }else
       return $this->get(Twig::class)->render($response,"producers.html.twig", ['producers' => $producers]);
     }
 });
