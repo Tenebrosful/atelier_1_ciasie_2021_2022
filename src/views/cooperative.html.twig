@@ -17,7 +17,6 @@
         <ul id="incomplete-tasks">
         {% for ord in order %}
         {% set pos=ord.getProductOrders.toArray()%}
-        
         <li class="li" id="{{ord.getId()}}"> <label>{{ord.getClientName()}}</label>     
         <p>Produits : 
           {% for po in pos %}
@@ -38,8 +37,6 @@
         <ul id="completed-tasks">
         </ul>
       </div>
-    
     </div>
-
   </body>
 </html>
