@@ -139,7 +139,17 @@ $app->post('/signIn', function ($request, $response) {
     if(isset($_SESSION["messageErrorSignin"]) || (!isset($_SESSION["userId"]))){
         return $this->get(Twig::class)->render($response, 'signIn.html.twig', ['messageError' => $_SESSION["messageErrorSignin"]]);
     } else {
-        header("Location:/");
+        switch ($_SESSION["typeUser"]){
+            case "prod":
+                header("Location:/producer");
+                break;
+            case "gerant":
+                header("Location:/coop");
+                break;
+            default:
+                header("Location:/");
+        }
+        
         exit();
     }
 });
