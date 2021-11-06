@@ -31,7 +31,7 @@ class UserManager
 
     public function getId(): int
     {
-        return $this->producer;
+        return $this->id;
     }
 
     public function getUsername(): string
