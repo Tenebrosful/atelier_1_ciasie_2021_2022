@@ -1,7 +1,7 @@
 # leHangar.local - Atelier du 02/11/2021 au 06/11/2021
 
 ## Installation
-- `composer install`
+- `composer install` *(Facultatif si Docker est utilisé)*
 - `npm install`
 - [Setup BDD côté PHP](config/)
 - Setup DBB côté Docker
